@@ -92,6 +92,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        Robot.drivetrain.mecanumDrive_Cartesian123(Robot.oi.joystick1.getX(), Robot.oi.joystick1.getY(), Robot.oi.joystick1.getZ(), 0);
     }
 
     /**
