@@ -61,7 +61,7 @@ public class OI {
         
         XboxController = new Joystick(0);
         rightJoystick = new Joystick(1);
-        
+        leftJoystick = new Joystick(3);
 
 	    
         // SmartDashboard Buttons
