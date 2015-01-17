@@ -11,6 +11,7 @@
 
 package org.usfirst.frc2557.SOTABots2015;
 
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -92,7 +93,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(oi.XboxController.getRawAxis(1), oi.XboxController.getRawAxis(2), oi.XboxController.getRawAxis(4), 0);
+        RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(oi.XboxController.getRawAxis(1), oi.XboxController.getRawAxis(2), oi.XboxController.getRawAxis(4), RobotMap.locationGyro.getAngle());
         //RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(oi.rightJoystick.getX(), oi.rightJoystick.getY(), oi.rightJoystick.getZ(), 0);
     }
 
