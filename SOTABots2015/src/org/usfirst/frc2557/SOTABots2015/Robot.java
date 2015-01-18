@@ -93,10 +93,11 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(oi.XboxController.getRawAxis(1), oi.XboxController.getRawAxis(2), oi.XboxController.getRawAxis(4), RobotMap.locationGyro.getAngle());
+       
+        RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-oi.XboxController.getRawAxis(1), -oi.XboxController.getRawAxis(0), -oi.XboxController.getRawAxis(4), 0);
         //RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(oi.rightJoystick.getX(), oi.rightJoystick.getY(), oi.rightJoystick.getZ(), 0);
     }
-
+//RobotMap.locationGyro.getAngle()
     /**
      * This function is called periodically during test mode
      */
