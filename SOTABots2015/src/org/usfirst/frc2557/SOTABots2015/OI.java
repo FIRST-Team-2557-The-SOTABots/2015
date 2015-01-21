@@ -139,7 +139,7 @@ public class OI {
         LJS11 = new JoystickButton(leftJoystick, 11);
         LJS12 = new JoystickButton(leftJoystick, 12);
         
-	    
+	    XboxA.whenPressed(new GetRange());
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 
