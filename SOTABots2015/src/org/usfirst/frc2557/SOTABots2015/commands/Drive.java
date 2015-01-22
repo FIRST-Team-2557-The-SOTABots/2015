@@ -22,7 +22,7 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(1), -Robot.oi.XboxController.getRawAxis(0), -Robot.oi.XboxController.getRawAxis(4), 0);
+    	RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(1), -Robot.oi.XboxController.getRawAxis(0), -Robot.oi.XboxController.getRawAxis(4), RobotMap.locationGyro.getAngle());
     	//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(oi.rightJoystick.getX(), oi.rightJoystick.getY(), oi.rightJoystick.getZ(), 0);
     }
 
