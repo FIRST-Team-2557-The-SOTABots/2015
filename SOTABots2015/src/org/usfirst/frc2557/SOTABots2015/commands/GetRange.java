@@ -22,7 +22,7 @@ public class GetRange extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println(RobotMap.rangeBack1.getRangeInches());
+    	System.out.println(RobotMap.rangeFrontLeft.getAverageVoltage());
     	
     }
 
