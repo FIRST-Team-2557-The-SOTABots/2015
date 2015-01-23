@@ -12,7 +12,6 @@
 package org.usfirst.frc2557.SOTABots2015.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc2557.SOTABots2015.Robot;
 
 /**
  *

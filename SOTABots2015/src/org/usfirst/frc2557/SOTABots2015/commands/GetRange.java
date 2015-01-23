@@ -3,7 +3,9 @@ package org.usfirst.frc2557.SOTABots2015.commands;
 import org.usfirst.frc2557.SOTABots2015.Robot;
 import org.usfirst.frc2557.SOTABots2015.RobotMap;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -21,9 +23,10 @@ public class GetRange extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	System.out.println(RobotMap.rangeFrontLeft.getAverageVoltage());
-    	
+    protected void execute() {               
+    		SmartDashboard.putNumber("The Range Finder is seeing ", RobotMap.rangeFrontLeft.getVoltage()/.0098);
+    		
+    		Timer.delay(.1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

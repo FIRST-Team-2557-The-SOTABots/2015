@@ -14,7 +14,6 @@ package org.usfirst.frc2557.SOTABots2015;
 
 import org.usfirst.frc2557.SOTABots2015.commands.*;
 
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
@@ -140,6 +139,7 @@ public class OI {
         LJS12 = new JoystickButton(leftJoystick, 12);
         
 	    XboxA.whenPressed(new GetRange());
+	    XboxB.whenPressed(new GetAverageRange());
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 
