@@ -21,7 +21,10 @@ public class GetAverageRange extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	SmartDashboard.putNumber("The Range Finder is seeing an average range of ", RobotMap.rangeFrontLeft.getAverageVoltage()/.0098);
+    	SmartDashboard.putNumber("The Left Range Finder is seeing an average range of ", RobotMap.rangeFrontLeft.getAverageVoltage()/.009765);
+    	SmartDashboard.putNumber("The Right Range Finder is seeing an average range of", RobotMap.rangeFrontRight.getAverageVoltage()/.009765);
+		SmartDashboard.putNumber("The Back Range Finder is seeing an average range of", RobotMap.rangeBack.getAverageVoltage()/.009765);
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
