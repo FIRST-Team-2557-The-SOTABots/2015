@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class GetAccelerometer extends Command {
+public class GetAccelerometerX extends Command {
 
-    public GetAccelerometer() {
+    public GetAccelerometerX() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

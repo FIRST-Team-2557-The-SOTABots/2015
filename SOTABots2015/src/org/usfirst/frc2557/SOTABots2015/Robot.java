@@ -62,7 +62,7 @@ public class Robot extends IterativeRobot {
         autonomousCommand = new AutonomousCommand();
         drive = new Drive();
         gyro = new Gyro();
-        accelerometer = new GetAccelerometer();
+        accelerometer = new GetAccelerometerX();
         range = new GetRange();
         getrange = new GetRange();
         getavgrange = new GetAverageRange();
