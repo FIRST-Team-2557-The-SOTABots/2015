@@ -23,9 +23,13 @@ public class Drive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(1), -Robot.oi.XboxController.getRawAxis(0), -Robot.oi.XboxController.getRawAxis(4), RobotMap.locationGyro.getAngle());
-    	RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.rightJoystick.getX(), Robot.oi.rightJoystick.getY(), Robot.oi.rightJoystick.getZ()*.8, RobotMap.locationGyro.getAngle()*1.3);
+    	if (Robot.oi.rightJoystick.getX() > +- 0.15 || Robot.oi.rightJoystick.getY() > +- 0.15 || Robot.oi.rightJoystick.getZ() > +- .15){
+    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(Robot.oi.rightJoystick.getX(), -Robot.oi.rightJoystick.getY(), -Robot.oi.rightJoystick.getZ()*.5, RobotMap.locationGyro.getAngle()*1.3);
+    	}
+    	else{
+    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
+    	}
     }
-
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
@@ -40,3 +44,13 @@ public class Drive extends Command {
     protected void interrupted() {
     }
 }
+//
+//if (Math.abs(leftStick.getAxis(Joystick.AxisType.kX)) > 0.15)   {        
+//    drive.arcadeDrive(leftStick);
+//}
+//else if (Math.abs(leftStick.getAxis(Joystick.AxisType.kY)) > 0.15) {
+//    drive.arcadeDrive(leftStick);
+//}
+//else{
+//    drive.arcadeDrive(0,0);
+//}
