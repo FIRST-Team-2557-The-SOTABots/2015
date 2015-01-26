@@ -2,16 +2,14 @@ package org.usfirst.frc2557.SOTABots2015.commands;
 
 import org.usfirst.frc2557.SOTABots2015.RobotMap;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class SweepBack extends Command {
+public class SetServoZero extends Command {
 
-    public SweepBack() {
+    public SetServoZero() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -22,18 +20,16 @@ public class SweepBack extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.servoLeft.setAngle(180);
+    	RobotMap.servoLeft.set(0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return true;
-    	
     }
 
     // Called once after isFinished returns true
     protected void end() {
-
     }
 
     // Called when another command which requires one or more of the same

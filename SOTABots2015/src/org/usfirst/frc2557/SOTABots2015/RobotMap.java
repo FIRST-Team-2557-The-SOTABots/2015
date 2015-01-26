@@ -57,9 +57,8 @@ public class RobotMap {
         		driveTrainFrontRight, driveTrainBackRight);
 //Range Finders
       rangeFrontLeft = new AnalogInput(1); 
-    //rangeFrontRight = new AnalogInput(1);
-    //rangeLeft = new AnalogInput(2);
-    //rangeRight = new AnalogInput(3);
+      rangeFrontRight = new AnalogInput(2);
+      rangeBack = new AnalogInput(3);
       
 //Servos for the RangeFinders
       servoRight = new Servo(9);
