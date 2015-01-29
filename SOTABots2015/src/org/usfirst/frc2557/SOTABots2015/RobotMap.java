@@ -64,12 +64,13 @@ public class RobotMap {
       servoRight = new Servo(9);
       servoLeft = new Servo(8);
 
-//Gyro Ports & Sensitivity
-        locationGyro = new Gyro(0);
-        LiveWindow.addSensor("Location", "Gyro", locationGyro);
-        locationGyro.setSensitivity(0.007);
-        
-       locationAccelerometer2 = new BuiltInAccelerometer();
+    //Gyro Ports & Sensitivity
+      locationGyro = new Gyro(0);
+      locationGyro.reset();
+      LiveWindow.addSensor("Location", "Gyro", locationGyro);
+      locationGyro.setSensitivity(0.0007);
+      
+     locationAccelerometer2 = new BuiltInAccelerometer();
 //Drive Train Sensitivity, Max Output, and Inversions
         driveTrainRobotDrive41.setSafetyEnabled(true);
         driveTrainRobotDrive41.setExpiration(0.1);
