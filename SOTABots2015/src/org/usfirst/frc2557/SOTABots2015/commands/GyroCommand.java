@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class Gyro extends Command {
+public class GyroCommand extends Command {
 
-    public Gyro() {
+    public GyroCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

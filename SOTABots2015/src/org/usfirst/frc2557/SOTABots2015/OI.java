@@ -141,6 +141,7 @@ public class OI {
 	    XboxA.whenPressed(new GetRange());
 	    XboxB.whenPressed(new GetAverageRange());
 	    XboxX.whenPressed(new SweepBack());
+	    XboxY.whenPressed(new SetServoZero());
 	    
 	    RJST.whenPressed(new ResetGyro());
 	    RJS3.whenPressed(new SweepBack());
