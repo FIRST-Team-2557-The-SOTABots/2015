@@ -23,29 +23,29 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double gyro = RobotMap.locationGyro.getAngle();
-    	if (Robot.oi.XboxController.getRawButton(7)){
-    		gyro = RobotMap.locationGyro.getAngle();
-    	}
-    	if (Robot.oi.XboxController.getRawButton(8)){
-    		gyro = 0;
-    	}
+    	double gyro = Math.abs(RobotMap.locationGyro.getAngle()) % 360;
+//    	if (Robot.oi.XboxController.getRawButton(7)){
+//    		gyro = RobotMap.locationGyro.getAngle();
+//    	}
+//    	if (Robot.oi.XboxController.getRawButton(8)){
+//    		gyro = 0;
+//    	}
     	//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(1), -Robot.oi.XboxController.getRawAxis(0), -Robot.oi.XboxController.getRawAxis(4), RobotMap.locationGyro.getAngle());
 //Joystick Controller
-//    	if (Robot.oi.rightJoystick.getX() > +- 0.15 || Robot.oi.rightJoystick.getY() > +- 0.15 || Robot.oi.rightJoystick.getZ() > +- .15){
-//    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(Robot.oi.rightJoystick.getX(), -Robot.oi.rightJoystick.getY(), -Robot.oi.rightJoystick.getZ()*.5, RobotMap.locationGyro.getAngle()*1.3);
+    	//if (Math.abs(Robot.oi.rightJoystick.getX()) > 0.15 || Math.abs(Robot.oi.rightJoystick.getY()) >  0.15 || Math.abs(Robot.oi.rightJoystick.getZ()) > .15){
+    	//	RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(Robot.oi.rightJoystick.getX(), Robot.oi.rightJoystick.getY(), Robot.oi.rightJoystick.getZ(), 0);//RobotMap.locationGyro.getAngle()*1.3);
+    	//}Robot.oi.rightJoystick.getZ()
+//    	else{
+//    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
+//    	}
+//}
+//Xbox Controller
+//    	if (Math.abs(-Robot.oi.XboxController.getRawAxis(1)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(0)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(4)) > .3){
+    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(0), -Robot.oi.XboxController.getRawAxis(1), -Robot.oi.XboxController.getRawAxis(4)*.5,gyro);
 //    	}
 //    	else{
 //    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
 //    	}
-//    	
-//Xbox Controller
-    	if (Math.abs(-Robot.oi.XboxController.getRawAxis(1)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(0)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(4)) > .3){
-    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(1), -Robot.oi.XboxController.getRawAxis(0), -Robot.oi.XboxController.getRawAxis(4)*.5, 0); //gyro*1.3);
-    	}
-    	else{
-    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
-    	}
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

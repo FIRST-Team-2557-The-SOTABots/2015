@@ -110,12 +110,12 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        GyroCommand.start();
-        accelerometer.start();
+//        GyroCommand.start();
+//        accelerometer.start();
         drive.start();
-        range.start();
-        getrange.start();
-        getavgrange.start();
+//        range.start();
+//        getrange.start();
+//        getavgrange.start();
 
 
     }
