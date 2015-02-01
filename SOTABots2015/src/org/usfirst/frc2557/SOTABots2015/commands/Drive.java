@@ -41,7 +41,7 @@ public class Drive extends Command {
 //}
 //Xbox Controller
 //    	if (Math.abs(-Robot.oi.XboxController.getRawAxis(1)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(0)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(4)) > .3){
-    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(0), -Robot.oi.XboxController.getRawAxis(1), -Robot.oi.XboxController.getRawAxis(4)*.5,gyro);
+    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(0)*.5, -Robot.oi.XboxController.getRawAxis(1)*.5, -Robot.oi.XboxController.getRawAxis(4)*.5,gyro);
 //    	}
 //    	else{
 //    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
