@@ -25,8 +25,8 @@ public class GetRange extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {               
     	SmartDashboard.putNumber("The Front Left Range Finder is seeing", RobotMap.rangeFrontLeft.getVoltage()/.009765);
-		SmartDashboard.putNumber("The Front Right Range Finder is seeing", RobotMap.rangeFrontRight.getVoltage()/.009765);
-		SmartDashboard.putNumber("The Back Range Finder is seeing", RobotMap.rangeBack.getVoltage()/.009765);
+//		SmartDashboard.putNumber("The Front Right Range Finder is seeing", RobotMap.rangeFrontRight.getVoltage()/.009765);
+//		SmartDashboard.putNumber("The Back Range Finder is seeing", RobotMap.rangeBack.getVoltage()/.009765);
 		Timer.delay(.1);
     }
 
