@@ -139,7 +139,7 @@ public class OI {
         LJS12 = new JoystickButton(leftJoystick, 12);
         
 	    XboxA.whenPressed(new GetRange());
-	    XboxB.whenPressed(new GetAverageRange());
+	    //XboxB.whenPressed(new GetAverageRange());
 	    XboxX.whenPressed(new SweepBack());
 	    XboxY.whenPressed(new SetServoZero());
 	    
