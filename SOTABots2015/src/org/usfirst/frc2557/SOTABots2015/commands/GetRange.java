@@ -15,7 +15,7 @@ public class GetRange extends Command {
     public GetRange() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.location);
+    	requires(Robot.rangeSub);
     }
 
     // Called just before this Command runs the first time
@@ -24,10 +24,9 @@ public class GetRange extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {               
-    	SmartDashboard.putNumber("The Front Left Range Finder is seeing", RobotMap.rangeFrontLeft.getVoltage()/.009765);
-//		SmartDashboard.putNumber("The Front Right Range Finder is seeing", RobotMap.rangeFrontRight.getVoltage()/.009765);
-//		SmartDashboard.putNumber("The Back Range Finder is seeing", RobotMap.rangeBack.getVoltage()/.009765);
-		Timer.delay(.1);
+    	SmartDashboard.putNumber("The Front Left Range Finder is seeing", Robot.rangeSub.getRangeFrontLeft()/.009765);
+    	SmartDashboard.putNumber("The Front Right Range Finder is seeing", Robot.rangeSub.getRangeFrontRight()/.009765);
+    	SmartDashboard.putNumber("The Back Range Finder is seeing", Robot.rangeSub.getRangeBack()/.009765);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -71,7 +71,7 @@ public class RobotMap {
 //Range Finders
       rangeFrontLeft = new AnalogInput(1); 
       rangeFrontRight = new AnalogInput(2);
- //     rangeBack = new AnalogInput(3);
+      rangeBack = new AnalogInput(3);
       
 //Servos for the RangeFinders
       servoRight = new Servo(9);

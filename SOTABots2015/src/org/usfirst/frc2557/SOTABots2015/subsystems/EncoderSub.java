@@ -24,10 +24,10 @@ public class EncoderSub extends Subsystem {
     }
     
     public void updateDashboard(){
-    	SmartDashboard.putData("front left enc", frontLeftEncoder);
-    	SmartDashboard.putData("front right enc", frontRightEncoder);
-    	SmartDashboard.putData("rear left enc", rearLeftEncoder);
-    	SmartDashboard.putData("rear right enc", rearRightEncoder);
+    	SmartDashboard.putNumber("front left enc", frontLeftEncoder.get());
+    	SmartDashboard.putNumber("front right enc", frontRightEncoder.get());
+    	SmartDashboard.putNumber("rear left enc", rearLeftEncoder.get());
+    	SmartDashboard.putNumber("rear right enc", rearRightEncoder.get());
     }
 }
 
