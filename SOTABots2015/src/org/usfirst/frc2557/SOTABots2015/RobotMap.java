@@ -42,14 +42,11 @@ public class RobotMap {
     public static DigitalOutput hallEffectLow;
     public static DigitalOutput hallEffectMid;
     public static DigitalOutput hallEffectHigh;
-    public static DigitalOutput frontLeftEncoder;
-    public static DigitalOutput frontRightEncoder;
-    public static DigitalOutput backLeftEncoder;
-    public static DigitalOutput backRightEncoder;
-    public static Encoder frontLeftEnc;
-    public static Encoder frontRightEnc;
-    public static Encoder rearLeftEnc;
-    public static Encoder rearRightEnc;
+    public static Counter frontLeftEnc;
+    public static Counter frontRightEnc;
+    public static Counter rearLeftEnc;
+    public static Counter rearRightEnc;
+    
     
   //public static AnalogInput rangeFrontRight;
     public static void init() {
@@ -77,10 +74,7 @@ public class RobotMap {
       servoRight = new Servo(9);
       servoLeft = new Servo(8);
 //Encoders
-      frontLeftEncoder = new DigitalOutput(3);
-      frontRightEncoder = new DigitalOutput(4);
-      backLeftEncoder = new DigitalOutput(5);
-      backRightEncoder = new DigitalOutput(6);
+     
 //Limit Switch
       hallEffectLow = new DigitalOutput(0);
       hallEffectMid = new DigitalOutput(1);
@@ -109,32 +103,37 @@ public class RobotMap {
         final boolean REVERSE_DIRECTION = true;
         final int SAMPLES_TO_AVERAGE = 7;
         
-        frontLeftEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-        frontLeftEnc.setMaxPeriod(MAX_PERIOD);
-        frontLeftEnc.setMinRate(MIN_RATE);
-        frontLeftEnc.setDistancePerPulse(DISTANCE_PER_PULSE);
-        frontLeftEnc.setReverseDirection(REVERSE_DIRECTION);
-        frontLeftEnc.setSamplesToAverage(SAMPLES_TO_AVERAGE);
+        frontLeftEnc = new Counter(0);
+        frontLeftEnc.setMaxPeriod(.1);
+        frontLeftEnc.setUpdateWhenEmpty(true);
+        frontLeftEnc.setReverseDirection(false);
+        frontLeftEnc.setSamplesToAverage(10);
+        frontLeftEnc.setDistancePerPulse(12);
+               
         
-        frontRightEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-        frontRightEnc.setMaxPeriod(MAX_PERIOD);
-        frontRightEnc.setMinRate(MIN_RATE);
-        frontRightEnc.setDistancePerPulse(DISTANCE_PER_PULSE);
-        frontRightEnc.setReverseDirection(REVERSE_DIRECTION);
-        frontRightEnc.setSamplesToAverage(SAMPLES_TO_AVERAGE);
+        frontRightEnc = new Counter(1);
+        frontRightEnc.setMaxPeriod(.1);
+        frontRightEnc.setUpdateWhenEmpty(true);
+        frontRightEnc.setReverseDirection(false);
+        frontRightEnc.setSamplesToAverage(10);
+        frontRightEnc.setDistancePerPulse(12);
         
-        rearLeftEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-        rearLeftEnc.setMaxPeriod(MAX_PERIOD);
-        rearLeftEnc.setMinRate(MIN_RATE);
-        rearLeftEnc.setDistancePerPulse(DISTANCE_PER_PULSE);
-        rearLeftEnc.setReverseDirection(REVERSE_DIRECTION);
-        rearLeftEnc.setSamplesToAverage(SAMPLES_TO_AVERAGE);
+        rearLeftEnc = new Counter(2);
+        rearLeftEnc.setMaxPeriod(.1);
+        rearLeftEnc.setUpdateWhenEmpty(true);
+        rearLeftEnc.setReverseDirection(false);
+        rearLeftEnc.setSamplesToAverage(10);
+        rearLeftEnc.setDistancePerPulse(12);
         
-        rearRightEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-        rearRightEnc.setMaxPeriod(MAX_PERIOD);
-        rearRightEnc.setMinRate(MIN_RATE);
-        rearRightEnc.setDistancePerPulse(DISTANCE_PER_PULSE);
-        rearRightEnc.setReverseDirection(REVERSE_DIRECTION);
-        rearRightEnc.setSamplesToAverage(SAMPLES_TO_AVERAGE);
+        rearRightEnc = new Counter(3);
+        rearRightEnc.setMaxPeriod(.1);
+        rearRightEnc.setUpdateWhenEmpty(true);
+        rearRightEnc.setReverseDirection(false);
+        rearRightEnc.setSamplesToAverage(10);
+        rearRightEnc.setDistancePerPulse(12);
+        
+       
+        
+       
     }
 }
