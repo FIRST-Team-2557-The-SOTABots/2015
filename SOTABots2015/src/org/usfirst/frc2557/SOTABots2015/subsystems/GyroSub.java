@@ -24,5 +24,9 @@ public class GyroSub extends Subsystem {
     public double getAngle(){
     	return RobotMap.locationGyro.getAngle();
     }
+    
+    public void reset(){
+    	RobotMap.locationGyro.reset();
+    }
 }
 
