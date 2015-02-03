@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class LimitSwitch extends Subsystem {
-    AnalogInput limitswitch = RobotMap.limitswitch;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
