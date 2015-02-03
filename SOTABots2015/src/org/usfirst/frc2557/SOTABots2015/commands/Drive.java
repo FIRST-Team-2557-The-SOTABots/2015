@@ -15,6 +15,7 @@ public class Drive extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveWithJoystick);
+    	requires(Robot.gyroSystem);
     }
 
     // Called just before this Command runs the first time
@@ -41,7 +42,7 @@ public class Drive extends Command {
 //}
 //Xbox Controller
 //    	if (Math.abs(-Robot.oi.XboxController.getRawAxis(1)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(0)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(4)) > .3){
-    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(0)*.5, -Robot.oi.XboxController.getRawAxis(1)*.5, -Robot.oi.XboxController.getRawAxis(4)*.5,gyro);
+    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(0)*.5, -Robot.oi.XboxController.getRawAxis(1)*.5, -Robot.oi.XboxController.getRawAxis(4)*.5,Robot.gyroSystem.getAngle());
 //    	}
 //    	else{
 //    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
