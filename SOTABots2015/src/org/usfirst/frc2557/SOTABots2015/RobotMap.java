@@ -41,9 +41,7 @@ public class RobotMap {
     public static AnalogInput rangeRight;
     public static AnalogInput rangeCenter;
     public static DigitalInput momentarySwitch;
-//    public static DigitalOutput hallEffectLow;
-//    public static DigitalOutput hallEffectMid;
-//    public static DigitalOutput hallEffectHigh;
+ //   public static DigitalOutput hallEffect;
     public static Counter frontLeftEnc;
     public static Counter frontRightEnc;
     public static Counter rearLeftEnc;
@@ -82,9 +80,7 @@ public class RobotMap {
      
 //Limit Switch
       momentarySwitch = new DigitalInput(4);
-//      hallEffectLow = new DigitalOutput(0);
-//      hallEffectMid = new DigitalOutput(1);
-//      hallEffectHigh = new DigitalOutput(2);
+      //hallEffect = new DigitalOutput(0);
 //      
 //Gyro Ports & Sensitivity
       locationGyro = new Gyro(0);
