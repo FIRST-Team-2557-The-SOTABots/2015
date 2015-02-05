@@ -15,6 +15,7 @@ package org.usfirst.frc2557.SOTABots2015;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -35,13 +36,14 @@ public class RobotMap {
     public static BuiltInAccelerometer locationAccelerometer2 ;
     public static Servo servoLeft;
     public static Servo servoRight;
-    public static AnalogInput rangeFrontLeft;
-    public static AnalogInput rangeFrontRight;
-    public static AnalogInput rangeBack;
-    public static DigitalOutput momentarySwitch;
-    public static DigitalOutput hallEffectLow;
-    public static DigitalOutput hallEffectMid;
-    public static DigitalOutput hallEffectHigh;
+    public static Servo servoCenter;
+    public static AnalogInput rangeLeft;
+    public static AnalogInput rangeRight;
+    public static AnalogInput rangeCenter;
+    public static DigitalInput momentarySwitch;
+//    public static DigitalOutput hallEffectLow;
+//    public static DigitalOutput hallEffectMid;
+//    public static DigitalOutput hallEffectHigh;
     public static Counter frontLeftEnc;
     public static Counter frontRightEnc;
     public static Counter rearLeftEnc;
@@ -65,21 +67,25 @@ public class RobotMap {
         
         driveTrainRobotDrive41 = new RobotDrive(driveTrainFrontLeft, driveTrainBackLeft,
         		driveTrainFrontRight, driveTrainBackRight);
+        driveTrainRobotDrive41.setSafetyEnabled(false);
+       SmartDashboard.putBoolean("Safety= ",  driveTrainRobotDrive41.isSafetyEnabled());
 //Range Finders
-      rangeFrontLeft = new AnalogInput(1); 
-      rangeFrontRight = new AnalogInput(2);
-      rangeBack = new AnalogInput(3);
+      rangeLeft = new AnalogInput(1); 
+      rangeRight = new AnalogInput(2);
+      rangeCenter = new AnalogInput(3);
       
 //Servos for the RangeFinders
       servoRight = new Servo(9);
       servoLeft = new Servo(8);
+      servoCenter = new Servo(7);
 //Encoders
      
 //Limit Switch
-      hallEffectLow = new DigitalOutput(0);
-      hallEffectMid = new DigitalOutput(1);
-      hallEffectHigh = new DigitalOutput(2);
-      
+      momentarySwitch = new DigitalInput(4);
+//      hallEffectLow = new DigitalOutput(0);
+//      hallEffectMid = new DigitalOutput(1);
+//      hallEffectHigh = new DigitalOutput(2);
+//      
 //Gyro Ports & Sensitivity
       locationGyro = new Gyro(0);
       locationGyro.reset();

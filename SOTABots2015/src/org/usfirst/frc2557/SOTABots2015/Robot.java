@@ -105,6 +105,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        
     }
 
     public void teleopInit() {
@@ -122,7 +123,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
 //        GyroCommand.start();
 //        accelerometer.start();
-//        drive.start();
+        drive.start();
 //        range.start();
         getrange.start();
 //        getavgrange.start();
