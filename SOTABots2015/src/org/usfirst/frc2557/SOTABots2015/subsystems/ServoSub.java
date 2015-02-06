@@ -28,11 +28,13 @@ public class ServoSub extends Subsystem {
 //    		RobotMap.servoLeft.setAngle(2);
 //    	}
 //    }
-    public void sweep() throws InterruptedException{
+    /* Is this supposed to be here?
+     * public void sweep() throws InterruptedException{
     	RobotMap.servoLeft.set(1);
     	Timer.delay(1);
     	RobotMap.servoLeft.set(0);
     	Timer.delay(1);
     }
+    */
 }
 

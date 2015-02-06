@@ -23,7 +23,7 @@ public class SweepCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.servoLeft.set(degCount);
+    	RobotMap.servoLeft.set(degCount / 180.0);
     	if (sweepDir == true) {
     		degCount++
     	}

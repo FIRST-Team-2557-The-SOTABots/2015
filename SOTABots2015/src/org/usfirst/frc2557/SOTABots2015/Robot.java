@@ -69,7 +69,7 @@ public class Robot extends IterativeRobot {
         // Create a counter to tie degrees and rangefinder collection
         // The hopes of these being declared here is so they are not instantiated inside a loop
         // Where they will keep clearing themselves.
-        double degCount = 0;
+        double degCount = 1;
         double rangeLeft;
         double rangeRight;
         double rangeCenter;
