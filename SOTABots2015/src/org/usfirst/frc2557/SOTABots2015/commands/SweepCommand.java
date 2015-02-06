@@ -23,13 +23,19 @@ public class SweepCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    //	Robot.servoSub.sweepLeft();
-    								//The Timer Delays are for testing purposes ONLY
-    								//They MUST and WILL be taken out before competition
-    	RobotMap.servoLeft.set(.35);
-    	Timer.delay(.1);
-    	RobotMap.servoLeft.set(.45);
-    	Timer.delay(.1);
+    	RobotMap.servoLeft.set(degCount);
+    	if (sweepDir == true) {
+    		degCount++
+    	}
+    	else {
+    		degCount--
+    	}
+    	if (degCount == 179) {
+    		sweepDir == false
+    	}
+    	else if (degCount == 1) {
+    		sweepDir == true
+    	}
 
     }
 
