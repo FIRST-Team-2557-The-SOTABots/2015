@@ -37,7 +37,7 @@ public class DriveTrain extends Subsystem {
     	robotDrive41.arcadeDrive(joystick1);
     }
     public void mecanumDrive_Cartesian123(double x,double y,double rotation,double gyroAngle){
-    	robotDrive41.mecanumDrive_Cartesian(x, y, rotation, 0);//gyro.getAngle());
+    	robotDrive41.mecanumDrive_Cartesian(x, y, rotation, gyro.getAngle());
     	//robotDrive41.mecanumDrive_Polar(x, y, rotation);//gyro.getAngle());
     	
     }

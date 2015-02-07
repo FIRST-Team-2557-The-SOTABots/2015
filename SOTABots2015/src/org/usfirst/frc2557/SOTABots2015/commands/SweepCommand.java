@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class SweepCommand extends Command {
-
+	boolean sweepDir = RobotMap.sweepDir;
     public SweepCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -23,19 +23,19 @@ public class SweepCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.servoLeft.set(degCount / 180.0);
-    	if (sweepDir == true) {
-    		degCount++
-    	}
-    	else {
-    		degCount--
-    	}
-    	if (degCount == 179) {
-    		sweepDir == false
-    	}
-    	else if (degCount == 1) {
-    		sweepDir == true
-    	}
+//    	RobotMap.servoLeft.set(degCount / 180.0);
+//    	if (sweepDir == true) {
+//    		degCount++;
+//    	}
+//    	else {
+//    		degCount--;
+//    	}
+//    	if (degCount == 179) {
+//    		sweepDir = false;
+//    	}
+//    	else if (degCount == 1) {
+//    		sweepDir = true;
+//    	}
 
     }
 
