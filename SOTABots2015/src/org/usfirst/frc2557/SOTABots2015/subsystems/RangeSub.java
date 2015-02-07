@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class RangeSub extends Subsystem {
-    AnalogInput rangeFrontLeft = RobotMap.rangeFrontLeft;
-    AnalogInput rangeFrontRight = RobotMap.rangeFrontRight;
-    AnalogInput rangeBack = RobotMap.rangeBack;
+    AnalogInput rangeLeft = RobotMap.rangeLeft;
+    AnalogInput rangeRight = RobotMap.rangeRight;
+    AnalogInput rangeCenter = RobotMap.rangeCenter;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -21,15 +21,15 @@ public class RangeSub extends Subsystem {
     }
     
     public double getRangeFrontLeft(){
-    	return rangeFrontLeft.getAverageVoltage();
+    	return rangeLeft.getAverageVoltage();
     }
     
     public double getRangeFrontRight(){
-    	return rangeFrontRight.getAverageValue();
+    	return rangeRight.getAverageVoltage();
     }
     
     public double getRangeBack(){
-    	return rangeBack.getAverageValue();
+    	return rangeCenter.getAverageVoltage();
     }
 }
 

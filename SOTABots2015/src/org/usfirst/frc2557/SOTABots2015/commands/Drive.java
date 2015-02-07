@@ -15,7 +15,7 @@ public class Drive extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveWithJoystick);
-    	requires(Robot.gyroSystem);
+    	//requires(Robot.gyroSystem);
     }
 
     // Called just before this Command runs the first time
@@ -31,19 +31,16 @@ public class Drive extends Command {
 //    	if (Robot.oi.XboxController.getRawButton(8)){
 //    		gyro = 0;
 //    	}
-    	//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(1), -Robot.oi.XboxController.getRawAxis(0), -Robot.oi.XboxController.getRawAxis(4), RobotMap.locationGyro.getAngle());
-//Joystick Controller
-    	//if (Math.abs(Robot.oi.rightJoystick.getX()) > 0.15 || Math.abs(Robot.oi.rightJoystick.getY()) >  0.15 || Math.abs(Robot.oi.rightJoystick.getZ()) > .15){
-    	//	RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(Robot.oi.rightJoystick.getX(), Robot.oi.rightJoystick.getY(), Robot.oi.rightJoystick.getZ(), 0);//RobotMap.locationGyro.getAngle()*1.3);
-    	//}Robot.oi.rightJoystick.getZ()
-//    	else{
-//    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
-//    	}
-//}
+ 
 //Xbox Controller
-//    	if (Math.abs(-Robot.oi.XboxController.getRawAxis(1)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(0)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(4)) > .3){
-    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(0)*.5, -Robot.oi.XboxController.getRawAxis(1)*.5, -Robot.oi.XboxController.getRawAxis(4)*.5,Robot.gyroSystem.getAngle());
-//    	}
+    	if (Math.abs(-Robot.oi.XboxController.getRawAxis(1)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(0)) > 0.3 || Math.abs(-Robot.oi.XboxController.getRawAxis(4)) > .3){
+
+		//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(0)*.5, -Robot.oi.XboxController.getRawAxis(1)*.5, -Robot.oi.XboxController.getRawAxis(4)*.5,Robot.gyroSystem.getAngle());
+		//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-Robot.oi.XboxController.getRawAxis(0)*.5, -Robot.oi.XboxController.getRawAxis(1)*.5, -Robot.oi.XboxController.getRawAxis(4)*.5,0);
+    	Robot.driveWithJoystick.mecanumDrive_Cartesian123(-Robot.oi.XboxController.getRawAxis(0), -Robot.oi.XboxController.getRawAxis(1), -Robot.oi.XboxController.getRawAxis(4),0);
+    	//Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,-Robot.oi.XboxController.getRawAxis(1),0,0);
+    	
+    	}
 //    	else{
 //    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
 //    	}
@@ -62,13 +59,3 @@ public class Drive extends Command {
     protected void interrupted() {
     }
 }
-//
-//if (Math.abs(leftStick.getAxis(Joystick.AxisType.kX)) > 0.15)   {        
-//    drive.arcadeDrive(leftStick);
-//}
-//else if (Math.abs(leftStick.getAxis(Joystick.AxisType.kY)) > 0.15) {
-//    drive.arcadeDrive(leftStick);
-//}
-//else{
-//    drive.arcadeDrive(0,0);
-//}
