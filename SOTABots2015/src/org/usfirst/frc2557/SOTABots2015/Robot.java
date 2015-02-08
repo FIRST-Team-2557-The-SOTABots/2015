@@ -37,9 +37,7 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
     Command drive;
     Command gyroreset;
-    Command accelerometer;
-    Command range;
-    Command getrange;
+    Command accelerometer;;
     Command getavgrange;
     Command limitSwitch;
     Command encoderUpdateDash;
@@ -137,7 +135,7 @@ public class Robot extends IterativeRobot {
         //accelerometer.start();
         drive.start();
         sweepCommand.start(); // Hopefully we don't need to add degCount in the ()'s.
-        getrange.start(); // Ditto.
+
         dashboard.start();
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
 //        getrange.start();

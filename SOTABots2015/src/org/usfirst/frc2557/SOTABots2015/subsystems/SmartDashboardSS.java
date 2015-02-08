@@ -11,7 +11,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class SmartDashboardSS extends Subsystem {
-    
+    double center 		= RobotMap.rangeCenter.getVoltage();
+    double right 		= RobotMap.rangeRight.getVoltage();
+    double left 		= RobotMap.rangeLeft.getVoltage();
+    double centerAvg	= RobotMap.rangeCenter.getAverageVoltage();
+    double rightAvg		= RobotMap.rangeRight.getAverageVoltage();
+    double leftAvg 		= RobotMap.rangeLeft.getAverageVoltage();
+    double divider 		= .009765;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -28,12 +34,12 @@ public class SmartDashboardSS extends Subsystem {
             SmartDashboard.putString("Limit Switch", "OFF");
         }
         //RangeFinders
-        SmartDashboard.putNumber("The Left Range Finder normal: ", RobotMap.rangeLeft.getVoltage()/.009765);
-        SmartDashboard.putNumber("The Right Range Finder normal: ", RobotMap.rangeRight.getVoltage()/.009765);
-        SmartDashboard.putNumber("The Center Range Finder normal: ", RobotMap.rangeCenter.getVoltage()/.009765);
-        SmartDashboard.putNumber("The Left Range Finder average: ", RobotMap.rangeLeft.getAverageVoltage()/.009765);
-        SmartDashboard.putNumber("The Right Range Finder average: ", RobotMap.rangeRight.getAverageVoltage()/.009765);
-        SmartDashboard.putNumber("The Center Range Finder average: ", RobotMap.rangeCenter.getAverageVoltage()/.009765);
+        SmartDashboard.putNumber("The Left Range Finder normal: ", left/divider);
+        SmartDashboard.putNumber("The Right Range Finder normal: ", right/divider);
+        SmartDashboard.putNumber("The Center Range Finder normal: ", center/divider);
+        SmartDashboard.putNumber("The Left Range Finder average: ", leftAvg/divider);
+        SmartDashboard.putNumber("The Right Range Finder average: ", rightAvg/divider);
+        SmartDashboard.putNumber("The Center Range Finder average: ", centerAvg/divider);
         
         //Gyro
         SmartDashboard.putNumber("Gyro angle is: ",RobotMap.locationGyro.getAngle() );
