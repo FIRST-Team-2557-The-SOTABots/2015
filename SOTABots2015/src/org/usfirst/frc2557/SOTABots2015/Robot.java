@@ -134,7 +134,7 @@ public class Robot extends IterativeRobot {
         //GyroCommand.start();
         //accelerometer.start();
         drive.start();
-        sweepCommand.start(); // Hopefully we don't need to add degCount in the ()'s.
+//        sweepCommand.start(); // Hopefully we don't need to add degCount in the ()'s.
 
         dashboard.start();
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
