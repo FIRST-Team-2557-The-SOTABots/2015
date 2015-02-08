@@ -53,17 +53,17 @@ public class RangeCorrectionAuto extends Command {
     	while(sweepAngle <= maxSweepAngle){
     		RobotMap.servoCenter.setAngle(sweepAngle);
     		inchesFront = RobotMap.rangeCenter.getVoltage()/.009765;
-//    		if(inchesFront < 20){
-//    			hitInches = inchesFront;
-//    			hitAngle = sweepAngle;
-//    			inRange = true;
-//    	
-//    			}
-//    		else if(inRange == true){
-//    			noHitInches = inchesFront;s
-//    			noHitAngle = sweepAngle;
-//    			inRange = false;
-//    		}
+    		if(inchesFront < 20){
+    			hitInches = inchesFront;
+    			hitAngle = sweepAngle;
+    			inRange = true;
+    	
+    			}
+    		else if(inRange == true){
+    			noHitInches = inchesFront;
+    			noHitAngle = sweepAngle;
+    			inRange = false;
+    		}
     		
     		sweepAngle = sweepAngle + 10;
     	}
@@ -77,32 +77,32 @@ public class RangeCorrectionAuto extends Command {
     	SmartDashboard.putNumber("Not hitting inches", noHitInches);
     	SmartDashboard.putNumber("Not hitting angle", noHitAngle);
     	// Checking for the midpoint of the object using the servo angle
-//    	x = 0;
-//    	z = 0;
-//    	if((hitAngle + noHitAngle) / 2 > 2){
-//    		x = 1;
-//    		// SHOULD MOVE RIGHT
-//    	}
-//    	else if((hitAngle + noHitAngle) / 2 < -2){
-//    		x = -1;
-//    		// SHOULD MOVE LEFT
-//    	}
-//    	if(Math.cos(hitAngle) / hitInches < Math.cos(noHitAngle) / noHitInches){
-//    		z = 1;
-//    	}
-//    	else{
-//    		z = -1;
-//    	}
-//    	RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(x,0,z,0);
-//    	
-//    	if(((Math.abs(hitAngle + noHitAngle) / 2) < 2) && (Math.abs(hitInches - noHitInches) < 2)){
-//    		while(RobotMap.momentarySwitch.get() == false){
-//    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,1,0,0);
-//    		}
-//    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
-//    		notDone = false;
-//    	
-//    	}
+    	x = 0;
+    	z = 0;
+    	if((hitAngle + noHitAngle) / 2 > 2){
+    		x = 1;
+    		// SHOULD MOVE RIGHT
+    	}
+    	else if((hitAngle + noHitAngle) / 2 < -2){
+    		x = -1;
+    		// SHOULD MOVE LEFT
+    	}
+    	if(Math.cos(hitAngle) / hitInches < Math.cos(noHitAngle) / noHitInches){
+    		z = 1;
+    	}
+    	else{
+    		z = -1;
+    	}
+    	RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(x,0,z,0);
+    	
+    	if(((Math.abs(hitAngle + noHitAngle) / 2) < 2) && (Math.abs(hitInches - noHitInches) < 2)){
+    		while(RobotMap.momentarySwitch.get() == false){
+    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,1,0,0);
+    		}
+    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
+    		notDone = false;
+    	
+    	}
     	
     	}
     	

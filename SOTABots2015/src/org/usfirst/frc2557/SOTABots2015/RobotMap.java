@@ -42,13 +42,13 @@ public class RobotMap {
     //Solenoids out of 8 ports
     public static Solenoid Shrek_is_love_Shrek_is_life; //Nonexistent
     
-    public static BuiltInAccelerometer locationAccelerometer2 ; //Has no port due to being built in
+    public static BuiltInAccelerometer accelerometer; //Has no port due to being built in
     
     //Analog out of 4 total ports
     public static AnalogInput rangeLeft;				//Port1
     public static AnalogInput rangeRight;				//Port2
     public static AnalogInput rangeCenter;				//Port3
-    public static Gyro locationGyro;					//Port0
+    public static Gyro gyro;							//Port0
     
     //Digital IO out of 10 total ports
     
@@ -99,11 +99,11 @@ public class RobotMap {
      
       
 //Gyro Ports & Sensitivity
-      locationGyro = new Gyro(0);
-      locationGyro.reset();
-      LiveWindow.addSensor("Location", "Gyro", locationGyro);
+      gyro = new Gyro(0);
+      gyro.reset();
+      LiveWindow.addSensor("Location", "Gyro", gyro);
       
-      locationAccelerometer2 = new BuiltInAccelerometer();
+      accelerometer = new BuiltInAccelerometer();
 
 //Drive Train Sensitivity, Max Output, and Inversions
         driveTrainRobotDrive41.setSafetyEnabled(true);
