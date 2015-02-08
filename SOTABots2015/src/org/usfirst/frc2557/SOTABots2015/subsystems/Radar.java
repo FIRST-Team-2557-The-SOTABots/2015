@@ -23,7 +23,9 @@ public class Radar extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void sweepAll180(){
+    
+//Servos
+    public void sweepAll(){
     	RobotMap.servoLeft.set(RobotMap.degCount / 180.0);
     	RobotMap.servoRight.set(RobotMap.degCount / 180.0);
     	RobotMap.servoCenter.set(RobotMap.degCount / 180.0);
@@ -40,16 +42,18 @@ public class Radar extends Subsystem {
     		RobotMap.sweepDir = true;
     	}
     }
-    public double getRangeFrontLeft(){
-    	return rangeLeft.getAverageVoltage();
-    }
     
-    public double getRangeFrontRight(){
-    	return rangeRight.getAverageVoltage();
-    }
-    
-    public double getRangeBack(){
-    	return rangeCenter.getAverageVoltage();
-    }
+//Range Finders
+//    public double getRangeFrontLeft(){
+//    	return rangeLeft.getAverageVoltage();
+//    }
+//    
+//    public double getRangeFrontRight(){
+//    	return rangeRight.getAverageVoltage();
+//    }
+//    
+//    public double getRangeBack(){
+//    	return rangeCenter.getAverageVoltage();
+//    }
 }
 
