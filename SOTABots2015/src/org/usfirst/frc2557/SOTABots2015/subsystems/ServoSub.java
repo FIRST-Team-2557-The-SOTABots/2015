@@ -15,19 +15,26 @@ public class ServoSub extends Subsystem {
 	Servo servoCenter = RobotMap.servoCenter;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	double Left = RobotMap.servoLeft.getAngle();
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-//    public void sweepLeft(){   	
-//    	if (Left < 180 && RobotMap.servoLeft.get() != 0){
-//    		RobotMap.servoLeft.setAngle(178);
-//    	}
-//    	else if (Left > 0 && RobotMap.servoLeft.get() != 180){
-//    		RobotMap.servoLeft.setAngle(2);
-//    	}
-//    }
+    public void sweep180(){
+	    while( RobotMap.degCount < 180){
+	    	servoLeft.setAngle(RobotMap.degCount);
+	    	servoRight.setAngle(RobotMap.degCount);
+	    	servoCenter.setAngle(RobotMap.degCount);
+	    	RobotMap.degCount ++;
+	    }
+    }
+	public void sweep0(){
+	    while( RobotMap.degCount > 0){
+	    	servoLeft.setAngle(RobotMap.degCount);
+	    	servoRight.setAngle(RobotMap.degCount);
+	    	servoCenter.setAngle(RobotMap.degCount);
+	    	RobotMap.degCount --;
+	    }
+    }
     /* Is this supposed to be here?
      * public void sweep() throws InterruptedException{
     	RobotMap.servoLeft.set(1);

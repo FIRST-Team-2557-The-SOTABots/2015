@@ -14,7 +14,7 @@ public class SweepCommand extends Command {
     public SweepCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	//requires(Robot.servoSub);
+    	requires(Robot.servoSub);
     }
 
     // Called just before this Command runs the first time
@@ -23,19 +23,23 @@ public class SweepCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	RobotMap.servoLeft.set(degCount / 180.0);
-//    	if (sweepDir == true) {
-//    		degCount++;
-//    	}
-//    	else {
-//    		degCount--;
-//    	}
-//    	if (degCount == 179) {
-//    		sweepDir = false;
-//    	}
-//    	else if (degCount == 1) {
-//    		sweepDir = true;
-//    	}
+//  	Robot.servoSub.sweep180();
+//    	Robot.servoSub.sweep0();
+    	RobotMap.servoLeft.set(RobotMap.degCount / 180.0);
+    	RobotMap.servoRight.set(RobotMap.degCount / 180.0);
+    	RobotMap.servoCenter.set(RobotMap.degCount / 180.0);
+    	if (RobotMap.sweepDir == true) {
+    		RobotMap.degCount+= 2;
+    	}
+    	else {
+    		RobotMap.degCount-= 2;
+    	}
+    	if (RobotMap.degCount == 178) {
+    		RobotMap.sweepDir = false;
+    	}
+    	else if (RobotMap.degCount == 2) {
+    		RobotMap.sweepDir = true;
+    	}
 
     }
 
