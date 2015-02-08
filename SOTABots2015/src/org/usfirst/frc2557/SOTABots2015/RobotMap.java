@@ -60,99 +60,101 @@ public class RobotMap {
     //Variables
     public static boolean sweepDir;
     public static int degCount;
-    public static double[] RLArray;
+    
+    //Range Finder Arrays
+    public static double[] leftArray;
+    public static double[] centerArray;
+    public static double[] rightArray;
     
     
-  //public static AnalogInput rangeFrontRight;
+    //public static AnalogInput rangeFrontRight;
     public static void init() {
-
-    	driveTrainFrontLeft = new Talon(0);
-        LiveWindow.addActuator("DriveTrain", "FrontLeft", (Talon) driveTrainFrontLeft);
-        
-        driveTrainFrontRight = new Talon(1);
-        LiveWindow.addActuator("DriveTrain", "FrontRight", (Talon) driveTrainFrontRight);
-        
-        driveTrainBackLeft = new Talon(2);
-        LiveWindow.addActuator("DriveTrain", "BackLeft", (Talon) driveTrainBackLeft);
-        
-        driveTrainBackRight = new Talon(3);
-        LiveWindow.addActuator("DriveTrain", "BackRight", (Talon) driveTrainBackRight);
-        
-        driveTrainRobotDrive41 = new RobotDrive(driveTrainFrontLeft, driveTrainBackLeft,
-        		driveTrainFrontRight, driveTrainBackRight);
-        driveTrainRobotDrive41.setSafetyEnabled(false);
-       SmartDashboard.putBoolean("Safety= ",  driveTrainRobotDrive41.isSafetyEnabled());
-//Variables
-      degCount = 0;
-      sweepDir = true;
-//Range Finders
-      rangeLeft = new AnalogInput(1);
-      rangeRight = new AnalogInput(2);
-      rangeCenter = new AnalogInput(3);
-      
-//Servos for the RangeFinders
-      servoRight = new Servo(9);
-      servoLeft = new Servo(8);
-      servoCenter = new Servo(7);
-
-     
-      
-//Gyro Ports & Sensitivity
-      gyro = new Gyro(0);
-      gyro.reset();
-      LiveWindow.addSensor("Location", "Gyro", gyro);
-      
-      accelerometer = new BuiltInAccelerometer();
-
-//Drive Train Sensitivity, Max Output, and Inversions
-        driveTrainRobotDrive41.setSafetyEnabled(true);
-        driveTrainRobotDrive41.setExpiration(0.1);
-        driveTrainRobotDrive41.setSensitivity(0.5);
-        driveTrainRobotDrive41.setMaxOutput(1.0);
-        driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-        driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
-        
-
-//Encoders & other Digital IO
-        momentarySwitch = new DigitalInput(4);
-        //References for what to set on the encoders. do not touch.
-        final double MAX_PERIOD = 0.1;
-        final int MIN_RATE = 10;
-        final int DISTANCE_PER_PULSE = 5;
-        final boolean REVERSE_DIRECTION = true;
-        final int SAMPLES_TO_AVERAGE = 7;
-        
-        frontLeftEnc = new Counter(0);
-        frontLeftEnc.setMaxPeriod(.1);
-        frontLeftEnc.setUpdateWhenEmpty(true);
-        frontLeftEnc.setReverseDirection(false);
-        frontLeftEnc.setSamplesToAverage(10);
-        frontLeftEnc.setDistancePerPulse(12);
-               
-        
-        frontRightEnc = new Counter(1);
-        frontRightEnc.setMaxPeriod(.1);
-        frontRightEnc.setUpdateWhenEmpty(true);
-        frontRightEnc.setReverseDirection(false);
-        frontRightEnc.setSamplesToAverage(10);
-        frontRightEnc.setDistancePerPulse(12);
-        
-        rearLeftEnc = new Counter(2);
-        rearLeftEnc.setMaxPeriod(.1);
-        rearLeftEnc.setUpdateWhenEmpty(true);
-        rearLeftEnc.setReverseDirection(false);
-        rearLeftEnc.setSamplesToAverage(10);
-        rearLeftEnc.setDistancePerPulse(12);
-        
-        rearRightEnc = new Counter(3);
-        rearRightEnc.setMaxPeriod(.1);
-        rearRightEnc.setUpdateWhenEmpty(true);
-        rearRightEnc.setReverseDirection(false);
-        rearRightEnc.setSamplesToAverage(10);
-        rearRightEnc.setDistancePerPulse(12);
-        
-       
-        
-       
+	
+		driveTrainFrontLeft = new Talon(0);
+		LiveWindow.addActuator("DriveTrain", "FrontLeft", (Talon) driveTrainFrontLeft);
+		
+		driveTrainFrontRight = new Talon(1);
+		LiveWindow.addActuator("DriveTrain", "FrontRight", (Talon) driveTrainFrontRight);
+		
+		driveTrainBackLeft = new Talon(2);
+		LiveWindow.addActuator("DriveTrain", "BackLeft", (Talon) driveTrainBackLeft);
+		
+		driveTrainBackRight = new Talon(3);
+		LiveWindow.addActuator("DriveTrain", "BackRight", (Talon) driveTrainBackRight);
+	    
+	    driveTrainRobotDrive41 = new RobotDrive(driveTrainFrontLeft, driveTrainBackLeft,
+	    		driveTrainFrontRight, driveTrainBackRight);
+	    driveTrainRobotDrive41.setSafetyEnabled(false);
+	    SmartDashboard.putBoolean("Safety= ",  driveTrainRobotDrive41.isSafetyEnabled());
+	   
+	  //Variables
+	  degCount = 0;
+	  sweepDir = true;
+	  
+	  //Range Finders
+	  rangeLeft = new AnalogInput(1);
+	  rangeRight = new AnalogInput(2);
+	  rangeCenter = new AnalogInput(3);
+	  
+	  //Servos for the RangeFinders
+	  servoRight = new Servo(9);
+	  servoLeft = new Servo(8);
+	  servoCenter = new Servo(7);
+	
+	  //Gyro Ports & Sensitivity
+	  gyro = new Gyro(0);
+	  gyro.reset();
+	  LiveWindow.addSensor("Location", "Gyro", gyro);
+	  accelerometer = new BuiltInAccelerometer();
+	
+	  //Drive Train Sensitivity, Max Output, and Inversions
+	  driveTrainRobotDrive41.setSafetyEnabled(true);
+	  driveTrainRobotDrive41.setExpiration(0.1);
+	  driveTrainRobotDrive41.setSensitivity(0.5);
+	  driveTrainRobotDrive41.setMaxOutput(1.0);
+	  driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+	  driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+	    
+	  //Encoders & other Digital IO
+	  momentarySwitch = new DigitalInput(4);
+	  //References for what to set on the encoders. do not touch.
+	  final double MAX_PERIOD = 0.1;
+	  final int MIN_RATE = 10;
+	  final int DISTANCE_PER_PULSE = 5;
+	  final boolean REVERSE_DIRECTION = true;
+	  final int SAMPLES_TO_AVERAGE = 7;
+	    
+	    frontLeftEnc = new Counter(0);
+	    frontLeftEnc.setMaxPeriod(.1);
+	    frontLeftEnc.setUpdateWhenEmpty(true);
+	    frontLeftEnc.setReverseDirection(false);
+	    frontLeftEnc.setSamplesToAverage(10);
+	    frontLeftEnc.setDistancePerPulse(12);
+	           
+	    
+	    frontRightEnc = new Counter(1);
+	    frontRightEnc.setMaxPeriod(.1);
+	    frontRightEnc.setUpdateWhenEmpty(true);
+	    frontRightEnc.setReverseDirection(false);
+	    frontRightEnc.setSamplesToAverage(10);
+	    frontRightEnc.setDistancePerPulse(12);
+	    
+	    rearLeftEnc = new Counter(2);
+	    rearLeftEnc.setMaxPeriod(.1);
+	    rearLeftEnc.setUpdateWhenEmpty(true);
+	    rearLeftEnc.setReverseDirection(false);
+	    rearLeftEnc.setSamplesToAverage(10);
+	    rearLeftEnc.setDistancePerPulse(12);
+	    
+	    rearRightEnc = new Counter(3);
+	    rearRightEnc.setMaxPeriod(.1);
+	    rearRightEnc.setUpdateWhenEmpty(true);
+	    rearRightEnc.setReverseDirection(false);
+	    rearRightEnc.setSamplesToAverage(10);
+	    rearRightEnc.setDistancePerPulse(12);
+	    
+	   
+	    
+	   
     }
 }
