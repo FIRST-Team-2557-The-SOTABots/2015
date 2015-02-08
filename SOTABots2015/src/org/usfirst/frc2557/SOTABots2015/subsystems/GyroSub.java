@@ -17,16 +17,16 @@ public class GyroSub extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void driftProblem() {
-    	double initial = RobotMap.locationGyro.getAngle();
-    	double rate = RobotMap.locationGyro.getRate();
+    	double initial = RobotMap.gyro.getAngle();
+    	double rate = RobotMap.gyro.getRate();
     }
     
     public double getAngle(){
-    	return RobotMap.locationGyro.getAngle();
+    	return RobotMap.gyro.getAngle();
     }
     
     public void reset(){
-    	RobotMap.locationGyro.reset();
+    	RobotMap.gyro.reset();
     }
 }
 
