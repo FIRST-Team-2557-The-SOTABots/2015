@@ -10,13 +10,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class GetRange extends Command {
+public class Dashboard extends Command {
 
-    public GetRange() {
+    public Dashboard() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	//requires(Robot.rangeSub);
-    	requires(Robot.dashboard);
+    	requires(Robot.dashboardSub);
     }
 
     // Called just before this Command runs the first time
@@ -25,13 +25,7 @@ public class GetRange extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {               
-//    	double rangeLeft 	= Robot.rangeSub.getRangeFrontLeft();
-//    	double rangeRight 	= Robot.rangeSub.getRangeFrontRight();
-//    	double rangeCenter = Robot.rangeSub.getRangeBack();
-//    	SmartDashboard.putNumber("The Front Left Range Finder is seeing", rangeLeft/.009765);
-//    	SmartDashboard.putNumber("The Front Right Range Finder is seeing", rangeRight/.009765);
-//    	SmartDashboard.putNumber("The Back Range Finder is seeing",rangeCenter/.009765);
-    	Robot.dashboard.smartDashboardOutputs();
+    	Robot.dashboardSub.smartDashboardOutputs();
     }
 
     // Make this return true when this Command no longer needs to run execute()

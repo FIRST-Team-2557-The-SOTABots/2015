@@ -28,12 +28,12 @@ public class SmartDashboardSS extends Subsystem {
             SmartDashboard.putString("Limit Switch", "OFF");
         }
         //RangeFinders
-        SmartDashboard.putNumber("The Front Left Range Finder is seeing", RobotMap.rangeLeft.getVoltage());
-        SmartDashboard.putNumber("The Right Range Finder is seeing", RobotMap.rangeRight.getVoltage()/.009765);
-        SmartDashboard.putNumber("The Center Range Finder is seeing", RobotMap.rangeCenter.getVoltage()/.009765);
-        SmartDashboard.putNumber("The Left Range Finder is seeing an average range of ", RobotMap.rangeLeft.getAverageVoltage());
-        SmartDashboard.putNumber("The Right Range Finder is seeing an average range of", RobotMap.rangeRight.getAverageVoltage()/.009765);
-        SmartDashboard.putNumber("The Center Range Finder is seeing an average range of", RobotMap.rangeCenter.getAverageVoltage()/.009765);
+        SmartDashboard.putNumber("The Left Range Finder normal: ", RobotMap.rangeLeft.getVoltage()/.009765);
+        SmartDashboard.putNumber("The Right Range Finder normal: ", RobotMap.rangeRight.getVoltage()/.009765);
+        SmartDashboard.putNumber("The Center Range Finder normal: ", RobotMap.rangeCenter.getVoltage()/.009765);
+        SmartDashboard.putNumber("The Left Range Finder average: ", RobotMap.rangeLeft.getAverageVoltage()/.009765);
+        SmartDashboard.putNumber("The Right Range Finder average: ", RobotMap.rangeRight.getAverageVoltage()/.009765);
+        SmartDashboard.putNumber("The Center Range Finder average: ", RobotMap.rangeCenter.getAverageVoltage()/.009765);
         
         //Gyro
         SmartDashboard.putNumber("Gyro angle is: ",RobotMap.locationGyro.getAngle() );
