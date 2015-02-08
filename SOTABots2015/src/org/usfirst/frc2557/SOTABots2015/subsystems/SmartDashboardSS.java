@@ -11,12 +11,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class SmartDashboardSS extends Subsystem {
-    double center 		= RobotMap.rangeCenter.getVoltage();
-    double right 		= RobotMap.rangeRight.getVoltage();
-    double left 		= RobotMap.rangeLeft.getVoltage();
-    double centerAvg	= RobotMap.rangeCenter.getAverageVoltage();
-    double rightAvg		= RobotMap.rangeRight.getAverageVoltage();
-    double leftAvg 		= RobotMap.rangeLeft.getAverageVoltage();
     double divider 		= .009765;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -27,27 +21,27 @@ public class SmartDashboardSS extends Subsystem {
     }
     public void smartDashboardOutputs() {
         //Limit Switch
-//        if(RobotMap.momentarySwitch.equals(true)){
-//            SmartDashboard.putString("Limit Switch", "ON");
-//        }
-//        else{
-//            SmartDashboard.putString("Limit Switch", "OFF");
-//        }
+        if(RobotMap.momentarySwitch.equals(true)){
+            SmartDashboard.putString("Limit Switch", "ON");
+        }
+        else{
+            SmartDashboard.putString("Limit Switch", "OFF");
+        }
         //RangeFinders
         
-//        SmartDashboard.putNumber("The Left Range Finder normal: ", left/divider);
-//        SmartDashboard.putNumber("The Right Range Finder normal: ", right/divider);
-        SmartDashboard.putNumber("The Center Range Finder normal: ", RobotMap.rangeCenter.getAverageVoltage()/.009765);
-//        SmartDashboard.putNumber("The Left Range Finder average: ", leftAvg/divider);
-//        SmartDashboard.putNumber("The Right Range Finder average: ", rightAvg/divider);
+        SmartDashboard.putNumber("The Left Range Finder normal: ", RobotMap.rangeLeft.getVoltage()/divider);
+        SmartDashboard.putNumber("The Right Range Finder normal: ", RobotMap.rangeRight.getVoltage()/divider);
+        SmartDashboard.putNumber("The Center Range Finder normal: ", RobotMap.rangeCenter.getVoltage()/.009765);
+        SmartDashboard.putNumber("The Left Range Finder average: ", RobotMap.rangeLeft.getAverageVoltage()/divider);
+        SmartDashboard.putNumber("The Right Range Finder average: ", RobotMap.rangeRight.getAverageVoltage()/divider);
         SmartDashboard.putNumber("The Center Range Finder average: ", RobotMap.rangeCenter.getAverageVoltage()/.009765);
-//        
-//        //Gyro
-//        SmartDashboard.putNumber("Gyro angle is: ",RobotMap.locationGyro.getAngle() );
-//        
-//        //Accelerometers
-//        SmartDashboard.putNumber("Accelerometer Y-Axis: ", RobotMap.locationAccelerometer2.getY());
-//        SmartDashboard.putNumber("Accelerometer X-Axis: ", RobotMap.locationAccelerometer2.getX());
+        
+        //Gyro
+        SmartDashboard.putNumber("Gyro angle is: ",RobotMap.locationGyro.getAngle() );
+        
+        //Accelerometers
+        SmartDashboard.putNumber("Accelerometer Y-Axis: ", RobotMap.locationAccelerometer2.getY());
+        SmartDashboard.putNumber("Accelerometer X-Axis: ", RobotMap.locationAccelerometer2.getX());
     }
 }
 
