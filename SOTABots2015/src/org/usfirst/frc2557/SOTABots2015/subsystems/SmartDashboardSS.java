@@ -46,7 +46,10 @@ public class SmartDashboardSS extends Subsystem {
         SmartDashboard.putNumber("The Left Range Finder average: ", rangeLeft.getAverageVoltage()/divider);
         SmartDashboard.putNumber("The Right Range Finder average: ", rangeRight.getAverageVoltage()/divider);
         SmartDashboard.putNumber("The Center Range Finder average: ", rangeCenter.getAverageVoltage()/divider);
-        
+        	//Testing for Radar/Rangefinder
+        	SmartDashboard.putNumber("The Center Range Finder Angle:", RobotMap.servoCenter.getAngle());
+        	SmartDashboard.putNumber("The Left Range Finder Angle:", RobotMap.servoLeft.getAngle());
+        	SmartDashboard.putNumber("The Right Range Finder Angle:", RobotMap.servoRight.getAngle());
         //Gyro
         SmartDashboard.putNumber("Gyro angle is: ",RobotMap.gyro.getAngle() );
         
