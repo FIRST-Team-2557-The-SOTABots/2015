@@ -48,12 +48,46 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void center(double x,double y, double target) {}
-    public void right(double count){}
-    public void left(double count){}
-    public void fwd(double count){}
-    public void bwd(double count){}
-    public void cWise(double gDeg){}
-    public void cCWise(double gDeg){}
+    public void center(String s, double min,double max, double target) {
+    	/* eg: DriveTrain.center(rangeFinder, min deg, max deg, target deg)
+    	 * This method should call Radar.<nameHere>() with the variables requested above.
+    	 * That call would return the degrees that the drivetrain would need to turn in
+    	 * order to center the object on to the 90 deg target plane. inputting the degrees
+    	 * to the gyro to turn the appropriate direction.
+    	 */
+    	
+    }
+    public void driveTo(){
+    	/* Use DriveTrain.center to move towards target.
+    	 * When target reaches certain distance, slow down a smidge, count by encoder
+    	 * to move fwd x distance (determined by distance from inches to the frame).
+    	 */
+    }
+    public void right(double count){
+    	/* Strafe Right. Calculate by encoders or by Gyro. If By Gyro, Accelerometers
+    	 * to pool for distance traveled)
+    	 */
+    }
+    public void left(double count){
+    	/* Strafe left. Calculate by encoders or by Gyro. If By Gyro, Accelerometers
+    	 * to pool for distance traveled)
+    	 */
+    }
+    public void fwd(double count){
+    	/* Forward by encoder values.
+    	 */
+    }
+    public void bwd(double count){
+    	/* Back by encoder count.
+    	 */
+    }
+    public void cWise(double gDeg){
+    	/* Rotate clockwise by degrees passed to Gyro.
+    	 */
+    }
+    public void cCWise(double gDeg){
+    	/* Rotate counterClockwise by degrees passed to Gyro.
+    	 */
+    }
    }
 
