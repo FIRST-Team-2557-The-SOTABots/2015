@@ -66,6 +66,9 @@ public class RobotMap {
     public static double[] centerArray;
     public static double[] rightArray;
     
+    //Other
+    public static PowerDistributionPanel PDP;
+    
     
     //public static AnalogInput rangeFrontRight;
     public static void init() {
