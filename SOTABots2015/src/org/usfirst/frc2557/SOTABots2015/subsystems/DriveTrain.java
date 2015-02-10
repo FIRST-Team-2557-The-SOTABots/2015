@@ -48,5 +48,12 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-}
+    public void center(double x,double y, double target) {}
+    public void right(double count){}
+    public void left(double count){}
+    public void fwd(double count){}
+    public void bwd(double count){}
+    public void cWise(double gDeg){}
+    public void cCWise(double gDeg){}
+   }
 
