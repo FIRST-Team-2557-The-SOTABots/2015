@@ -33,27 +33,16 @@ public class Radar extends Subsystem {
 
 //Main Radar Methods
 	public void findCenter(double x, double y){
+		double[] average = new double[10];
 		double a;
-		//int counter = 0;
-		//double[] average = new double[3];
-		//for (int i = 0; i < average.length ; i ++, counter++)
-		//{
-			//if(average[i] <= 185)
-				a = rangeCenter.getAverageVoltage()/.009765;
-			//else
-				//counter--;
-		//}
-		//a /= counter;
-//		if (average[0] <= average[1] + 3 && average[0] >= average[1] - 3){
-//			a = (average[0] + average[1])/2;
-//		}
-//		else if (average[1] <= average[2] + 3 && average[1] >= average[2] - 3){
-//			a = (average[1] + average[2])/2;
-//		}
-//		else if (average[2] <= average[0] + 3 && average[2] >= average[0] - 3){
-//			a = (average[2] + average[0])/2;
-//		}
-		SmartDashboard.putNumber("We are reading: ", a);
+		for(int i = 0; i < 10; i++){
+			average[i] = rangeCenter.getVoltage()/.009765;
+			
+		}
+		a = (average[0]+average[1]+average[2])/average.length;
+		SmartDashboard.putNumber("array:", a);
+		
+		
     	RobotMap.servoCenter.set(RobotMap.degCount / 180.0);
     	if (RobotMap.sweepDir == true) {
     		RobotMap.degCount+= 2;
