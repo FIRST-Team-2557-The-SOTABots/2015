@@ -35,6 +35,21 @@ public class Radar extends Subsystem {
 	public void findCenter(double x, double y){
 		double[] average = new double[10];
 		double a;
+//		double a, b, c;
+//		int x, y, z, first, second;
+//		
+//		x = average[first];
+//		y = average[second];
+//		c = (x+y)/2;
+//		a = (x+c)/2;
+//		b = (y+c)/2;
+//		
+//		if(x<y&&c>a&&c<b){
+//			RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,1,.2,0);
+//		}
+		
+		/////This code works, do not touch it/////
+		
 		for(int i = 0; i < 10; i++){
 			average[i] = rangeCenter.getVoltage()/.009765;
 			
@@ -56,12 +71,10 @@ public class Radar extends Subsystem {
     	else if (RobotMap.degCount == x) {
     		RobotMap.sweepDir = true;
     	}
-//    	SmartDashboard.putNumber("Center Value is: ", rangeCenter.getVoltage()/.009765);
-//    	centerArray[RobotMap.degCount] = rangeCenter.getVoltage()/.009765;
-//    	SmartDashboard.putNumber("Center Array:", centerArray[RobotMap.degCount]);
-    	}
-///////////////////////////////////////////////////    
-//Servos
+
+    }
+
+	//Servos
     public void sweepAll180(){
     	RobotMap.servoLeft.set(RobotMap.degCount / 180.0);
     	RobotMap.servoRight.set(RobotMap.degCount / 180.0);

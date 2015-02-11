@@ -31,31 +31,37 @@ public class RobotMap {
     public static SpeedController driveTrainBackLeft;	//Port2
     public static SpeedController driveTrainBackRight;	//Port3
     public static SpeedController liftMotor;			//Port4
-    public static SpeedController intakeMotor1;			//Port5
-    public static SpeedController intakeMotor2;			//Port6
-    public static RobotDrive driveTrainRobotDrive41;	//Ports are tied into the drive train motors
+    public static SpeedController intakeMotorL;			//Port5
+    public static SpeedController intakeMotorR;			//Port6
+    public static Servo servoCenter;					//Port7
     public static Servo servoLeft;						//Port8
     public static Servo servoRight;						//Port9
-    public static Servo servoCenter;					//Port7
+    public static RobotDrive driveTrainRobotDrive41;	//Ports are tied into the drive train motors
     
-    //Solenoids out of 8 ports
+    //Solenoids out of 8 ports (x,y) x = which breakout it is; y = port
     public static Solenoid Shrek_is_love_Shrek_is_life; //Nonexistent
+    public static Solenoid grab;						//Breakout 1; port 0 and 1
+    public static Solenoid intakeSol;					//Breakout 1; port 2 and 3
+    public static Solenoid ejector;						//Breakout 1; port 4 and 5
+    public static Solenoid rightHook;					//Breakout 1; port 6 and 7
+    public static Solenoid backHook;					//Breakout 2; port 0 and 1
+    public static Solenoid leftHook;					//Breakout 2; port 2 and 3
     
     public static BuiltInAccelerometer accelerometer; //Has no port due to being built in
     
     //Analog out of 4 total ports
+    public static Gyro gyro;							//Port0
     public static AnalogInput rangeLeft;				//Port1
     public static AnalogInput rangeRight;				//Port2
     public static AnalogInput rangeCenter;				//Port3
-    public static Gyro gyro;							//Port0
     
     //Digital IO out of 10 total ports
-    
-    public static DigitalInput momentarySwitch;			//Port4
     public static Counter frontLeftEnc;					//Port0
     public static Counter frontRightEnc;				//Port1
     public static Counter rearLeftEnc;					//Port2
     public static Counter rearRightEnc;					//Port3
+    public static DigitalInput momentarySwitch;			//Port4
+    public static DigitalInput liftsensor;				//Port5
     
     //Variables
     public static boolean sweepDir;
@@ -90,42 +96,43 @@ public class RobotMap {
 	    driveTrainRobotDrive41.setSafetyEnabled(false);
 	    SmartDashboard.putBoolean("Safety= ",  driveTrainRobotDrive41.isSafetyEnabled());
 	   
-	  //Variables
-	  degCount = 0;
-	  sweepDir = true;
+	    //Variables
+	    degCount = 0;
+	    sweepDir = true;
 	  
-	  //Range Finders
-	  rangeLeft = new AnalogInput(1);
-	  rangeRight = new AnalogInput(2);
-	  rangeCenter = new AnalogInput(3);
+	    //Range Finders
+	    rangeLeft = new AnalogInput(1);
+	    rangeRight = new AnalogInput(2);
+	    rangeCenter = new AnalogInput(3);
 	  
-	  //Servos for the RangeFinders
-	  servoRight = new Servo(9);
-	  servoLeft = new Servo(8);
-	  servoCenter = new Servo(7);
+	    //Servos for the RangeFinders
+	    servoRight = new Servo(9);
+	    servoLeft = new Servo(8);
+	    servoCenter = new Servo(7);
 	
-	  //Gyro Ports & Sensitivity
-	  gyro = new Gyro(0);
-	  gyro.reset();
-	  LiveWindow.addSensor("Location", "Gyro", gyro);
-	  accelerometer = new BuiltInAccelerometer();
+	    //Gyro Ports & Sensitivity
+	    gyro = new Gyro(0);
+	    gyro.reset();
+	    LiveWindow.addSensor("Location", "Gyro", gyro);
+	    accelerometer = new BuiltInAccelerometer();
 	
-	  //Drive Train Sensitivity, Max Output, and Inversions
-	  driveTrainRobotDrive41.setSafetyEnabled(true);
-	  driveTrainRobotDrive41.setExpiration(0.1);
-	  driveTrainRobotDrive41.setSensitivity(0.5);
-	  driveTrainRobotDrive41.setMaxOutput(1.0);
-	  driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-	  driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+	    //Drive Train Sensitivity, Max Output, and Inversions
+	    driveTrainRobotDrive41.setSafetyEnabled(true);
+	    driveTrainRobotDrive41.setExpiration(0.1);
+	    driveTrainRobotDrive41.setSensitivity(0.5);
+	    driveTrainRobotDrive41.setMaxOutput(1.0);
+	    driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+	    driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 	    
-	  //Encoders & other Digital IO
-	  momentarySwitch = new DigitalInput(4);
-	  //References for what to set on the encoders. do not touch.
-	  final double MAX_PERIOD = 0.1;
-	  final int MIN_RATE = 10;
-	  final int DISTANCE_PER_PULSE = 5;
-	  final boolean REVERSE_DIRECTION = true;
-	  final int SAMPLES_TO_AVERAGE = 7;
+	    //Encoders & other Digital IO
+	    momentarySwitch = new DigitalInput(4);
+	  
+	  	//References for what to set on the encoders. do not touch.
+	    final double MAX_PERIOD = 0.1;
+	    final int MIN_RATE = 10;
+	    final int DISTANCE_PER_PULSE = 5;
+	    final boolean REVERSE_DIRECTION = true;
+	    final int SAMPLES_TO_AVERAGE = 7;
 	    
 	    frontLeftEnc = new Counter(0);
 	    frontLeftEnc.setMaxPeriod(.1);
@@ -154,7 +161,7 @@ public class RobotMap {
 	    rearRightEnc.setUpdateWhenEmpty(true);
 	    rearRightEnc.setReverseDirection(false);
 	    rearRightEnc.setSamplesToAverage(10);
-	    rearRightEnc.setDistancePerPulse(12);
+        rearRightEnc.setDistancePerPulse(12);
 	    
 	   
 	    
