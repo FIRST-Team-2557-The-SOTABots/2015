@@ -48,45 +48,23 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void center(String s, double min,double max, double target) {
-    	/* eg: DriveTrain.center(rangeFinder, min deg, max deg, target deg)
-    	 * This method should call Radar.<nameHere>() with the variables requested above.
-    	 * That call would return the degrees that the drivetrain would need to turn in
-    	 * order to center the object on to the 90 deg target plane. inputting the degrees
-    	 * to the gyro to turn the appropriate direction.
-    	 */
-    	
+    public void mecanumDrive_Polar123(double magnitude, double direction, double rotation) {
+    	robotDrive41.mecanumDrive_Polar(magnitude, direction, rotation);	
     }
-    public void driveTo(){
-    	/* Use DriveTrain.center to move towards target.
-    	 * When target reaches certain distance, slow down a smidge, count by encoder
-    	 * to move fwd x distance (determined by distance from inches to the frame).
+    
+    public void mvX(double x){
+    	robotDrive41.mecanumDrive_Cartesian(x, 0, 0, gyro.getAngle());
+    	/* Strafe x
     	 */
     }
-    public void right(double count){
-    	/* Strafe Right. Calculate by encoders or by Gyro. If By Gyro, Accelerometers
-    	 * to pool for distance traveled)
+    public void mvY(double y){
+    	robotDrive41.mecanumDrive_Cartesian(0, y, 0, gyro.getAngle());
+    	/* Strafe x
     	 */
     }
-    public void left(double count){
-    	/* Strafe left. Calculate by encoders or by Gyro. If By Gyro, Accelerometers
-    	 * to pool for distance traveled)
-    	 */
-    }
-    public void fwd(double count){
-    	/* Forward by encoder values.
-    	 */
-    }
-    public void bwd(double count){
-    	/* Back by encoder count.
-    	 */
-    }
-    public void cWise(double gDeg){
+    public void rotate(double rotate){
+    	robotDrive41.mecanumDrive_Polar(0, 0, rotate);
     	/* Rotate clockwise by degrees passed to Gyro.
-    	 */
-    }
-    public void cCWise(double gDeg){
-    	/* Rotate counterClockwise by degrees passed to Gyro.
     	 */
     }
    }
