@@ -39,7 +39,6 @@ public class RobotMap {
     public static RobotDrive driveTrainRobotDrive41;	//Ports are tied into the drive train motors
     
     //Solenoids out of 8 ports (x,y) x = which breakout it is; y = port
-    public static Solenoid Shrek_is_love_Shrek_is_life; //Nonexistent
     public static Solenoid grab;						//Breakout 1; port 0 and 1
     public static Solenoid intakeSol;					//Breakout 1; port 2 and 3
     public static Solenoid ejector;						//Breakout 1; port 4 and 5
