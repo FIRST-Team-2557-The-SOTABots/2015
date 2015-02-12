@@ -60,7 +60,9 @@ public class RobotMap {
     public static Counter rearLeftEnc;					//Port2
     public static Counter rearRightEnc;					//Port3
     public static DigitalInput momentarySwitch;			//Port4
-    public static DigitalInput liftsensor;				//Port5
+    public static DigitalInput liftSensor;				//Port5
+    public static DigitalInput leftLightSensor;			//Port6
+    public static DigitalInput rightLightSensor;		//Port7
     
     //Variables
     public static boolean sweepDir;
@@ -125,13 +127,17 @@ public class RobotMap {
 	    
 	    //Encoders & other Digital IO
 	    momentarySwitch = new DigitalInput(4);
+	    liftSensor = new DigitalInput(5);
+	    leftLightSensor = new DigitalInput(6);
+	    rightLightSensor = new DigitalInput(7);
+	    
 	  
 	  	//References for what to set on the encoders. do not touch.
-	    final double MAX_PERIOD = 0.1;
-	    final int MIN_RATE = 10;
-	    final int DISTANCE_PER_PULSE = 5;
-	    final boolean REVERSE_DIRECTION = true;
-	    final int SAMPLES_TO_AVERAGE = 7;
+	    //final double MAX_PERIOD = 0.1;
+	    //final int MIN_RATE = 10;
+	    //final int DISTANCE_PER_PULSE = 5;
+	    //final boolean REVERSE_DIRECTION = true;
+	    //final int SAMPLES_TO_AVERAGE = 7;
 	    
 	    frontLeftEnc = new Counter(0);
 	    frontLeftEnc.setMaxPeriod(.1);

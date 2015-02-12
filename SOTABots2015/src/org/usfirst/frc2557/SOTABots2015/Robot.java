@@ -44,6 +44,7 @@ public class Robot extends IterativeRobot {
     public static SmartDashboardSS dashboardSub;
     public static GyroReset GyroReset;
     public static Radar radarSub;
+    public static LightSensor lightSensor;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -65,6 +66,7 @@ public class Robot extends IterativeRobot {
         gyroSub = new GyroSub();
         accelerometerSub = new AccelerometerSub();
         radarSub = new Radar();
+        lightSensor = new LightSensor();
         
 //Command Initializers (must be second)
       radarCommand = new RadarCommand();
