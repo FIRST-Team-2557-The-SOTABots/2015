@@ -23,7 +23,7 @@ public class LimitSwitchCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(RobotMap.momentarySwitch.get() == true){
+    	if(RobotMap.toteStop.get() == true){
     		SmartDashboard.putString("Limit Switch", "ON");
     	}
     	else{

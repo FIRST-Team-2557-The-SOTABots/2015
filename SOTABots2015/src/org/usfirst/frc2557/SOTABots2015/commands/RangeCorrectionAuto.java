@@ -96,7 +96,7 @@ public class RangeCorrectionAuto extends Command {
     	RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(x,0,z,0);
     	
     	if(((Math.abs(hitAngle + noHitAngle) / 2) < 2) && (Math.abs(hitInches - noHitInches) < 2)){
-    		while(RobotMap.momentarySwitch.get() == false){
+    		while(RobotMap.toteStop.get() == false){
     		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,1,0,0);
     		}
     		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);

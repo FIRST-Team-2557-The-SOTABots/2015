@@ -59,10 +59,11 @@ public class RobotMap {
     public static Counter frontRightEnc;				//Port1
     public static Counter rearLeftEnc;					//Port2
     public static Counter rearRightEnc;					//Port3
-    public static DigitalInput momentarySwitch;			//Port4
+    public static DigitalInput toteStop;				//Port4
     public static DigitalInput liftSensor;				//Port5
     public static DigitalInput leftRampSensor;			//Port6
     public static DigitalInput rightRampSensor;			//Port7
+    public static DigitalInput binStopRear;				//Port8
     
     //Variables
     public static boolean sweepDir;
@@ -126,10 +127,11 @@ public class RobotMap {
 	    driveTrainRobotDrive41.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 	    
 	    //Encoders & other Digital IO
-	    momentarySwitch = new DigitalInput(4);
+	    toteStop = new DigitalInput(4);
 	    liftSensor = new DigitalInput(5);
 	    leftRampSensor = new DigitalInput(6);
 	    rightRampSensor = new DigitalInput(7);
+	    binStopRear = new DigitalInput(8);
 	    
 	  
 	  	//References for what to set on the encoders. do not touch.

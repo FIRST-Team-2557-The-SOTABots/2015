@@ -34,7 +34,7 @@ public class SmartDashboardSS extends Subsystem {
     }
     public void limitSwitchOutput() {
         //Limit Switch
-        if(RobotMap.momentarySwitch.equals(true)){
+        if(RobotMap.toteStop.equals(true)){
             SmartDashboard.putString("Limit Switch", "ON");
         }
         else{
