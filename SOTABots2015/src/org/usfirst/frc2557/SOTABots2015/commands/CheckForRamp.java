@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class CheckForRamp extends Command {
 	
-	public boolean found;
+	boolean found;
 
     public CheckForRamp() {
         // Use requires() here to declare subsystem dependencies

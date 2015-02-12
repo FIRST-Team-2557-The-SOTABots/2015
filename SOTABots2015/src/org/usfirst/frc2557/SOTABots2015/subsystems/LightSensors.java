@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class LightSensor extends Subsystem {
+public class LightSensors extends Subsystem {
     
-	public DigitalInput left = RobotMap.leftRampSensor;
-	public DigitalInput right = RobotMap.rightRampSensor;
+	DigitalInput left = RobotMap.leftRampSensor;
+	DigitalInput right = RobotMap.rightRampSensor;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
