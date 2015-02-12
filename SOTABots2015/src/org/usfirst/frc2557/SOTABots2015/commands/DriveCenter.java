@@ -10,8 +10,23 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveCenter extends Command {
-
-    public DriveCenter() {
+	// Let's go ahead and call crap that we're going to be calling soone anyways.
+	private String side;
+	private double target;
+	private double location;
+	private double speed;
+	private String left = "Left";
+	private String right = "Right";
+	private String center = "Center";
+	private double angl;
+	private double rotation;
+	
+    public 	DriveCenter(String side, double target, double location, double speed) { // <-- call them again... 0\
+    	// And one more time for luck... So damn dumb. Wherz mah paithawnz!?
+        this.side = side;
+        this.target = target;
+        this.location = location;
+        this.speed = speed;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveWithJoystick);
@@ -24,8 +39,31 @@ public class DriveCenter extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	// Call radar to determine which side and which degree is center.
-    	float speed = 10;
-    	float angl = 30;
+    	// Need to determine which side we need to line target up to on frame.
+		angl = RobotMap.gyro.getAngle();
+    	if (side == left) {
+    		angl = RobotMap.gyro.getAngle() -135;
+    		if (target < 135){
+        		target = angl + target; // This could easily be wrong. It's late and I'm tired)
+        	} else if (target > 135) {
+        		target = angl - target; 
+        	}
+    	} else if (side == right) {
+    		angl = RobotMap.gyro.getAngle() +45;
+    		if (target < 90){
+        		target = angl + target; // This could easily be wrong. It's late and I'm tired)
+        	} else if (target > 90) {
+        		target = angl - target; 
+        	}
+    	} else if (side == center) {
+    		angl = RobotMap.gyro.getAngle() -90;
+    		if (target < 90){
+        		target = angl + target; // This could easily be wrong. It's late and I'm tired)
+        	} else if (target > 90) {
+        		target = angl - target; 
+        	}
+    	}
+    	//// NOT DONE. CANT CONTINUE UNTIL MATH IS RIGHT
     	float rotation = 0;
     	// call offset to calculate what degree target is what degree on gyro.
     	Robot.driveWithJoystick.mecanumDrive_Polar123(speed, angl, rotation);
