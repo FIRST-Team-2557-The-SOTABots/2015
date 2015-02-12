@@ -61,8 +61,8 @@ public class RobotMap {
     public static Counter rearRightEnc;					//Port3
     public static DigitalInput momentarySwitch;			//Port4
     public static DigitalInput liftSensor;				//Port5
-    public static DigitalInput leftLightSensor;			//Port6
-    public static DigitalInput rightLightSensor;		//Port7
+    public static DigitalInput leftRampSensor;			//Port6
+    public static DigitalInput rightRampSensor;			//Port7
     
     //Variables
     public static boolean sweepDir;
@@ -128,8 +128,8 @@ public class RobotMap {
 	    //Encoders & other Digital IO
 	    momentarySwitch = new DigitalInput(4);
 	    liftSensor = new DigitalInput(5);
-	    leftLightSensor = new DigitalInput(6);
-	    rightLightSensor = new DigitalInput(7);
+	    leftRampSensor = new DigitalInput(6);
+	    rightRampSensor = new DigitalInput(7);
 	    
 	  
 	  	//References for what to set on the encoders. do not touch.

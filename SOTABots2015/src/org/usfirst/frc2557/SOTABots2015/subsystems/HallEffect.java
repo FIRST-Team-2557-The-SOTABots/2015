@@ -8,22 +8,19 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class LightSensor extends Subsystem {
+public class HallEffect extends Subsystem {
     
-	public DigitalInput left = RobotMap.leftRampSensor;
-	public DigitalInput right = RobotMap.rightRampSensor;
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+	public DigitalInput lift = RobotMap.liftSensor;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public boolean checkLeft(){
-    	return left.get();
-    }
-    
-    public boolean checkRight(){
-    	return right.get();
+    public boolean checkLift(){
+    	return lift.get();
     }
 }
 
