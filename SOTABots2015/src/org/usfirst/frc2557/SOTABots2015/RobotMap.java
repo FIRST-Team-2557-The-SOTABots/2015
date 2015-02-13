@@ -68,6 +68,10 @@ public class RobotMap {
     //Variables
     public static boolean sweepDir;
     public static int degCount;
+    public static double centerDegreeR;
+    public static double changeDegreeR;
+    public static double centerDegreeL;
+    public static double changeDegreeL;
     
     //Range Finder Arrays
     public static double[] leftArray;
