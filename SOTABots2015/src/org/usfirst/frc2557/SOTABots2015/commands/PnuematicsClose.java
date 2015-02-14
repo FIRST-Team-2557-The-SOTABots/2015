@@ -9,14 +9,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PnuematicsCommandTest extends Command {
-	Value Off, Forward, Reverse;
-    public PnuematicsCommandTest() {
+public class PnuematicsClose extends Command {
+    public PnuematicsClose() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.pnuematics);
-    	
-    	
     }
 
     // Called just before this Command runs the first time
@@ -25,7 +22,8 @@ public class PnuematicsCommandTest extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.pnuematics.grab();
+    	RobotMap.backHook.set(Value.kReverse);
+    	RobotMap.grab.set(Value.kReverse);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,7 +33,6 @@ public class PnuematicsCommandTest extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.grab.set(Forward);
     }
 
     // Called when another command which requires one or more of the same

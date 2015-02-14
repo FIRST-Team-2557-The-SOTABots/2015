@@ -138,7 +138,8 @@ public class OI {
         LJS11 = new JoystickButton(leftJoystick, 11);
         LJS12 = new JoystickButton(leftJoystick, 12);
         
-        XboxA.whenPressed(new PnuematicsCommandTest());
+        XboxA.whenPressed(new PnuematicsOpen());
+        XboxB.whenPressed(new PnuematicsClose());
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 
