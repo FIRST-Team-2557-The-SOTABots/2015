@@ -31,17 +31,16 @@ public class RobotMap {
     public static SpeedController driveTrainBackLeft;	//Port2
     public static SpeedController driveTrainBackRight;	//Port3
     public static SpeedController liftMotor;			//Port4
-    public static SpeedController intakeMotorL;			//Port5
-    public static SpeedController intakeMotorR;			//Port6
+    public static SpeedController intakeMotors;			//Port5
     public static Servo servoCenter;					//Port7
     public static Servo servoLeft;						//Port8
     public static Servo servoRight;						//Port9
     public static RobotDrive driveTrainRobotDrive41;	//Ports are tied into the drive train motors
     
     //Solenoids out of 8 ports (x,y) x = which breakout it is; y = port
-    public static DoubleSolenoid grab;						//Breakout 1; port 0 and 1
-    public static DoubleSolenoid intakeSol;					//Breakout 1; port 2 and 3
-    public static DoubleSolenoid ejector;						//Breakout 1; port 4 and 5
+    public static DoubleSolenoid grab;						//Breakout 1; port 0 and 1 		
+    public static DoubleSolenoid intakeSol;					//Breakout 1; port 2 and 3 		
+    public static DoubleSolenoid ejector;					//Breakout 1; port 4 and 5 	
     public static DoubleSolenoid rightHook;					//Breakout 1; port 6 and 7
     public static DoubleSolenoid backHook;					//Breakout 2; port 0 and 1
     public static DoubleSolenoid leftHook;					//Breakout 2; port 2 and 3
@@ -59,8 +58,8 @@ public class RobotMap {
     public static Counter frontRightEnc;				//Port1
     public static Counter rearLeftEnc;					//Port2
     public static Counter rearRightEnc;					//Port3
-    public static DigitalInput toteStop;				//Port4
-    public static DigitalInput liftSensor;				//Port5
+    public static DigitalInput toteStop;				//Port4	
+    public static DigitalInput liftSensor;				//Port5 
     public static DigitalInput leftRampSensor;			//Port6
     public static DigitalInput rightRampSensor;			//Port7
     public static DigitalInput binStopRear;				//Port8

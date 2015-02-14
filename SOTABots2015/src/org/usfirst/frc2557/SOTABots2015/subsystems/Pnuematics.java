@@ -33,5 +33,11 @@ public class Pnuematics extends Subsystem {
     public void back(){
     	backHook.set(Value.kForward);
     }
+    public void left(){
+    	leftHook.set(Value.kForward);
+    }
+    public void right(){
+    	rightHook.set(Value.kForward);
+    }
 }
 

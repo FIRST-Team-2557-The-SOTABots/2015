@@ -1,11 +1,7 @@
 package org.usfirst.frc2557.SOTABots2015.commands;
 
 import org.usfirst.frc2557.SOTABots2015.Robot;
-import org.usfirst.frc2557.SOTABots2015.RobotMap;
-
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *

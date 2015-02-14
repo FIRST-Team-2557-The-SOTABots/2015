@@ -35,6 +35,8 @@ public class Robot extends IterativeRobot {
     Command dashboard;
     Command gyroReset;
     Command radarCommand;
+    Command intake;
+    
 
     public static OI oi;
     public static DriveTrain driveWithJoystick;
@@ -46,7 +48,8 @@ public class Robot extends IterativeRobot {
     public static Radar radarSub;
     public static LightSensors lightSensor;
     public static Pnuematics pnuematics;
-
+    public static Manipulator manipulator;
+    public static Lift lift;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -69,12 +72,15 @@ public class Robot extends IterativeRobot {
         radarSub = new Radar();
         lightSensor = new LightSensors();
         pnuematics = new Pnuematics();
+        manipulator = new Manipulator();
         
 //Command Initializers (must be second)
-      radarCommand = new RadarCommand();
-      gyroReset = new GyroReset();
-      dashboard = new Dashboard();
-      
+        radarCommand = new RadarCommand();
+        gyroReset = new GyroReset();
+        dashboard = new Dashboard();
+        lift = new Lift();
+        intake = new Intake();
+        
         // OI must be constructed after subsystems. If the OI creates Commands 
         //(which it very likely will), subsystems are not guaranteed to be 
         // constructed yet. Thus, their requires() statements may grab null 
@@ -126,6 +132,7 @@ public class Robot extends IterativeRobot {
         drive.start();
         dashboard.start();
         radarCommand.start();
+        lift.start();
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
 
     }
