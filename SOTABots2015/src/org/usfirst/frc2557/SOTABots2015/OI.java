@@ -138,13 +138,7 @@ public class OI {
         LJS11 = new JoystickButton(leftJoystick, 11);
         LJS12 = new JoystickButton(leftJoystick, 12);
         
-	    //XboxA.whenPressed(new SweepCommand());
-	    //XboxB.whenPressed(new GetAverageRange());
-        
-	    
-//	    RJST.whenPressed(new ResetGyro());
-//	    RJS3.whenPressed(new SweepBack());
-//	    RJS4.whenPressed(new SetServoZero());
+        XboxA.whenPressed(new PnuematicsCommandTest());
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 

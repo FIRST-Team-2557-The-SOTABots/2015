@@ -45,6 +45,7 @@ public class Robot extends IterativeRobot {
     public static GyroReset GyroReset;
     public static Radar radarSub;
     public static LightSensors lightSensor;
+    public static Pnuematics pnuematics;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -67,6 +68,7 @@ public class Robot extends IterativeRobot {
         accelerometerSub = new AccelerometerSub();
         radarSub = new Radar();
         lightSensor = new LightSensors();
+        pnuematics = new Pnuematics();
         
 //Command Initializers (must be second)
       radarCommand = new RadarCommand();

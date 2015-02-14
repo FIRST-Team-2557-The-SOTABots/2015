@@ -40,29 +40,8 @@ public class DriveCenter extends Command {
     protected void execute() {
     	// Call radar to determine which side and which degree is center.
     	// Need to determine which side we need to line target up to on frame.
-		angl = RobotMap.gyro.getAngle();
-    	if (side == left) {
-    		angl = RobotMap.gyro.getAngle() -135;
-    		if (target < 135){
-        		target = angl + target; // This could easily be wrong. It's late and I'm tired)
-        	} else if (target > 135) {
-        		target = angl - target; 
-        	}
-    	} else if (side == right) {
-    		angl = RobotMap.gyro.getAngle() +45;
-    		if (target < 90){
-        		target = angl + target; // This could easily be wrong. It's late and I'm tired)
-        	} else if (target > 90) {
-        		target = angl - target; 
-        	}
-    	} else if (side == center) {
-    		angl = RobotMap.gyro.getAngle() -90;
-    		if (target < 90){
-        		target = angl + target; // This could easily be wrong. It's late and I'm tired)
-        	} else if (target > 90) {
-        		target = angl - target; 
-        	}
-    	}
+		double instant = RobotMap.gyro.getAngle();
+    	
     	//// NOT DONE. CANT CONTINUE UNTIL MATH IS RIGHT
     	float rotation = 0;
     	// call offset to calculate what degree target is what degree on gyro.

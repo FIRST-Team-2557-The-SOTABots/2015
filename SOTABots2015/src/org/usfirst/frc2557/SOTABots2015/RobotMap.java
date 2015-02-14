@@ -39,12 +39,12 @@ public class RobotMap {
     public static RobotDrive driveTrainRobotDrive41;	//Ports are tied into the drive train motors
     
     //Solenoids out of 8 ports (x,y) x = which breakout it is; y = port
-    public static Solenoid grab;						//Breakout 1; port 0 and 1
-    public static Solenoid intakeSol;					//Breakout 1; port 2 and 3
-    public static Solenoid ejector;						//Breakout 1; port 4 and 5
-    public static Solenoid rightHook;					//Breakout 1; port 6 and 7
-    public static Solenoid backHook;					//Breakout 2; port 0 and 1
-    public static Solenoid leftHook;					//Breakout 2; port 2 and 3
+    public static DoubleSolenoid grab;						//Breakout 1; port 0 and 1
+    public static DoubleSolenoid intakeSol;					//Breakout 1; port 2 and 3
+    public static DoubleSolenoid ejector;						//Breakout 1; port 4 and 5
+    public static DoubleSolenoid rightHook;					//Breakout 1; port 6 and 7
+    public static DoubleSolenoid backHook;					//Breakout 2; port 0 and 1
+    public static DoubleSolenoid leftHook;					//Breakout 2; port 2 and 3
     
     public static BuiltInAccelerometer accelerometer; //Has no port due to being built in
     
@@ -102,6 +102,16 @@ public class RobotMap {
 	    driveTrainRobotDrive41.setSafetyEnabled(false);
 	    SmartDashboard.putBoolean("Safety= ",  driveTrainRobotDrive41.isSafetyEnabled());
 	   
+	    //Solenoids
+	    grab = new DoubleSolenoid(1, 0, 1);
+	    intakeSol = new DoubleSolenoid(1, 2, 3);
+	    ejector = new DoubleSolenoid(1, 4, 5);
+	    rightHook = new DoubleSolenoid(1, 6, 7);
+	    backHook = new DoubleSolenoid(2, 0, 1);
+	    leftHook = new DoubleSolenoid(2, 2, 3);
+	    
+	    
+	    
 	    //Variables
 	    degCount = 0;
 	    sweepDir = true;
