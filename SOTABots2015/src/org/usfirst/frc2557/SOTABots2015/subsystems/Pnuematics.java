@@ -21,26 +21,54 @@ public class Pnuematics extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
     public void grab(){
     	grab.set(Value.kForward);
     }
+    
     public void intakeClose(){
     	intake.set(Value.kForward);
     }
+    
     public void intakeOpen(){
     	intake.set(Value.kReverse);
     }
+    
     public void eject(){
     	ejector.set(Value.kForward);
     }
+    
     public void back(){
     	backHook.set(Value.kForward);
     }
+    
     public void left(){
     	leftHook.set(Value.kForward);
     }
+    
     public void right(){
     	rightHook.set(Value.kForward);
+    }
+    
+    public void backDown(){
+    	backHook.set(Value.kReverse);
+    }
+    
+    public void leftDown(){
+    	leftHook.set(Value.kReverse);
+    }
+    
+    public void rightDown(){
+    	rightHook.set(Value.kReverse);
+    }
+    
+    
+    public void ejectOut(){
+    	ejector.set(Value.kForward);
+    }
+    
+    public void ejectIn(){
+    	ejector.set(Value.kReverse);
     }
 }
 

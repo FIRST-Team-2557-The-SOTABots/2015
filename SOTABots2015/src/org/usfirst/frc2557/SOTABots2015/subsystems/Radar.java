@@ -55,30 +55,32 @@ public class Radar extends Subsystem {
     	}
     	
     	
-    	if (RobotMap.degCount == y) {
+    	if (RobotMap.degCount == y) { 
     		RobotMap.sweepDir = false;
     	}
     	else if (RobotMap.degCount == x) {
     		RobotMap.sweepDir = true;
 		}
-    	
-    	if(average[i] < 30 && average[i] < 100){ //30 is just an arbitrary number
-			
-			//find the first side of an object in a sweep and initiate a variable to store the degree and voltage that was found
-			x = i;
-			a = average[i];
-		}
-		if(average[i] > 50 && average[i] < 100){ // needs more logic to the parameter to consider everything that ISN'T a tote or bin
-			
-			//find the other side of the object and initiate a variable to store the degree and voltage that was found
-			y = i-2;
-			b = average[i];
-		}
-		RobotMap.centerDegreeR = (x+y)/2;
-		c = (x+y)/2;
-		RobotMap.changeDegreeR  = RobotMap.centerDegreeR - 90;
-		instant = RobotMap.gyro.getAngle();
-		z = average[c];
+    	//Use a variable in Robotmap to account for the degree -Android 
+//    	if(average[i] < 30 && average[i] < 100){ //30 is just an arbitrary number
+//			
+//			//find the first side of an object in a sweep and initiate a variable to store the degree and voltage that was found
+//			x = i;
+//			a = average[i];
+//		}
+//		if(average[i] > 50 && average[i] < 100){ // needs more logic to the parameter to consider everything that ISN'T a tote or bin
+//			
+//			//find the other side of the object and initiate a variable to store the degree and voltage that was found
+//			y = i-2;
+//			b = average[i];
+//		}
+//		RobotMap.centerDegreeR = (x+y)/2;
+//		c = (x+y)/2;
+//		RobotMap.changeDegreeR  = RobotMap.centerDegreeR - 90;
+//		instant = RobotMap.gyro.getAngle();
+//		if (c < average.length){
+//		z = average[c];
+//		}
 		x = x - 5;
 		y = y + 5;
 		

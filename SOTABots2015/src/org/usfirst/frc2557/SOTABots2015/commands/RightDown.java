@@ -1,5 +1,6 @@
 package org.usfirst.frc2557.SOTABots2015.commands;
 
+import org.usfirst.frc2557.SOTABots2015.Robot;
 import org.usfirst.frc2557.SOTABots2015.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -13,6 +14,7 @@ public class RightDown extends Command {
     public RightDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.pnuematics);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +23,7 @@ public class RightDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.rightHook.set(Value.kReverse);
+    	Robot.pnuematics.rightDown();
     }
 
     // Make this return true when this Command no longer needs to run execute()

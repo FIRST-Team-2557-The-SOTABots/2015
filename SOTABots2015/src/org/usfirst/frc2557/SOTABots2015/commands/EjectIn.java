@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LeftDown extends Command {
+public class EjectIn extends Command {
 
-    public LeftDown() {
+    public EjectIn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.pnuematics);
@@ -23,7 +23,13 @@ public class LeftDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.pnuematics.leftDown();
+//    	if(RobotMap.ejector.get() == Value.kForward){
+//    		RobotMap.ejector.set(Value.kReverse);//Robot.pnuematics.ejectIn();
+//    	}
+//    	else{
+//    		RobotMap.ejector.set(Value.kForward);//Robot.pnuematics.ejectOut();
+//    	}
+    	Robot.pnuematics.ejectIn();
     }
 
     // Make this return true when this Command no longer needs to run execute()

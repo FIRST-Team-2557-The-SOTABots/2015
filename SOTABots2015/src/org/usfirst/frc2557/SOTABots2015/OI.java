@@ -169,7 +169,11 @@ public class OI {
         //Button Commands
         Xbox1A.whenPressed(new IntakeOpen());
         Xbox1B.whenPressed(new IntakeClose());
+        Xbox1X.whenPressed(new Grab());
+        Xbox1Y.whenPressed(new letGo());
         Xbox1LB.whileHeld(new Lift());
+        Xbox1LJB.whenPressed(new EjectOut());
+        Xbox1RJB.whenPressed(new EjectIn());
         
         Xbox2A.whenPressed(new BackHook());
         Xbox2B.whenPressed(new RightHook());

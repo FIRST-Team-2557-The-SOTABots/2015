@@ -44,6 +44,7 @@ public class RobotMap {
     public static DoubleSolenoid rightHook;					//Breakout 1; port 6 and 7
     public static DoubleSolenoid backHook;					//Breakout 2; port 0 and 1
     public static DoubleSolenoid leftHook;					//Breakout 2; port 2 and 3
+    //public static Compressor compressor;
     
     public static BuiltInAccelerometer accelerometer; //Has no port due to being built in
     
@@ -85,7 +86,10 @@ public class RobotMap {
     
     //public static AnalogInput rangeFrontRight;
     public static void init() {
-	
+    	liftMotor = new Talon(4);
+    	intakeMotors = new Talon(5);
+    	
+    	
 		driveTrainFrontLeft = new Talon(0);
 		LiveWindow.addActuator("DriveTrain", "FrontLeft", (Talon) driveTrainFrontLeft);
 		
@@ -108,8 +112,9 @@ public class RobotMap {
 	    intakeSol = new DoubleSolenoid(1, 2, 3);
 	    ejector = new DoubleSolenoid(1, 4, 5);
 	    rightHook = new DoubleSolenoid(1, 6, 7);
-	    backHook = new DoubleSolenoid(2, 0, 1);
-	    leftHook = new DoubleSolenoid(2, 2, 3);
+	    backHook = new DoubleSolenoid(0, 0, 1);
+	    leftHook = new DoubleSolenoid(0, 2, 3);
+	    //compressor = new Compressor(0);
 	    
 	    
 	    
