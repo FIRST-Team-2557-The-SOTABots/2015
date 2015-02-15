@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class CheckLiftLevel extends Command {
 	
-	boolean up = RobotMap.liftMovingUp;
 	boolean inTransit;
 
     public CheckLiftLevel() {
@@ -27,7 +26,7 @@ public class CheckLiftLevel extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(inTransit){
-    		if(up){
+    		if(RobotMap.liftMovingUp){
     			if(Robot.hallEffect.checkLift()){
     				RobotMap.liftLevel++;
     			}
