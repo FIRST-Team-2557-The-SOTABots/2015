@@ -21,7 +21,12 @@ public class Lift extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.manipulator.lift(Robot.oi.XboxController2.getRawAxis(5)*.5);
+    	if(Math.abs(Robot.oi.XboxController1.getRawAxis(5)) > .3){
+    		Robot.manipulator.lift(Robot.oi.XboxController1.getRawAxis(5));
+    	}
+    	else{
+    		Robot.manipulator.lift(0.0);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

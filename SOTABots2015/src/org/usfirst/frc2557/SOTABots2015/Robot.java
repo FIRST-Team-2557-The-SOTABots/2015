@@ -134,7 +134,6 @@ public class Robot extends IterativeRobot {
         drive.start();
         dashboard.start();
         radarCommand.start();
-        lift.start();
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
 
     }

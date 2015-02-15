@@ -169,22 +169,13 @@ public class OI {
         //Button Commands
         Xbox1A.whenPressed(new IntakeOpen());
         Xbox1B.whenPressed(new IntakeClose());
+        Xbox1LB.whileHeld(new Lift());
         
         Xbox2A.whenPressed(new BackHook());
         Xbox2B.whenPressed(new RightHook());
         Xbox2X.whenPressed(new LeftHook());
-        Xbox2Y.whenPressed(new PnuematicsOpen());
-        Xbox2RJB.whenPressed(new PnuematicsClose());
         Xbox2RB.whileHeld(new Intake());
         Xbox2LB.whenPressed(new BackDown());
-        if(Xbox2LJB.get() && toggle == true){
-        	Xbox2LJB.whenPressed(new BackHook());
-        	toggle = false;
-        }else if(Xbox2LJB.get() && toggle == false)
-        {
-        	Xbox2LJB.whenPressed(new BackDown());
-        	toggle = true;
-        }
         Xbox2BACK.whenPressed(new LeftDown());
         Xbox2START.whenPressed(new RightDown());
         

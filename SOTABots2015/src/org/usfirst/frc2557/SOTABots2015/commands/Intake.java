@@ -21,17 +21,22 @@ public class Intake extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.manipulator.intake(Robot.oi.XboxController2.getRawAxis(1));
+    	if(Math.abs(Robot.oi.XboxController2.getRawAxis(1)) > .3){
+    		Robot.manipulator.intake(Robot.oi.XboxController2.getRawAxis(1));
+    	}
+    	else{
+    		Robot.manipulator.intake(0.0);
+    	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return (Robot.oi.XboxController2.getRawButton(5) && Robot.oi.XboxController2.getRawButton(1));
+    	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.manipulator.intake(0);
     }
 
     // Called when another command which requires one or more of the same
