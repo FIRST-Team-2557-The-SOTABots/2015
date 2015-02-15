@@ -71,6 +71,8 @@ public class RobotMap {
     public static double changeDegreeR;
     public static double centerDegreeL;
     public static double changeDegreeL;
+    public static boolean liftMovingUp;
+    public static int liftLevel;
     
     //Range Finder Arrays
     public static double[] leftArray;
@@ -114,6 +116,8 @@ public class RobotMap {
 	    //Variables
 	    degCount = 0;
 	    sweepDir = true;
+	    liftMovingUp = false;
+	    liftLevel = 0;
 	  
 	    //Range Finders
 	    rangeLeft = new AnalogInput(1);

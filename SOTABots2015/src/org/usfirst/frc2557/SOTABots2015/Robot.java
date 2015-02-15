@@ -50,6 +50,7 @@ public class Robot extends IterativeRobot {
     public static Pnuematics pnuematics;
     public static Manipulator manipulator;
     public static Lift lift;
+    public static HallEffect hallEffect;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -73,6 +74,7 @@ public class Robot extends IterativeRobot {
         lightSensor = new LightSensors();
         pnuematics = new Pnuematics();
         manipulator = new Manipulator();
+        hallEffect = new HallEffect();
         
 //Command Initializers (must be second)
         radarCommand = new RadarCommand();
