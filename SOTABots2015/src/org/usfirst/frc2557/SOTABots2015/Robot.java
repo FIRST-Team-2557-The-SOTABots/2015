@@ -49,7 +49,6 @@ public class Robot extends IterativeRobot {
     public static LightSensors lightSensor;
     public static Pnuematics pnuematics;
     public static Manipulator manipulator;
-    public static Lift lift;
     public static HallEffect hallEffect;
     /**
      * This function is run when the robot is first started up and should be
@@ -80,8 +79,6 @@ public class Robot extends IterativeRobot {
         radarCommand = new RadarCommand();
         gyroReset = new GyroReset();
         dashboard = new Dashboard();
-        lift = new Lift();
-        intake = new Intake();
         
         // OI must be constructed after subsystems. If the OI creates Commands 
         //(which it very likely will), subsystems are not guaranteed to be 

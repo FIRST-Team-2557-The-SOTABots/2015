@@ -10,8 +10,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Manipulator extends Subsystem {
     
-	SpeedController intakeMotors 	= RobotMap.intakeMotors;
-	SpeedController liftMotor 		= RobotMap.liftMotor;
+	SpeedController intake 	= RobotMap.intakeMotors;
+	SpeedController lift 		= RobotMap.liftMotor;
+	double liftSpd = RobotMap.liftSpeed;
+	double intakeSpd = RobotMap.intakeSpeed;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -19,11 +21,23 @@ public class Manipulator extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void lift(double x){
-    	liftMotor.set(x);
+    public void liftUp(){
+    	lift.set(liftSpd);
     }
-    public void intake(double x){
-    	intakeMotors.set(x);
+    public void liftDown(){
+    	lift.set(-liftSpd);
+    }
+    public void liftStop(){
+    	lift.set(0);
+    }
+    public void intakeIn(){
+    	intake.set(intakeSpd);
+    }
+    public void intakeOut(){
+    	intake.set(intakeSpd);
+    }
+    public void intakeStop(){
+    	intake.set(0);
     }
     
 }

@@ -171,14 +171,12 @@ public class OI {
         Xbox1B.whenPressed(new IntakeClose());
         Xbox1X.whenPressed(new Grab());
         Xbox1Y.whenPressed(new letGo());
-        Xbox1LB.whileHeld(new Lift());
         Xbox1LJB.whenPressed(new EjectOut());
         Xbox1RJB.whenPressed(new EjectIn());
         
         Xbox2A.whenPressed(new BackHook());
         Xbox2B.whenPressed(new RightHook());
         Xbox2X.whenPressed(new LeftHook());
-        Xbox2RB.whileHeld(new Intake());
         Xbox2LB.whenPressed(new BackDown());
         Xbox2BACK.whenPressed(new LeftDown());
         Xbox2START.whenPressed(new RightDown());

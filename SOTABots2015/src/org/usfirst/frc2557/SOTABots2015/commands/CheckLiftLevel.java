@@ -9,8 +9,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class CheckLiftLevel extends Command {
-	
-	boolean inTransit;
 
     public CheckLiftLevel() {
         // Use requires() here to declare subsystem dependencies
@@ -20,13 +18,12 @@ public class CheckLiftLevel extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	inTransit = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(inTransit){
-    		if(RobotMap.liftMovingUp){
+    	if(RobotMap.liftMotor.get() != 0){
+    		if(RobotMap.liftMotor.get() > 0){
     			if(Robot.hallEffect.checkLift()){
     				RobotMap.liftLevel++;
     			}
@@ -35,11 +32,6 @@ public class CheckLiftLevel extends Command {
     			if(Robot.hallEffect.checkLift()){
     				RobotMap.liftLevel--;
     			}
-    		}
-    	}
-    	else{
-    		if(!Robot.hallEffect.checkLift()){
-    			inTransit = true;
     		}
     	}
     }
