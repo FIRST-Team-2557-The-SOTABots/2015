@@ -10,20 +10,22 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class LiftDown extends Command {
 	
-	int currentLevel = RobotMap.liftLevel;
-	boolean done;
-	int minLevel = RobotMap.minLiftLevel;
+	int currentLevel; //Makes a variable for the current level
+	boolean done; //Makes a variable for finish
+	int minLevel = RobotMap.minLiftLevel; //Sets the min level variable
 
     public LiftDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.manipulator);
+    	requires(Robot.manipulator); //Uses the manipulator subsystem
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	done = false;
-    	Robot.manipulator.liftDown();
+    	done = false; //Sets the finish boolean
+    	currentLevel = RobotMap.liftLevel; //Sets the current level
+    	Robot.manipulator.liftDown(); //Starts the lift
+    	//Makes sure we are not bottomed out
     	if(currentLevel == minLevel){
     		end();
     		done = true;
@@ -32,6 +34,7 @@ public class LiftDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//Waits until we reach the next level
     	if(currentLevel > RobotMap.liftLevel){
     		done = true;
     	}
@@ -47,13 +50,12 @@ public class LiftDown extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.manipulator.liftStop();
+    	Robot.manipulator.liftStop(); //Stops the lift
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	done = true;
     	end();
     }
 }
