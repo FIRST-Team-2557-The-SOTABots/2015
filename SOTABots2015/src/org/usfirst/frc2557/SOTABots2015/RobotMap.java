@@ -73,6 +73,9 @@ public class RobotMap {
     public static double centerDegreeL;
     public static double changeDegreeL;
     public static int liftLevel;
+    public static int maxLiftLevel;
+    public static int minLiftLevel;
+    public static int lowLiftLevel;
     public static double liftSpeed;
     public static double intakeSpeed;
     public static double intakeWaitTime;
@@ -125,6 +128,9 @@ public class RobotMap {
 	    degCount = 0;
 	    sweepDir = true;
 	    liftLevel = 0;
+	    maxLiftLevel = 6;
+	    minLiftLevel = 0;
+	    lowLiftLevel = 1;
 	    liftSpeed = 1;
 	    intakeSpeed = 1;
 	    intakeWaitTime = 2;

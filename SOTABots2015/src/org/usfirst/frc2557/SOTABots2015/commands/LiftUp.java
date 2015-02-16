@@ -12,6 +12,7 @@ public class LiftUp extends Command {
 	
 	int currentLevel = RobotMap.liftLevel;
 	boolean done;
+	int maxLevel = RobotMap.maxLiftLevel;
 
     public LiftUp() {
         // Use requires() here to declare subsystem dependencies
@@ -23,6 +24,10 @@ public class LiftUp extends Command {
     protected void initialize() {
     	done = false;
     	Robot.manipulator.liftUp();
+    	if(currentLevel == maxLevel){
+    		end();
+    		done = true;
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run

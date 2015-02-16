@@ -12,6 +12,7 @@ public class LiftDown extends Command {
 	
 	int currentLevel = RobotMap.liftLevel;
 	boolean done;
+	int minLevel = RobotMap.minLiftLevel;
 
     public LiftDown() {
         // Use requires() here to declare subsystem dependencies
@@ -23,6 +24,10 @@ public class LiftDown extends Command {
     protected void initialize() {
     	done = false;
     	Robot.manipulator.liftDown();
+    	if(currentLevel == minLevel){
+    		end();
+    		done = true;
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
