@@ -35,33 +35,33 @@ public class Radar extends Subsystem {
 	public void findCenter(int x, int y){
 		double[] average = new double[10];
 ////////TEST///////
-		int i = 0; //degrees
-		int c;
-		double a, b, z, instant = 0, difference = 0; //voltages
-		
-		for(i = 0; i < 10; i++){
-			average[i] = rangeCenter.getVoltage()/.009765;
-			
-		}
-		a = (average[0]+average[1]+average[2])/average.length;		
-		RobotMap.servoCenter.set(RobotMap.degCount / 180.0);
-    	
-    	
-    	if (RobotMap.sweepDir == true) {
-    		RobotMap.degCount+= 2;
-    	}
-    	else {
-    		RobotMap.degCount-= 2;
-    	}
-    	
-    	
-    	if (RobotMap.degCount == y) { 
-    		RobotMap.sweepDir = false;
-    	}
-    	else if (RobotMap.degCount == x) {
-    		RobotMap.sweepDir = true;
-		}
-    	//Use a variable in Robotmap to account for the degree -Android 
+//		int i = 0; //degrees
+//		int c;
+//		double a, b, z, instant = 0, difference = 0; //voltages
+//		
+//		for(i = 0; i < 10; i++){
+//			average[i] = rangeCenter.getVoltage()/.009765;
+//			
+//		}
+//		a = (average[0]+average[1]+average[2])/average.length;		
+//		RobotMap.servoCenter.set(RobotMap.degCount / 180.0);
+//    	
+//    	
+//    	if (RobotMap.sweepDir == true) {
+//    		RobotMap.degCount+= 2;
+//    	}
+//    	else {
+//    		RobotMap.degCount-= 2;
+//    	}
+//    	
+//    	
+//    	if (RobotMap.degCount == y) { 
+//    		RobotMap.sweepDir = false;
+//    	}
+//    	else if (RobotMap.degCount == x) {
+//    		RobotMap.sweepDir = true;
+//		}
+//    	//Use a variable in Robotmap to account for the degree -Android 
 //    	if(average[i] < 30 && average[i] < 100){ //30 is just an arbitrary number
 //			
 //			//find the first side of an object in a sweep and initiate a variable to store the degree and voltage that was found
@@ -79,7 +79,8 @@ public class Radar extends Subsystem {
 //		RobotMap.changeDegreeR  = RobotMap.centerDegreeR - 90;
 //		instant = RobotMap.gyro.getAngle();
 //		if (c < average.length){
-//		z = average[c];
+//		i = c;
+//		z = average[i];
 //		}
 		x = x - 5;
 		y = y + 5;

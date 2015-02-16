@@ -131,6 +131,8 @@ public class Robot extends IterativeRobot {
         drive.start();
         dashboard.start();
         radarCommand.start();
+        RobotMap.intakeMotors.set(oi.XboxController2.getRawAxis(5));
+        RobotMap.liftMotor.set(-oi.XboxController2.getRawAxis(1));
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
 
     }
