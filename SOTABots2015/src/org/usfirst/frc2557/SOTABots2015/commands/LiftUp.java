@@ -24,20 +24,21 @@ public class LiftUp extends Command {
     protected void initialize() {
     	done = false;
     	Robot.manipulator.liftUp();
-    	if(currentLevel == maxLevel){
-    		end();
-    		done = true;
-    	}
+//    	if(currentLevel == maxLevel){
+//    		end();
+//    		done = true;
+//    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(currentLevel < RobotMap.liftLevel){
-    		done = true;
-    	}
-    	else{
-    		done = false;
-    	}
+    	Robot.manipulator.liftUp();
+//    	if(currentLevel < RobotMap.liftLevel){
+//    		done = true;
+//    	}
+//    	else{
+//    		done = false;
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

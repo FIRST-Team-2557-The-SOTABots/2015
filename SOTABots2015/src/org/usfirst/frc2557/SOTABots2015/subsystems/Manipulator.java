@@ -34,7 +34,7 @@ public class Manipulator extends Subsystem {
     	intake.set(intakeSpd);
     }
     public void intakeOut(){
-    	intake.set(intakeSpd);
+    	intake.set(-intakeSpd);
     }
     public void intakeStop(){
     	intake.set(0);
