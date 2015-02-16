@@ -75,6 +75,7 @@ public class RobotMap {
     public static int liftLevel;
     public static double liftSpeed;
     public static double intakeSpeed;
+    public static double intakeWaitTime;
     
     //Range Finder Arrays
     public static double[] leftArray;
@@ -83,6 +84,7 @@ public class RobotMap {
     
     //Other
     public static PowerDistributionPanel PDP;
+    public static Timer time;
     
     
     //public static AnalogInput rangeFrontRight;
@@ -125,6 +127,7 @@ public class RobotMap {
 	    liftLevel = 0;
 	    liftSpeed = 1;
 	    intakeSpeed = 1;
+	    intakeWaitTime = 2;
 	  
 	    //Range Finders
 	    rangeLeft = new AnalogInput(1);
@@ -194,8 +197,8 @@ public class RobotMap {
 	    rearRightEnc.setSamplesToAverage(10);
         rearRightEnc.setDistancePerPulse(12);
 	    
-	   
-	    
+        //Other
+        time.start();
 	   
     }
 }
