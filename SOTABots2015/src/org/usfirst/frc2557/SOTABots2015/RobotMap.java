@@ -114,12 +114,12 @@ public class RobotMap {
 	    SmartDashboard.putBoolean("Safety= ",  driveTrainRobotDrive41.isSafetyEnabled());
 	   
 	    //Solenoids
-	    grab = new DoubleSolenoid(1, 0, 1);
-	    intakeSol = new DoubleSolenoid(1, 2, 3);
-	    ejector = new DoubleSolenoid(1, 4, 5);
-	    rightHook = new DoubleSolenoid(1, 6, 7);
-	    backHook = new DoubleSolenoid(0, 0, 1);
-	    leftHook = new DoubleSolenoid(0, 2, 3);
+	    grab = new DoubleSolenoid(0, 0, 1);
+	    intakeSol = new DoubleSolenoid(0, 2, 3);
+	    ejector = new DoubleSolenoid(0, 4, 5);
+	    rightHook = new DoubleSolenoid(0, 6, 7);
+	    backHook = new DoubleSolenoid(1, 0, 1);
+	    leftHook = new DoubleSolenoid(1, 2, 3);
 	    //compressor = new Compressor(0);
 	    
 	    
@@ -204,7 +204,7 @@ public class RobotMap {
         rearRightEnc.setDistancePerPulse(12);
 	    
         //Other
-        time.start();
+//        time.start();
 	   
     }
 }
