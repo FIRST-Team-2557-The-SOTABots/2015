@@ -167,7 +167,7 @@ public class OI {
         LJS12 = new JoystickButton(leftJoystick, 12);
 
         //Button Commands
-        Xbox1A.whenPressed(new IntakeOpen());
+        Xbox1A.whenPressed(new Intake());
         Xbox1X.whenPressed(new Grab());
         Xbox1LJB.whenPressed(new Eject());
         Xbox2A.whenPressed(new BackHook());

@@ -1,18 +1,18 @@
 package org.usfirst.frc2557.SOTABots2015.commands;
 
-import org.usfirst.frc2557.SOTABots2015.RobotMap;
+import org.usfirst.frc2557.SOTABots2015.Robot;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class letGo extends Command {
+public class Eject extends Command {
 
-    public letGo() {
+    public Eject() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.pnuematics);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ public class letGo extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.grab.set(Value.kReverse);
+    	Robot.pnuematics.eject();
     }
 
     // Make this return true when this Command no longer needs to run execute()
