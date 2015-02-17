@@ -167,13 +167,16 @@ public class OI {
         LJS12 = new JoystickButton(leftJoystick, 12);
 
         //Button Commands
-        Xbox1A.whenPressed(new Intake());
-        Xbox1X.whenPressed(new Grab());
+        Xbox1START.whenPressed(new Intake());
+        Xbox1Y.whenPressed(new Grab());
         Xbox1LJB.whenPressed(new Eject());
-        Xbox2A.whenPressed(new BackHook());
-        Xbox2B.whenPressed(new RightHook());
-        Xbox2X.whenPressed(new LeftHook());
-        
+        Xbox1A.whenPressed(new BackHook());
+        Xbox1B.whenPressed(new RightHook());
+        Xbox1X.whenPressed(new LeftHook());
+        Xbox1LJB.whileHeld(new IntakeIn());
+        Xbox1RJB.whileHeld(new IntakeOut());
+        Xbox1LB.whileHeld(new LiftDown());
+        Xbox1RB.whileHeld(new LiftUp());
         
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
