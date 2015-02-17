@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class IntakeOut extends Command {
 	
-	boolean done;
-	double wait = RobotMap.intakeWaitTime;
-	double targetTime;
+//	boolean done;
+//	double wait = RobotMap.intakeWaitTime;
+//	double targetTime;
 
     public IntakeOut() {
         // Use requires() here to declare subsystem dependencies
@@ -22,24 +22,24 @@ public class IntakeOut extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	done = false;
-    	Robot.manipulator.intakeOut();
-    	targetTime = RobotMap.time.get() + wait;
+//    	done = false;
+//    	Robot.manipulator.intakeOut();
+//    	targetTime = RobotMap.time.get() + wait;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(RobotMap.time.get() >= targetTime){
-    		done = true;
-    	}
-    	else{
-    		done = false;
-    	}
+//    	if(RobotMap.time.get() >= targetTime){
+//    		done = true;
+//    	}
+//    	else{
+//    		done = false;
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return done;
+        return true;
     }
 
     // Called once after isFinished returns true

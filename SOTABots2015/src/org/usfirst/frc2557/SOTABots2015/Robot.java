@@ -30,7 +30,7 @@ import org.usfirst.frc2557.SOTABots2015.subsystems.*;
 public class Robot extends IterativeRobot {
 
     
-	Command autonomousCommand;
+	Command autonomous;
     Command drive;
     Command dashboard;
     Command gyroReset;
@@ -64,7 +64,7 @@ public class Robot extends IterativeRobot {
         // Let's say true is clockwise, false is counter clockwise.
         // instantiate the command used for the autonomous period
 //Subsystem Initializers (must be first)
-        autonomousCommand = new AutonomousCommand();
+        autonomous = new Autonomous();
         dashboardSub = new SmartDashboardSS();
         drive = new Drive();
         gyroSub = new GyroSub();
@@ -103,7 +103,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        if (autonomous != null) autonomous.start();
         gyroReset.start();
     }
 
@@ -119,7 +119,7 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
+        if (autonomous != null) autonomous.cancel();
         gyroReset.start();
     }
 
@@ -131,8 +131,7 @@ public class Robot extends IterativeRobot {
         drive.start();
         dashboard.start();
         radarCommand.start();
-        RobotMap.intakeMotors.set(oi.XboxController2.getRawAxis(5));
-        RobotMap.liftMotor.set(-oi.XboxController2.getRawAxis(1));
+
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
 
     }

@@ -179,7 +179,7 @@ public class OI {
         Xbox1RB.whileHeld(new LiftUp());
         
         // SmartDashboard Buttons
-        SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
+        SmartDashboard.putData("Autonomous Command", new Autonomous());
 
        
         

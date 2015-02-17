@@ -40,5 +40,6 @@ public class Manipulator extends Subsystem {
     	intake.set(0);
     }
     
+    
 }
 
