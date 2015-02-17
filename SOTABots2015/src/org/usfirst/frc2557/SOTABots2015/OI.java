@@ -168,18 +168,12 @@ public class OI {
 
         //Button Commands
         Xbox1A.whenPressed(new IntakeOpen());
-        Xbox1B.whenPressed(new IntakeClose());
         Xbox1X.whenPressed(new Grab());
-        Xbox1Y.whenPressed(new letGo());
-        Xbox1LJB.whenPressed(new EjectOut());
-        Xbox1RJB.whenPressed(new EjectIn());
-        
+        Xbox1LJB.whenPressed(new Eject());
         Xbox2A.whenPressed(new BackHook());
         Xbox2B.whenPressed(new RightHook());
         Xbox2X.whenPressed(new LeftHook());
-        Xbox2LB.whenPressed(new BackDown());
-        Xbox2BACK.whenPressed(new LeftDown());
-        Xbox2START.whenPressed(new RightDown());
+        
         
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());

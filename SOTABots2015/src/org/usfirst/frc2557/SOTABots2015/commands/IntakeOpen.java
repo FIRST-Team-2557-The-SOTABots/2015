@@ -17,7 +17,7 @@ public class IntakeOpen extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.pnuematics.intakeOpen();
+    	Robot.pnuematics.intake();
     }
 
     // Called repeatedly when this Command is scheduled to run
