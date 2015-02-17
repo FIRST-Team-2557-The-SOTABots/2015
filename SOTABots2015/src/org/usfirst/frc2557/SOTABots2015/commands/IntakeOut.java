@@ -6,7 +6,7 @@ import org.usfirst.frc2557.SOTABots2015.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Change to just Intake.
  */
 public class IntakeOut extends Command {
 	
