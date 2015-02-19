@@ -24,17 +24,18 @@ public class IntakeIn extends Command {
     protected void initialize() {
     	done = false;
     	Robot.manipulator.intakeIn();
-    	targetTime = RobotMap.time.get() + wait;
+    	//targetTime = RobotMap.time.get() + wait;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(RobotMap.time.get() >= targetTime){
-    		done = true;
-    	}
-    	else{
-    		done = false;
-    	}
+    	//if(RobotMap.time.get() >= targetTime){
+    	//	done = true;
+    	//}
+    	//else{
+    	//	done = false;
+    	//}
+    	Robot.manipulator.intakeIn();
     }
 
     // Make this return true when this Command no longer needs to run execute()

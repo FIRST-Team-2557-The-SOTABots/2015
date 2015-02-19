@@ -13,6 +13,7 @@
 package org.usfirst.frc2557.SOTABots2015;
 
 import org.usfirst.frc2557.SOTABots2015.commands.*;
+import org.usfirst.frc2557.SOTABots2015.subsystems.Manipulator;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -137,52 +138,29 @@ public class OI {
         Xbox2START = new JoystickButton(XboxController2, 8);
         Xbox2LJB = new JoystickButton(XboxController2, 9);
         Xbox2RJB = new JoystickButton(XboxController2, 10);
-        
-        //Right Joystick Buttons:
-        RJST = new JoystickButton(rightJoystick, 1);
-        RJSTB = new JoystickButton(rightJoystick, 2);
-        RJS3 = new JoystickButton(rightJoystick, 3);
-        RJS4 = new JoystickButton(rightJoystick, 4);
-        RJS5 = new JoystickButton(rightJoystick, 5);
-        RJS6 = new JoystickButton(rightJoystick, 6);
-        RJS7 = new JoystickButton(rightJoystick, 7);
-        RJS8 = new JoystickButton(rightJoystick, 8);
-        RJS9 = new JoystickButton(rightJoystick, 9);
-        RJS10 = new JoystickButton(rightJoystick, 10);
-        RJS11 = new JoystickButton(rightJoystick, 11);
-        RJS12 = new JoystickButton(rightJoystick, 12);
-        
-        //Left Joystick Buttons:
-        LJST = new JoystickButton(leftJoystick, 1);
-        LJSTB = new JoystickButton(leftJoystick, 2);
-        LJS3 = new JoystickButton(leftJoystick, 3);
-        LJS4 = new JoystickButton(leftJoystick, 4);
-        LJS5 = new JoystickButton(leftJoystick, 5);
-        LJS6 = new JoystickButton(leftJoystick, 6);
-        LJS7 = new JoystickButton(leftJoystick, 7);
-        LJS8 = new JoystickButton(leftJoystick, 8);
-        LJS9 = new JoystickButton(leftJoystick, 9);
-        LJS10 = new JoystickButton(leftJoystick, 10);
-        LJS11 = new JoystickButton(leftJoystick, 11);
-        LJS12 = new JoystickButton(leftJoystick, 12);
+
 
         //Button Commands
         Xbox1A.whenPressed(new IntakeOpen());
-        Xbox1B.whenPressed(new IntakeClose());
-        Xbox1X.whenPressed(new Grab());
-        Xbox1Y.whenPressed(new letGo());
-        Xbox1LJB.whenPressed(new EjectOut());
-        Xbox1RJB.whenPressed(new EjectIn());
-        
-        Xbox2A.whenPressed(new BackHook());
-        Xbox2B.whenPressed(new RightHook());
-        Xbox2X.whenPressed(new LeftHook());
-        Xbox2LB.whenPressed(new BackDown());
-        Xbox2BACK.whenPressed(new LeftDown());
-        Xbox2START.whenPressed(new RightDown());
+        Xbox1B.whenPressed(new RightHook());
+        Xbox1X.whenPressed(new LeftHook());
+        Xbox1Y.whenPressed(new BackHook());
+        Xbox1LJB.whileHeld(new IntakeIn());
+        Xbox1RJB.whileHeld(new IntakeOut());
+        Xbox1LB.whileHeld(new LiftDown());
+        Xbox1RB.whileHeld(new LiftUp());
+        Xbox1START.whenPressed(new Grab());
+        Xbox1BACK.whenPressed(new Eject());
+//        Xbox2A.whenPressed(new BackHook());
+//        Xbox2B.whenPressed(new RightHook());
+//        Xbox2X.whenPressed(new LeftHook());
+//        Xbox2LB.whenPressed(new BackDown());
+//        Xbox2BACK.whenPressed(new LeftDown());
+//        Xbox2START.whenPressed(new RightDown());
         
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
+        SmartDashboard.putNumber("Controller POV", XboxController1.getPOV());
 
        
         

@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class EjectIn extends Command {
+public class Eject extends Command {
 
-    public EjectIn() {
+    public Eject() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.pnuematics);
@@ -29,7 +29,7 @@ public class EjectIn extends Command {
 //    	else{
 //    		RobotMap.ejector.set(Value.kForward);//Robot.pnuematics.ejectOut();
 //    	}
-    	Robot.pnuematics.ejectIn();
+    	Robot.pnuematics.eject();
     }
 
     // Make this return true when this Command no longer needs to run execute()
