@@ -37,8 +37,9 @@ public class IntakeIn extends Command {
 //    	else{
 //    		done = false;
 //    	}
-    	Robot.manipulator.intakeIn();
-    	Timer.delay(1);
+//    	Robot.manipulator.intakeIn();
+//    	Timer.delay(1);
+    	Robot.manipulator.intake();
     }
 
     // Make this return true when this Command no longer needs to run execute()

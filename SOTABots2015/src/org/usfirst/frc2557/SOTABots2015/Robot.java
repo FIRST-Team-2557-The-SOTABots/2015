@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc2557.SOTABots2015.commands.*;
 import org.usfirst.frc2557.SOTABots2015.subsystems.*;
@@ -36,6 +37,7 @@ public class Robot extends IterativeRobot {
     Command gyroReset;
     Command radarCommand;
     Command intake;
+    Command lift;
     
 
     public static OI oi;
@@ -64,7 +66,7 @@ public class Robot extends IterativeRobot {
         // Let's say true is clockwise, false is counter clockwise.
         // instantiate the command used for the autonomous period
 //Subsystem Initializers (must be first)
-        autonomous = new Autonomous();
+        
         dashboardSub = new SmartDashboardSS();
         drive = new Drive();
         gyroSub = new GyroSub();
@@ -79,7 +81,9 @@ public class Robot extends IterativeRobot {
         radarCommand = new RadarCommand();
         gyroReset = new GyroReset();
         dashboard = new Dashboard();
-        
+        autonomous = new Autonomous();
+        intake = new IntakeIn();
+        lift = new LiftUp();
         // OI must be constructed after subsystems. If the OI creates Commands 
         //(which it very likely will), subsystems are not guaranteed to be 
         // constructed yet. Thus, their requires() statements may grab null 
@@ -112,6 +116,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        //radarCommand.start();
     }
 
     public void teleopInit() {
@@ -131,7 +136,14 @@ public class Robot extends IterativeRobot {
         drive.start();
         dashboard.start();
         radarCommand.start();
-
+        intake.start();
+        lift.start();
+        SmartDashboard.putNumber("front left enc", RobotMap.frontLeftEnc.get());
+    	SmartDashboard.putNumber("front right enc", RobotMap.frontRightEnc.get());
+    	SmartDashboard.putNumber("rear left enc", RobotMap.rearLeftEnc.get());
+    	SmartDashboard.putNumber("rear right enc", RobotMap.rearRightEnc.get());
+    	SmartDashboard.putNumber("front left dist", RobotMap.frontLeftEnc.getDistance());
+    	SmartDashboard.putNumber("front left rate", RobotMap.frontLeftEnc.getRate());
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
 
     }

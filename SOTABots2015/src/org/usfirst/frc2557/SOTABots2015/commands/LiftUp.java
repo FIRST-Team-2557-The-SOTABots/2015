@@ -29,6 +29,7 @@ public class LiftUp extends Command {
 //    		end();
 //    		done = true;
 //    	}
+    	Robot.manipulator.lift();
     }
 
     // Called repeatedly when this Command is scheduled to run

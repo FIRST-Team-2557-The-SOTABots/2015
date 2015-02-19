@@ -53,9 +53,9 @@ public class SmartDashboardSS extends Subsystem {
     public void rangeOutputs(){
     	//RangeFinders
         
-//        SmartDashboard.putNumber("The Left Range Finder normal: ", rangeLeft.getVoltage()/divider);
-//        SmartDashboard.putNumber("The Right Range Finder normal: ", rangeRight.getVoltage()/divider);
-//        SmartDashboard.putNumber("The Center Range Finder normal: ", rangeCenter.getVoltage()/divider);
+        SmartDashboard.putNumber("The Left Range Finder normal: ", rangeLeft.getVoltage()/divider);
+        SmartDashboard.putNumber("The Right Range Finder normal: ", rangeRight.getVoltage()/divider);
+        SmartDashboard.putNumber("The Center Range Finder normal: ", rangeCenter.getVoltage()/divider);
         SmartDashboard.putNumber("The Left Range Finder average: ", rangeLeft.getAverageVoltage()/divider);
         SmartDashboard.putNumber("The Right Range Finder average: ", rangeRight.getAverageVoltage()/divider);
         SmartDashboard.putNumber("The Center Range Finder average: ", rangeCenter.getAverageVoltage()/divider);

@@ -1,5 +1,6 @@
 package org.usfirst.frc2557.SOTABots2015.subsystems;
 
+import org.usfirst.frc2557.SOTABots2015.Robot;
 import org.usfirst.frc2557.SOTABots2015.RobotMap;
 
 import edu.wpi.first.wpilibj.SpeedController;
@@ -30,6 +31,9 @@ public class Manipulator extends Subsystem {
     public void liftStop(){
     	lift.set(0);
     }
+    public void lift(){
+    	lift.set(Robot.oi.XboxController2.getRawAxis(1));
+    }
     public void intakeIn(){
     	intake.set(intakeSpd);
     }
@@ -39,7 +43,9 @@ public class Manipulator extends Subsystem {
     public void intakeStop(){
     	intake.set(0);
     }
-    
+    public void intake(){
+    	intake.set(Robot.oi.XboxController2.getRawAxis(5));
+    }
     
 }
 

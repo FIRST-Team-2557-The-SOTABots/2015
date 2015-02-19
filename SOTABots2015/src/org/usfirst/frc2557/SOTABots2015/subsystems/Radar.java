@@ -120,17 +120,19 @@ public class Radar extends Subsystem {
 		}
 */
 ////////TEST///////
-		
+	}	
 		
 		/////This code works, do not touch it/////
-/*		
+		public void sweepMe(int y, int x){
+		double a;
+		double[] average = new double[10];
 		for(int i = 0; i < 10; i++){
 			average[i] = rangeCenter.getVoltage()/.009765;
 			
 		}
 		a = (average[0]+average[1]+average[2])/average.length;
 		
-    	RobotMap.servoCenter.set(RobotMap.degCount / 180.0);
+    	RobotMap.servoCenter.set(y / 180.0);
     	if (RobotMap.sweepDir == true) {
     		RobotMap.degCount+= 2;
     	}
@@ -143,8 +145,9 @@ public class Radar extends Subsystem {
     	else if (RobotMap.degCount == x) {
     		RobotMap.sweepDir = true;
     	}
-*/
-    }
+    	}
+
+    
 
 	//Servos
     public void sweepAll180(){
@@ -174,10 +177,10 @@ public class Radar extends Subsystem {
        	else {
        		RobotMap.degCount-= 2;
        	}
-       	if (RobotMap.degCount == 135) {
+       	if (RobotMap.degCount == 95) {
        		RobotMap.sweepDir = false;
        	}
-       	else if (RobotMap.degCount == 45) {
+       	else if (RobotMap.degCount == 90) {
        		RobotMap.sweepDir = true;
        	}
     }
