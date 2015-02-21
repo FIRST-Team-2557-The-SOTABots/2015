@@ -29,7 +29,7 @@ public class LiftUp extends Command {
 //    		end();
 //    		done = true;
 //    	}
-    	Robot.manipulator.lift();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -40,19 +40,20 @@ public class LiftUp extends Command {
 //    	else{
 //    		done = false;
 //    	}
-    	Robot.manipulator.liftUp();
-    	Timer.delay(2);
+//    	Robot.manipulator.liftUp();
+//    	Timer.delay(2);
+    	Robot.manipulator.lift();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
 //        return done;
-    	return true;
+    	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.manipulator.liftStop();
+    	//Robot.manipulator.liftStop();
     }
 
     // Called when another command which requires one or more of the same

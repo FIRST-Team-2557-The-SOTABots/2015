@@ -25,8 +25,8 @@ public class AutoRotateClock extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while(RobotMap.frontLeftEnc.get() < 100 & RobotMap.frontRightEnc.get() < 100){
-    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,.2,0);
+    	while(RobotMap.frontLeftEnc.get() < 1250 & RobotMap.frontRightEnc.get() < 1250){
+    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,.5,0);
     	}
     }
 

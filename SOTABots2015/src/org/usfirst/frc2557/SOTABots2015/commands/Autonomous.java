@@ -24,42 +24,42 @@ public class Autonomous extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new BackHook());
+    	//addSequential(new BackHook());
     	addSequential(new AutoDrive());
-    	addSequential(new Intake());
-    	addSequential(new AutoIntake());
-    	addSequential(new Intake());
-    	addSequential(new Grab());
-    	addSequential(new AutoLiftUp());
-    	addSequential(new AutoRotateCounter());
-    	addSequential(new RightHook());
-    	addSequential(new AutoRotateCounter());
-    	addSequential(new AutoDrive());
-    	addSequential(new Intake());
-    	addSequential(new AutoIntake());
-    	addSequential(new Intake());
-    	addSequential(new AutoLiftDown());
-    	addSequential(new Grab());
-    	addSequential(new AutoLiftDown());
-    	addSequential(new Grab());
-    	addSequential(new AutoLiftUp());
-    	addSequential(new AutoDriveBack());
-    	addSequential(new AutoRotateCounter());
-    	addSequential(new AutoRotateCounter());
-    	addSequential(new Intake());
-    	addSequential(new AutoIntake());
-    	addSequential(new Intake());
-    	addSequential(new AutoLiftDown());
-    	addSequential(new Grab());
-    	addSequential(new AutoLiftDown());
-    	addSequential(new Grab());
-    	addSequential(new AutoRotateClock());
-    	addSequential(new LeftHook());
-    	addSequential(new AutoDrive());
-    	addSequential(new AutoLiftDown());
-    	addSequential(new Grab());
-    	addSequential(new Eject());
-    	addSequential(new AutoDriveBack());
+//    	addSequential(new Intake());
+//    	addSequential(new AutoIntake());
+//    	addSequential(new Intake());
+//    	addSequential(new Grab());
+    	//addSequential(new AutoLiftUp());
+    	//addSequential(new AutoRotateCounter());
+    	//addSequential(new RightHook());
+    	//addSequential(new AutoRotateCounter());
+    	//addSequential(new AutoDrive());
+    	//addSequential(new Intake());
+//    	addSequential(new AutoIntake());
+//    	addSequential(new Intake());
+    	//addSequential(new AutoLiftDown());
+    	//addSequential(new Grab());
+    	//addSequential(new AutoLiftDown());
+    	//addSequential(new Grab());
+    	//addSequential(new AutoLiftUp());
+    	//addSequential(new AutoDriveBack());
+    	//addSequential(new AutoRotateCounter());
+    	//addSequential(new AutoRotateCounter());
+//    	addSequential(new Intake());
+//    	addSequential(new AutoIntake());
+//    	addSequential(new Intake());
+    	//addSequential(new AutoLiftDown());
+    	//addSequential(new Grab());
+    	//addSequential(new AutoLiftDown());
+    	//addSequential(new Grab());
+    	//addSequential(new AutoRotateClock());
+    	//addSequential(new LeftHook());
+    	//addSequential(new AutoDrive());
+    	//addSequential(new AutoLiftDown());
+//    	addSequential(new Grab());
+//    	addSequential(new Eject());
+    	//addSequential(new AutoDriveBack());
 
     }
 }
