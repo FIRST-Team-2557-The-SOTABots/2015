@@ -38,6 +38,7 @@ public class Robot extends IterativeRobot {
     Command radarCommand;
     Command intake;
     Command lift;
+    Command liftTest;
     
 
     public static OI oi;
@@ -82,8 +83,9 @@ public class Robot extends IterativeRobot {
         gyroReset = new GyroReset();
         dashboard = new Dashboard();
         autonomous = new Autonomous();
-        intake = new IntakeIn();
+        intake = new IntakeTest();
         lift = new LiftUp();
+        liftTest = new LiftTest();
         // OI must be constructed after subsystems. If the OI creates Commands 
         //(which it very likely will), subsystems are not guaranteed to be 
         // constructed yet. Thus, their requires() statements may grab null 
@@ -136,7 +138,9 @@ public class Robot extends IterativeRobot {
         drive.start();
         dashboard.start();
         radarCommand.start();
-        lift.start();
+        //lift.start();
+        intake.start();
+        liftTest.start();
         RobotMap.intakeMotors.set(oi.XboxController2.getRawAxis(5));
         SmartDashboard.putNumber("front left enc", RobotMap.frontLeftEnc.get());
     	SmartDashboard.putNumber("front right enc", RobotMap.frontRightEnc.get());

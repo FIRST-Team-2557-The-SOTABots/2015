@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class AutoDrive extends Command {
 
-    public AutoDrive() {
+    public AutoDrive(double x) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -24,9 +24,9 @@ public class AutoDrive extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+    protected void execute(double x) {
     	while(RobotMap.frontLeftEnc.get() < 1500 & RobotMap.frontRightEnc.get() < 1500){
-    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,.5,0,0);
+    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,x,0,0);
     	}
     }
 
@@ -44,4 +44,10 @@ public class AutoDrive extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+
+	@Override
+	protected void execute() {
+		// TODO Auto-generated method stub
+		
+	}
 }

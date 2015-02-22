@@ -33,13 +33,13 @@ public class Drive extends Command {
 //Xbox Controller
     				///////////////////THIS CODE WORKS//////DO NOT CHANGE////////
     	if (Math.abs(-Robot.oi.XboxController1.getRawAxis(0)) > 0.3 || Math.abs(-Robot.oi.XboxController1.getRawAxis(1)) > 0.3 || Math.abs(-Robot.oi.XboxController1.getRawAxis(4)) > .3){
-    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(-Robot.oi.XboxController1.getRawAxis(0)*.75, -Robot.oi.XboxController1.getRawAxis(1)*.5, -Robot.oi.XboxController1.getRawAxis(4)*.5,0);
+    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(-Robot.oi.XboxController1.getRawAxis(0)*.75, -Robot.oi.XboxController1.getRawAxis(1)*.5, -Robot.oi.XboxController1.getRawAxis(4)*.5,RobotMap.gyro.getAngle());
     	}
 
     				//////////////////THIS CODE WORKS^^^^^^^^DO NOT CHANGE////////
-//    	else{
-//    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
-//    	}
+    	else{
+    		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
+    	}
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
