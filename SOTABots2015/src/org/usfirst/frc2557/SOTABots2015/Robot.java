@@ -111,6 +111,7 @@ public class Robot extends IterativeRobot {
         // schedule the autonomous command (example)
         if (autonomous != null) autonomous.start();
         gyroReset.start();
+        
     }
 
     /**
@@ -118,6 +119,12 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("front left enc", RobotMap.frontLeftEnc.get());
+    	SmartDashboard.putNumber("front right enc", RobotMap.frontRightEnc.get());
+    	SmartDashboard.putNumber("rear left enc", RobotMap.rearLeftEnc.get());
+    	SmartDashboard.putNumber("rear right enc", RobotMap.rearRightEnc.get());
+    	SmartDashboard.putNumber("front left dist", RobotMap.frontLeftEnc.getDistance());
+    	SmartDashboard.putNumber("front left rate", RobotMap.frontLeftEnc.getRate());
         //radarCommand.start();
     }
 
@@ -142,12 +149,7 @@ public class Robot extends IterativeRobot {
         intake.start();
         liftTest.start();
         RobotMap.intakeMotors.set(oi.XboxController2.getRawAxis(5));
-        SmartDashboard.putNumber("front left enc", RobotMap.frontLeftEnc.get());
-    	SmartDashboard.putNumber("front right enc", RobotMap.frontRightEnc.get());
-    	SmartDashboard.putNumber("rear left enc", RobotMap.rearLeftEnc.get());
-    	SmartDashboard.putNumber("rear right enc", RobotMap.rearRightEnc.get());
-    	SmartDashboard.putNumber("front left dist", RobotMap.frontLeftEnc.getDistance());
-    	SmartDashboard.putNumber("front left rate", RobotMap.frontLeftEnc.getRate());
+        
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
 
     }

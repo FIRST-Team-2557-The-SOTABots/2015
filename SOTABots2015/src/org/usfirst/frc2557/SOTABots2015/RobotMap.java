@@ -79,6 +79,7 @@ public class RobotMap {
     public static double liftSpeed;
     public static double intakeSpeed;
     public static double intakeWaitTime;
+    public static double autoSpeed;
     
     //Range Finder Arrays
     public static double[] leftArray;

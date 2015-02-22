@@ -168,7 +168,7 @@ public class OI {
 
         //Button Commands
         //Drive Controller
-        //Xbox1A.whenPressed(new Intake());
+        Xbox1A.whenPressed(new Intake());
         Xbox1Y.whenPressed(new Eject());
 //        Xbox1LB.whileHeld(new IntakeOut());
 //        Xbox1RB.whileHeld(new IntakeIn());
@@ -180,7 +180,7 @@ public class OI {
         Xbox2Y.whenPressed(new BackHook());
         Xbox2B.whenPressed(new RightHook());
         Xbox2X.whenPressed(new LeftHook());
-        Xbox2RB.whenPressed(new Intake());
+        //Xbox2RB.whenPressed(new Intake());
         //Left Joystick controls lift
         //Right Joystick controls intake motors
         

@@ -1,5 +1,8 @@
 package org.usfirst.frc2557.SOTABots2015.commands;
 
+import org.usfirst.frc2557.SOTABots2015.RobotMap;
+
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -25,42 +28,44 @@ public class Autonomous extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
 //    	addSequential(new BackHook());
-    	addSequential(new AutoDrive(.2)); //has to change
-    	addSequential(new AutoDrive(-.2));
+//    	RobotMap.autoSpeed = .2;
+//     	addSequential(new AutoDrive()); //has to change
+//     	RobotMap.autoSpeed = .2;
+//    	addSequential(new AutoDrive());
 //    	addParallel(new Intake());
-//    	addSequential(new AutoIntake());
+//  	addSequential(new AutoIntake());
 //    	addSequential(new Intake());
 //    	addSequential(new Grab());
-    	//addSequential(new AutoLiftUp());
-    	//addSequential(new AutoRotateCounter());
-    	//addSequential(new RightHook());
-    	//addSequential(new AutoRotateCounter());
-    	//addSequential(new AutoDrive());
-    	//addSequential(new Intake());
-//    	addSequential(new AutoIntake());
-//    	addSequential(new Intake());
-    	//addSequential(new AutoLiftDown());
-    	//addSequential(new Grab());
-    	//addSequential(new AutoLiftDown());
-    	//addSequential(new Grab());
-    	//addSequential(new AutoLiftUp());
-    	//addSequential(new AutoDriveBack());
-    	//addSequential(new AutoRotateCounter());
-    	//addSequential(new AutoRotateCounter());
+//    	addSequential(new AutoLiftUp());
+//    	addSequential(new AutoRotateCounter());
+//    	addSequential(new RightHook());
+//    	addSequential(new AutoRotateCounter());
+//    	addSequential(new AutoDrive());
 //    	addSequential(new Intake());
 //    	addSequential(new AutoIntake());
 //    	addSequential(new Intake());
-    	//addSequential(new AutoLiftDown());
-    	//addSequential(new Grab());
-    	//addSequential(new AutoLiftDown());
-    	//addSequential(new Grab());
-    	//addSequential(new AutoRotateClock());
-    	//addSequential(new LeftHook());
-    	//addSequential(new AutoDrive());
-    	//addSequential(new AutoLiftDown());
+//    	addSequential(new AutoLiftDown());
+//    	addSequential(new Grab());
+//    	addSequential(new AutoLiftDown());
+//    	addSequential(new Grab());
+//    	addSequential(new AutoLiftUp());
+//    	addSequential(new AutoDriveBack());
+//    	addSequential(new AutoRotateCounter());
+//    	addSequential(new AutoRotateCounter());
+//    	addSequential(new Intake());
+//    	addSequential(new AutoIntake());
+//    	addSequential(new Intake());
+//    	addSequential(new AutoLiftDown());
+//    	addSequential(new Grab());
+//    	addSequential(new AutoLiftDown());
+//    	addSequential(new Grab());
+//    	addSequential(new AutoRotateClock());
+//    	addSequential(new LeftHook());
+//    	addSequential(new AutoDrive());
+//    	addSequential(new AutoLiftDown());
 //    	addSequential(new Grab());
 //    	addSequential(new Eject());
-    	//addSequential(new AutoDriveBack());
+//    	addSequential(new AutoDriveBack());
 
     }
 }

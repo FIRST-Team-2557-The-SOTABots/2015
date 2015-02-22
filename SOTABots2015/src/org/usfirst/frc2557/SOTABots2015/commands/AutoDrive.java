@@ -4,15 +4,17 @@ import org.usfirst.frc2557.SOTABots2015.Robot;
 import org.usfirst.frc2557.SOTABots2015.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class AutoDrive extends Command {
 
-    public AutoDrive(double x) {
+    public AutoDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +23,19 @@ public class AutoDrive extends Command {
     	RobotMap.frontRightEnc.reset();
     	RobotMap.rearLeftEnc.reset();
     	RobotMap.rearRightEnc.reset();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute(double x) {
+    protected void execute() {
     	while(RobotMap.frontLeftEnc.get() < 1500 & RobotMap.frontRightEnc.get() < 1500){
-    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,x,0,0);
+    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,RobotMap.autoSpeed,0,0);
+    		SmartDashboard.putNumber("front left enc", RobotMap.frontLeftEnc.get());
+        	SmartDashboard.putNumber("front right enc", RobotMap.frontRightEnc.get());
+        	SmartDashboard.putNumber("rear left enc", RobotMap.rearLeftEnc.get());
+        	SmartDashboard.putNumber("rear right enc", RobotMap.rearRightEnc.get());
+        	SmartDashboard.putNumber("front left dist", RobotMap.frontLeftEnc.getDistance());
+        	SmartDashboard.putNumber("front left rate", RobotMap.frontLeftEnc.getRate());
     	}
     }
 
@@ -45,9 +54,5 @@ public class AutoDrive extends Command {
     protected void interrupted() {
     }
 
-	@Override
-	protected void execute() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
