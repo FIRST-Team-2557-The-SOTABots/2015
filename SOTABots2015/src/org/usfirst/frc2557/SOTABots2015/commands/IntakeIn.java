@@ -3,17 +3,16 @@ package org.usfirst.frc2557.SOTABots2015.commands;
 import org.usfirst.frc2557.SOTABots2015.Robot;
 import org.usfirst.frc2557.SOTABots2015.RobotMap;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Change to just Intake.
  */
 public class IntakeIn extends Command {
-//	
-//	boolean done;
-//	double wait = RobotMap.intakeWaitTime;
-//	double targetTime;
+	
+	boolean done;
+	double wait = RobotMap.intakeWaitTime;
+	double targetTime;
 
     public IntakeIn() {
         // Use requires() here to declare subsystem dependencies
@@ -23,10 +22,9 @@ public class IntakeIn extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//    	done = false;
-//    	Robot.manipulator.intakeIn();
-//    	targetTime = RobotMap.time.get() + wait;
-    	
+    	done = false;
+    	Robot.manipulator.intakeOut();
+    	//targetTime = RobotMap.time.get() + wait;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -37,25 +35,22 @@ public class IntakeIn extends Command {
 //    	else{
 //    		done = false;
 //    	}
-//    	Robot.manipulator.intakeIn();
-//    	Timer.delay(1);
-    	Robot.manipulator.intake();
+    	Robot.manipulator.intakeIn();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //return done;
-    	return false;
+       return done;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	//Robot.manipulator.intakeStop();
+    	Robot.manipulator.intakeStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-//    	end();
+    	end();
     }
 }

@@ -136,7 +136,6 @@ public class Robot extends IterativeRobot {
         drive.start();
         dashboard.start();
         radarCommand.start();
-        intake.start();
         lift.start();
         RobotMap.intakeMotors.set(oi.XboxController2.getRawAxis(5));
         SmartDashboard.putNumber("front left enc", RobotMap.frontLeftEnc.get());

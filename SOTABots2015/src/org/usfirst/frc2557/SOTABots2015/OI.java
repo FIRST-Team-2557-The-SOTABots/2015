@@ -170,6 +170,8 @@ public class OI {
         //Drive Controller
         Xbox1A.whenPressed(new Intake());
         Xbox1Y.whenPressed(new Eject());
+        Xbox1LB.whileHeld(new IntakeIn());
+        Xbox1RB.whileHeld(new IntakeOut());
         //Left joystick controls driving forwards and backwards
         //Right Joystick controls rotation
         
