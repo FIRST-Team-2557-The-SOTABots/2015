@@ -28,9 +28,7 @@ public class Autonomous extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
 //    	addSequential(new BackHook());
-//    	RobotMap.autoSpeed = .2;
-//     	addSequential(new AutoDrive()); //has to change
-//     	RobotMap.autoSpeed = .2;
+     	addSequential(new AutoDrive(.2, 1500)); //has to change
 //    	addSequential(new AutoDrive());
 //    	addParallel(new Intake());
 //  	addSequential(new AutoIntake());

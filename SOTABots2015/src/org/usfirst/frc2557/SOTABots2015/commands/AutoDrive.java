@@ -10,11 +10,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class AutoDrive extends Command {
-
-    public AutoDrive() {
+	private double power;
+	private double distance;
+    public AutoDrive(double x, double y) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-
+    	power = x;
+    	distance = y;
     }
 
     // Called just before this Command runs the first time
@@ -28,8 +30,8 @@ public class AutoDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while(RobotMap.frontLeftEnc.get() < 1500 & RobotMap.frontRightEnc.get() < 1500){
-    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,RobotMap.autoSpeed,0,0);
+    	while(RobotMap.frontLeftEnc.get() < distance & RobotMap.frontRightEnc.get() < distance){
+    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,power,0,0);
     		SmartDashboard.putNumber("front left enc", RobotMap.frontLeftEnc.get());
         	SmartDashboard.putNumber("front right enc", RobotMap.frontRightEnc.get());
         	SmartDashboard.putNumber("rear left enc", RobotMap.rearLeftEnc.get());
