@@ -28,28 +28,28 @@ public class Autonomous extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
 //    	addSequential(new BackHook());
-     	addSequential(new AutoDrive(.2, 1500)); //has to change
-//    	addSequential(new AutoDrive());
+     	addSequential(new AutoDrive(0, .2, 0, 1500)); //has to change
+    	addSequential(new AutoDrive(0, -.2, 0, 1500));
 //    	addParallel(new Intake());
-//  	addSequential(new AutoIntake());
+    	addSequential(new AutoIntake());
 //    	addSequential(new Intake());
 //    	addSequential(new Grab());
-//    	addSequential(new AutoLiftUp());
+    	addSequential(new AutoLiftUp());
 //    	addSequential(new AutoRotateCounter());
 //    	addSequential(new RightHook());
 //    	addSequential(new AutoRotateCounter());
-//    	addSequential(new AutoDrive());
+//    	addSequential(new AutoDrive()); //Drive Forwards
 //    	addSequential(new Intake());
-//    	addSequential(new AutoIntake());
+    	addSequential(new AutoIntake());
 //    	addSequential(new Intake());
-//    	addSequential(new AutoLiftDown());
+    	addSequential(new AutoLiftDown());
 //    	addSequential(new Grab());
-//    	addSequential(new AutoLiftDown());
+    	addSequential(new AutoLiftDown());
 //    	addSequential(new Grab());
-//    	addSequential(new AutoLiftUp());
-//    	addSequential(new AutoDriveBack());
-//    	addSequential(new AutoRotateCounter());
-//    	addSequential(new AutoRotateCounter());
+    	addSequential(new AutoLiftUp());
+//    	addSequential(new AutoDrive(0, -.2, 0, 1500)); //Backwards
+//    	addSequential(new AutoDrive(0, 0, -.2, 1500)); //Rotate left
+//    	addSequential(new AutoDrive(0, 0, -.2, 1500)); //Rotate left
 //    	addSequential(new Intake());
 //    	addSequential(new AutoIntake());
 //    	addSequential(new Intake());
@@ -59,11 +59,11 @@ public class Autonomous extends CommandGroup {
 //    	addSequential(new Grab());
 //    	addSequential(new AutoRotateClock());
 //    	addSequential(new LeftHook());
-//    	addSequential(new AutoDrive());
+//    	addSequential(new AutoDrive(0, .2, 0, 1500)); //Drive Forward
 //    	addSequential(new AutoLiftDown());
 //    	addSequential(new Grab());
 //    	addSequential(new Eject());
-//    	addSequential(new AutoDriveBack());
+//    	addSequential(new AutoDrive(0, -.2, 0, 1500)); //Drive backwards
 
     }
 }
