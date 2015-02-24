@@ -23,16 +23,16 @@ public class IntakeTest extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	Robot.manipulator.intake();
-    	if (Robot.oi.XboxController1.getRawAxis(2) < 0){
-    		RobotMap.intakeMotors.set(Robot.oi.XboxController1.getRawAxis(2));
-    	}
-    	else if (Robot.oi.XboxController1.getRawAxis(3) < 0){
-    		RobotMap.intakeMotors.set(Robot.oi.XboxController1.getRawAxis(3));
-    	}
-    	else{
-    		RobotMap.intakeMotors.set(0);
-    	}
+    	Robot.manipulator.intake();
+//    	if (Robot.oi.XboxController1.getRawAxis(2) < 0){
+//    		RobotMap.intakeMotors.set(Robot.oi.XboxController1.getRawAxis(2));
+//    	}
+//    	else if (Robot.oi.XboxController1.getRawAxis(3) < 0){
+//    		RobotMap.intakeMotors.set(Robot.oi.XboxController1.getRawAxis(3));
+//    	}
+//    	else{
+//    		RobotMap.intakeMotors.set(0);
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

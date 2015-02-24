@@ -28,10 +28,10 @@ public class Autonomous extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
 //    	addSequential(new BackHook());
-     	addSequential(new AutoDrive(0, .2, 0, 1500)); //has to change
+     	addSequential(new AutoDrive(0, .2, 0, 1500));
     	addSequential(new AutoDrive(0, -.2, 0, 1500));
 //    	addParallel(new Intake());
-    	addSequential(new AutoIntake());
+//    	addSequential(new AutoIntake());
 //    	addSequential(new Intake());
 //    	addSequential(new Grab());
     	addSequential(new AutoLiftUp());
@@ -40,7 +40,7 @@ public class Autonomous extends CommandGroup {
 //    	addSequential(new AutoRotateCounter());
 //    	addSequential(new AutoDrive()); //Drive Forwards
 //    	addSequential(new Intake());
-    	addSequential(new AutoIntake());
+//    	addSequential(new AutoIntake());
 //    	addSequential(new Intake());
     	addSequential(new AutoLiftDown());
 //    	addSequential(new Grab());

@@ -32,7 +32,7 @@ public class Manipulator extends Subsystem {
     	lift.set(0);
     }
     public void lift(){
-    	lift.set(-Robot.oi.XboxController2.getRawAxis(1));
+    	lift.set(-Robot.oi.XboxController1.getRawAxis(5));
     }
     public void intakeIn(){
     	intake.set(intakeSpd);
@@ -44,15 +44,16 @@ public class Manipulator extends Subsystem {
     	intake.set(0);
     }
     public void intake(){
-    	if (Robot.oi.XboxController1.getRawButton(6)){
-    		intake.set(1);
-    	}
-    	else if (Robot.oi.XboxController1.getRawButton(5)){
-    		intake.set(-1);
-    	}
-    	else{
-    		intake.set(0);
-    	}
+//    	if (Robot.oi.XboxController1.getRawButton(6)){
+//    		intake.set(1);
+//    	}
+//    	else if (Robot.oi.XboxController1.getRawButton(5)){
+//    		intake.set(-1);
+//    	}
+//    	else{
+//    		intake.set(0);
+//    	}
+    	intake.set(Robot.oi.XboxController1.getZ());
     }
     
 }
