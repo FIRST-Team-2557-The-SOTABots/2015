@@ -168,14 +168,15 @@ public class OI {
 
         //Button Commands
         //Drive Controller
-        Xbox1LB.whenPressed(new AutoIntake());
-        Xbox1RB.whenPressed(new IntakeArm());
-        Xbox1BACK.whenPressed(new Eject());
+        //Xbox1LB.whenPressed(new AutoIntake()); //Testing
+        Xbox1A.whenPressed(new IntakeArm());
+        Xbox1Y.whenPressed(new Eject());
+        //Xbox1START.whenPressed(new AutoLiftUp());
         //Xbox1B.whenPressed(new IntakeAndLift());
-        Xbox1A.whenPressed(new Grab());
-        Xbox1Y.whenPressed(new BackHook());
-        Xbox1B.whenPressed(new RightHook());
-        Xbox1X.whenPressed(new LeftHook());
+//        Xbox1A.whenPressed(new Grab());
+//        Xbox1Y.whenPressed(new BackHook());
+//        Xbox1B.whenPressed(new RightHook());
+//        Xbox1X.whenPressed(new LeftHook());
         
 //        Xbox1LB.whileHeld(new IntakeOut());
 //        Xbox1RB.whileHeld(new IntakeIn());
@@ -183,10 +184,10 @@ public class OI {
         //Right Joystick controls rotation
         
         //Operator Controller
-//        Xbox2A.whenPressed(new Grab());
-//        Xbox2Y.whenPressed(new BackHook());
-//        Xbox2B.whenPressed(new RightHook());
-//        Xbox2X.whenPressed(new LeftHook());
+        Xbox2A.whenPressed(new Grab());
+        Xbox2Y.whenPressed(new BackHook());
+        Xbox2B.whenPressed(new RightHook());
+        Xbox2X.whenPressed(new LeftHook());
         //Xbox2RB.whenPressed(new Intake());
         //Left Joystick controls lift
         //Right Joystick controls intake motors

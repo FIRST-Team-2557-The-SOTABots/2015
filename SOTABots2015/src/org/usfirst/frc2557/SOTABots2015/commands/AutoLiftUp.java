@@ -8,24 +8,29 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoLiftUp extends Command {
-
+	private int count;
     public AutoLiftUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	count = 0;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.liftMotor.set(.2);
+    	RobotMap.liftMotor.set(.5);
+    	if (RobotMap.liftSensor.get()){
+    		count = count + 1;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return count == 2;
     }
 
     // Called once after isFinished returns true

@@ -27,37 +27,39 @@ public class Autonomous extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-//    	addSequential(new BackHook());
-     	addSequential(new AutoDrive(0, .2, 0, 1500));
-    	addSequential(new AutoDrive(0, -.2, 0, 1500));
-//    	addParallel(new Intake());
-//    	addSequential(new AutoIntake());
-//    	addSequential(new Intake());
-//    	addSequential(new Grab());
-    	addSequential(new AutoLiftUp());
-//    	addSequential(new AutoRotateCounter());
-//    	addSequential(new RightHook());
-//    	addSequential(new AutoRotateCounter());
-//    	addSequential(new AutoDrive()); //Drive Forwards
-//    	addSequential(new Intake());
-//    	addSequential(new AutoIntake());
-//    	addSequential(new Intake());
+    	addSequential(new AutoDrive(0, -.25, 0, 200));
+    	addSequential(new BackHook());
+     	addSequential(new AutoDrive(0, .3, -.03, 300));
+     	addParallel(new IntakeArm());
+    	addSequential(new AutoIntake());
+    	addSequential(new IntakeArm()); //Works to this point
     	addSequential(new AutoLiftDown());
-//    	addSequential(new Grab());
-    	addSequential(new AutoLiftDown());
-//    	addSequential(new Grab());
-    	addSequential(new AutoLiftUp());
-//    	addSequential(new AutoDrive(0, -.2, 0, 1500)); //Backwards
-//    	addSequential(new AutoDrive(0, 0, -.2, 1500)); //Rotate left
-//    	addSequential(new AutoDrive(0, 0, -.2, 1500)); //Rotate left
-//    	addSequential(new Intake());
+    	addSequential(new Grab()); 
+//    	    	addSequential(new AutoLiftUp()); //Cannot be completed as of yet
+    	addSequential(new AutoDrive(0, 0, .5, 1850));
+    	addSequential(new AutoDrive(-1, 0, 0, 1000));
+    	addSequential(new RightHook());
+    	addSequential(new AutoDrive(0, 0, .5, 1850));
+//    	addSequential(new AutoDrive(0,.5,0,800)); //Drive Forwards
+//    	addSequential(new IntakeArm());
 //    	addSequential(new AutoIntake());
-//    	addSequential(new Intake());
+//    	addSequential(new IntakeArm());
 //    	addSequential(new AutoLiftDown());
 //    	addSequential(new Grab());
 //    	addSequential(new AutoLiftDown());
 //    	addSequential(new Grab());
-//    	addSequential(new AutoRotateClock());
+    	//    	addSequential(new AutoLiftUp()); //Check
+//    	addSequential(new AutoDrive(0, -.2, 0, 800)); //Backwards
+//    	addSequential(new AutoDrive(0, 0, -.2, 1500)); //Rotate left
+//    	addSequential(new AutoDrive(0, 0, -.2, 1500)); //Rotate left
+//    	addSequential(new IntakeArm());
+//    	addSequential(new AutoIntake());
+//    	addSequential(new IntakeArm());
+//    	addSequential(new AutoLiftDown());
+//    	addSequential(new Grab());
+//    	addSequential(new AutoLiftDown());
+//    	addSequential(new Grab());
+//    	addSequential(new AutoDrive());
 //    	addSequential(new LeftHook());
 //    	addSequential(new AutoDrive(0, .2, 0, 1500)); //Drive Forward
 //    	addSequential(new AutoLiftDown());

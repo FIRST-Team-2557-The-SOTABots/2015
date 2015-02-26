@@ -25,10 +25,10 @@ public class IntakeTest extends Command {
     protected void execute() {
     	Robot.manipulator.intake();
 //    	if (Robot.oi.XboxController1.getRawAxis(2) < 0){
-//    		RobotMap.intakeMotors.set(Robot.oi.XboxController1.getRawAxis(2));
+//    		RobotMap.intakeMotors.set(Robot.oi.XboxController2.getRawAxis(2));
 //    	}
 //    	else if (Robot.oi.XboxController1.getRawAxis(3) < 0){
-//    		RobotMap.intakeMotors.set(Robot.oi.XboxController1.getRawAxis(3));
+//    		RobotMap.intakeMotors.set(Robot.oi.XboxController2.getRawAxis(3));
 //    	}
 //    	else{
 //    		RobotMap.intakeMotors.set(0);
@@ -37,7 +37,7 @@ public class IntakeTest extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !RobotMap.toteStop.get();
+        return false;
     }
 
     // Called once after isFinished returns true

@@ -148,6 +148,7 @@ public class Robot extends IterativeRobot {
         //lift.start();
         intake.start();
         liftTest.start();
+        SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
         RobotMap.intakeMotors.set(oi.XboxController2.getRawAxis(5));
         
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.

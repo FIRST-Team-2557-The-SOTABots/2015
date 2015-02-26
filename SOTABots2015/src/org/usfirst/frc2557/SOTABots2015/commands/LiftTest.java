@@ -34,14 +34,15 @@ public class LiftTest extends Command {
 //    	else{
 //    		Robot.manipulator.lift();
 //    	}
-    	if (RobotMap.liftSensor.get() == true || -Robot.oi.XboxController2.getRawAxis(1) > 0){
+    	if (Math.abs(-Robot.oi.XboxController2.getRawAxis(1)) > 0 && RobotMap.liftStop.get() == false){ // || RobotMap.liftSensor.get() == true){
     		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
     	}
-    	else if (RobotMap.liftSensor.get() == false && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
+    	else if (RobotMap.liftStop.get() == true && -Robot.oi.XboxController2.getRawAxis(1) <= 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
     		RobotMap.liftMotor.set(0);
     	}
-    	
-    	
+    	else if (RobotMap.liftStop.get() == true && -Robot.oi.XboxController2.getRawAxis(1) > 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0)
+    		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

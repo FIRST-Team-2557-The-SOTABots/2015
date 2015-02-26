@@ -63,7 +63,7 @@ public class RobotMap {
     public static DigitalInput liftSensor;				//Port5 
     public static DigitalInput leftRampSensor;			//Port6
     public static DigitalInput rightRampSensor;			//Port7
-    public static DigitalInput binStopRear;				//Port8
+    public static DigitalInput liftStop;				//Port8
     
     //Variables
     public static boolean sweepDir;
@@ -163,9 +163,9 @@ public class RobotMap {
 	    //Encoders & other Digital IO
 	    toteStop = new DigitalInput(4);
 	    liftSensor = new DigitalInput(5);
+	    liftStop = new DigitalInput(8);
 	    leftRampSensor = new DigitalInput(6);
 	    rightRampSensor = new DigitalInput(7);
-	    binStopRear = new DigitalInput(8);
 	    
 	  
 	  	//References for what to set on the encoders. do not touch.

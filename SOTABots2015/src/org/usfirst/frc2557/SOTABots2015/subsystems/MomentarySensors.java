@@ -12,7 +12,6 @@ public class MomentarySensors extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	DigitalInput rearBin = RobotMap.binStopRear;
 	DigitalInput tote = RobotMap.toteStop;
 
     public void initDefaultCommand() {
@@ -20,9 +19,7 @@ public class MomentarySensors extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public boolean checkRearBin(){
-    	return rearBin.get();
-    }
+    
     
     public boolean checkTote(){
     	return tote.get();
