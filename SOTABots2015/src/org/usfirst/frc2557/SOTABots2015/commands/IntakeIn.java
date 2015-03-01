@@ -37,18 +37,17 @@ public class IntakeIn extends Command {
 //    	else{
 //    		done = false;
 //    	}
-    	Robot.manipulator.intakeIn();
+    	RobotMap.intakeMotors.set(1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-       return !RobotMap.toteStop.get();
+       return false; //RobotMap.toteStop.get() || Robot.oi.XboxController1.getRawButton(6);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.manipulator.intakeStop();
-    	RobotMap.intakeSol.set(Value.kForward);
+    	RobotMap.intakeMotors.set(0);
     }
 
     // Called when another command which requires one or more of the same

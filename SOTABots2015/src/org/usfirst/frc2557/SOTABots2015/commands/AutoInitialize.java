@@ -1,17 +1,20 @@
 package org.usfirst.frc2557.SOTABots2015.commands;
 
+import org.usfirst.frc2557.SOTABots2015.Robot;
 import org.usfirst.frc2557.SOTABots2015.RobotMap;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class AutoLiftDown extends Command {
+public class AutoInitialize extends Command {
 
-    public AutoLiftDown() {
+    public AutoInitialize() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.pnuematics);
     }
 
     // Called just before this Command runs the first time
@@ -20,17 +23,18 @@ public class AutoLiftDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.liftMotor.set(-.7);
+    	//if(Robot.oi.XboxController2.getRawButton(8)){
+    		Robot.pnuematics.init();
+    	//}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return RobotMap.liftStop.get(); // || RobotMap.liftSensor.get();
+        return RobotMap.backHook.get() == Value.kReverse;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.liftMotor.set(0);
     }
 
     // Called when another command which requires one or more of the same

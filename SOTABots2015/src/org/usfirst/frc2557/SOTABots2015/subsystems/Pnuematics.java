@@ -15,16 +15,16 @@ public class Pnuematics extends Subsystem {
     public static DoubleSolenoid rightHook = RobotMap.rightHook;					//Breakout 1; port 6 and 7
     public static DoubleSolenoid backHook = RobotMap.backHook;						//Breakout 2; port 0 and 1
     public static DoubleSolenoid leftHook = RobotMap.leftHook;						//Breakout 2; port 2 and 3
-    public static boolean grabbool = true;
-    public static boolean intakebool = true;
-    public static boolean backbool = true;
-    public static boolean leftbool = true;
-    public static boolean rightbool = true;
+    public static boolean grabbool = false;
+    public static boolean intakebool = false;
+    public static boolean backbool = false;
+    public static boolean leftbool = false;
+    public static boolean rightbool = false;
     public static boolean ejectbool = true;
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    }
+    } 
     
     public void grab(){
     	if(grabbool){
@@ -84,6 +84,20 @@ public class Pnuematics extends Subsystem {
     		rightHook.set(Value.kReverse);
     		rightbool = true;
     	}
+    }
+    public void init(){
+    	grab.set(Value.kReverse);
+    	grabbool =  true;
+    	intakeSol.set(Value.kReverse);
+    	intakebool =  true;
+    	ejector.set(Value.kForward);
+    	ejectbool = false;
+    	backHook.set(Value.kReverse);
+    	backbool = true;
+    	leftHook.set(Value.kReverse);
+    	leftbool = false;
+    	rightHook.set(Value.kReverse);
+    	rightbool =  false;
     }
 }
 

@@ -171,9 +171,12 @@ public class OI {
         //Xbox1LB.whenPressed(new AutoIntake()); //Testing
         Xbox1A.whenPressed(new IntakeArm());
         Xbox1Y.whenPressed(new Eject());
-        //Xbox1START.whenPressed(new AutoLiftUp());
+//        Xbox1RB.whenPressed(new IntakeIn());
+//        Xbox1LB.whenPressed(new IntakeOut());
+//        Xbox1BACK.whenPressed(new AutoInitialize());
+//        Xbox1START.whenPressed(new AutoLiftUp());
         //Xbox1B.whenPressed(new IntakeAndLift());
-//        Xbox1A.whenPressed(new Grab());
+//        Xbox1RB.whenPressed(new Grab());
 //        Xbox1Y.whenPressed(new BackHook());
 //        Xbox1B.whenPressed(new RightHook());
 //        Xbox1X.whenPressed(new LeftHook());
@@ -188,9 +191,23 @@ public class OI {
         Xbox2Y.whenPressed(new BackHook());
         Xbox2B.whenPressed(new RightHook());
         Xbox2X.whenPressed(new LeftHook());
+        Xbox2BACK.whenPressed(new AutoInitialize());
         //Xbox2RB.whenPressed(new Intake());
         //Left Joystick controls lift
         //Right Joystick controls intake motors
+        
+        //All Control
+        /*Xbox1A.whenPressed(new IntakeArm());
+         *Xbox1Y.whenPressed(new Eject());
+         *Xbox1B.whenPressed(new Grab()); 
+         *
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * */
         
         
         // SmartDashboard Buttons

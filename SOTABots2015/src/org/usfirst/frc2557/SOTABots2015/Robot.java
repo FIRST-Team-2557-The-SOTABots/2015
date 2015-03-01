@@ -39,6 +39,8 @@ public class Robot extends IterativeRobot {
     Command intake;
     Command lift;
     Command liftTest;
+    Command init;
+    Command warning;
     
 
     public static OI oi;
@@ -86,6 +88,8 @@ public class Robot extends IterativeRobot {
         intake = new IntakeTest();
         lift = new LiftUp();
         liftTest = new LiftTest();
+        init = new AutoInitialize();
+        warning = new LiftWarning();
         // OI must be constructed after subsystems. If the OI creates Commands 
         //(which it very likely will), subsystems are not guaranteed to be 
         // constructed yet. Thus, their requires() statements may grab null 
@@ -109,8 +113,10 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
+    	
         if (autonomous != null) autonomous.start();
         gyroReset.start();
+        
         
     }
 
@@ -145,21 +151,20 @@ public class Robot extends IterativeRobot {
         drive.start();
         dashboard.start();
         radarCommand.start();
-        //lift.start();
-        intake.start();
+        //intake.start();
         liftTest.start();
+        warning.start();
         SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
-        RobotMap.intakeMotors.set(oi.XboxController2.getRawAxis(5));
+        RobotMap.intakeMotors.set(-oi.XboxController1.getRawAxis(5));
         
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
-
     }
 
-//RobotMap.locationGyro.getAngle()
     /**
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
         LiveWindow.run();
+        //init.start();
     }
 }

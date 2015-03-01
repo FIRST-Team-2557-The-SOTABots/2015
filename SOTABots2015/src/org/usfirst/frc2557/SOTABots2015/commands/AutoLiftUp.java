@@ -23,14 +23,15 @@ public class AutoLiftUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	RobotMap.liftMotor.set(.5);
-    	if (RobotMap.liftSensor.get()){
-    		count = count + 1;
-    	}
+//    	if (RobotMap.liftSensor.get()){
+//    		count = count + 1;
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return count == 2;
+//        return count == 2;
+    	return RobotMap.liftSensor.get() == true;
     }
 
     // Called once after isFinished returns true

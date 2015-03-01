@@ -38,7 +38,7 @@ public class Manipulator extends Subsystem {
     	intake.set(intakeSpd);
     }
     public void intakeOut(){
-    	intake.set(intakeSpd);
+    	intake.set(-intakeSpd);
     }
     public void intakeStop(){
     	intake.set(0);
@@ -54,7 +54,7 @@ public class Manipulator extends Subsystem {
 //    		intake.set(0);
 //    	}
 //    	intake.set(Robot.oi.XboxController1.getZ());
-    	intake.set(-Robot.oi.XboxController2.getRawAxis(5));
+    	intake.set(-Robot.oi.XboxController1.getRawAxis(5));
     }
     
 }

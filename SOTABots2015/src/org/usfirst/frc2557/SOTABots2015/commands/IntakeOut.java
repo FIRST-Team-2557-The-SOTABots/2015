@@ -22,8 +22,8 @@ public class IntakeOut extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	done = false;
-    	Robot.manipulator.intakeOut();
+    	//done = false;
+    	//Robot.manipulator.intakeOut();
     	//targetTime = RobotMap.time.get() + wait;
     }
 
@@ -35,12 +35,12 @@ public class IntakeOut extends Command {
 //    	else{
 //    		done = false;
 //    	}
-    	Robot.manipulator.intakeOut();
+    	RobotMap.intakeMotors.set(-1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-       return done;
+       return false; //Robot.oi.XboxController1.getRawButton(6);
     }
 
     // Called once after isFinished returns true
