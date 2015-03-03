@@ -26,35 +26,39 @@ public class LiftTest extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if (Robot.oi.XboxController1.getRawButton(6)){
+			RobotMap.liftMotor.set(1);
+		}
+		else if (RobotMap.liftStop.get() == false && Robot.oi.XboxController1.getRawButton(5)){
+			RobotMap.liftMotor.set(0);
+		}
+    	else if (RobotMap.liftStop.get() == true && Robot.oi.XboxController1.getRawButton(5)){
+			RobotMap.liftMotor.set(-1);
+		}
+		else{
+    		RobotMap.liftMotor.set(0);
+		}
+
 //    	if (Robot.oi.XboxController1.getRawButton(6)){
 //			RobotMap.liftMotor.set(1);
 //		}
-//		else if (RobotMap.liftStop.get() == true && Robot.oi.XboxController1.getRawButton(5)){
-//			RobotMap.liftMotor.set(0);
-//		}
-//    	else if (RobotMap.liftStop.get() == false && Robot.oi.XboxController1.getRawButton(5)){
-//			RobotMap.liftMotor.set(-1);
-//		}
-//		else{
-//    		RobotMap.liftMotor.set(0);
-//		}
-    	
-//    	if (Math.abs(-Robot.oi.XboxController2.getRawAxis(1)) > 0 && RobotMap.liftStop.get() == true ){// && RobotMap.liftStop.get() == true){ // || RobotMap.liftSensor.get() == true){
-//    		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
+//		else if (Robot.oi.XboxController1.getRawButton(5){
+//    		RobotMap.liftMotor.set(-1);
 //    	}
-//    	else if (RobotMap.liftStop.get() == false && -Robot.oi.XboxController2.getRawAxis(1) <= 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
+//    	else if (Robot.oi.XboxController1.getRawButton(5){
+//    		
+//    	}
+//    	
+//    	
+//    	
+    	
+//    	if(RobotMap.liftStop.get() == false && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
 //    		RobotMap.liftMotor.set(0);
 //    	}
-//    	else if (RobotMap.liftStop.get() == false && -Robot.oi.XboxController2.getRawAxis(1) > 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
+//    	else{
 //    		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
 //    	}
-    	if(RobotMap.liftStop.get() == false && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
-    		RobotMap.liftMotor.set(0);
-    	}
-    	else{
-    		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
-    	}
-    	
+//    	
     	
     	//RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
     }

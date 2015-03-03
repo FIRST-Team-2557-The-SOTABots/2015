@@ -168,45 +168,31 @@ public class OI {
 
         //Button Commands
         //Drive Controller
-        //Xbox1LB.whenPressed(new AutoIntake()); //Testing
-        Xbox1A.whenPressed(new IntakeArm());
-        Xbox1Y.whenPressed(new Eject());
-//        Xbox1RB.whenPressed(new IntakeIn());
-//        Xbox1LB.whenPressed(new IntakeOut());
-//        Xbox1BACK.whenPressed(new AutoInitialize());
-//        Xbox1START.whenPressed(new AutoLiftUp());
-        //Xbox1B.whenPressed(new IntakeAndLift());
-//        Xbox1RB.whenPressed(new Grab());
-//        Xbox1Y.whenPressed(new BackHook());
-//        Xbox1B.whenPressed(new RightHook());
-//        Xbox1X.whenPressed(new LeftHook());
-        
-//        Xbox1LB.whileHeld(new IntakeOut());
-//        Xbox1RB.whileHeld(new IntakeIn());
+//        Xbox1A.whenPressed(new IntakeArm());
+//        Xbox1Y.whenPressed(new Eject());
         //Left joystick controls driving forwards and backwards
         //Right Joystick controls rotation
         
         //Operator Controller
-        Xbox2A.whenPressed(new Grab());
-        Xbox2Y.whenPressed(new BackHook());
-        Xbox2B.whenPressed(new RightHook());
-        Xbox2X.whenPressed(new LeftHook());
-        Xbox2BACK.whenPressed(new AutoInitialize());
-        //Xbox2RB.whenPressed(new Intake());
+//        Xbox2A.whenPressed(new Grab());
+//        Xbox2Y.whenPressed(new BackHook());
+//        Xbox2B.whenPressed(new RightHook());
+//        Xbox2X.whenPressed(new LeftHook());
+//        Xbox2BACK.whenPressed(new AutoInitialize());
         //Left Joystick controls lift
         //Right Joystick controls intake motors
         
         //All Control
+        Xbox1A.whenPressed(new IntakeArm());
+        Xbox1Y.whenPressed(new BackHook());
+        Xbox1B.whenPressed(new RightHook());
+        Xbox1X.whenPressed(new LeftHook());
+        Xbox1BACK.whenPressed(new Eject());
+        Xbox1START.whenPressed(new Grab());
+        
         /*Xbox1A.whenPressed(new IntakeArm());
          *Xbox1Y.whenPressed(new Eject());
-         *Xbox1B.whenPressed(new Grab()); 
-         *
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
+         *Xbox1X.whenPressed(new Grab()); 
          * */
         
         
