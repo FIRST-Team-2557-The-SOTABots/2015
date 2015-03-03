@@ -31,6 +31,6 @@ public class IntakeAndLift extends CommandGroup {
     	addSequential(new Grab());
     }
     protected boolean isFinished(){
-    	return Robot.oi.XboxController1.getRawButton(3);
+    	return Robot.oi.gamepad1.getRawButton(3);
     }
 }

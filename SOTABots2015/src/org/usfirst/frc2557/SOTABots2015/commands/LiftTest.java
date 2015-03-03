@@ -16,6 +16,7 @@ public class LiftTest extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.manipulator);
+    	requires(Robot.momentary);
     }
 
     // Called just before this Command runs the first time
@@ -38,14 +39,14 @@ public class LiftTest extends Command {
 //    		RobotMap.liftMotor.set(0);
 //		}
     	
-    	if (Math.abs(-Robot.oi.XboxController2.getRawAxis(1)) > 0 && RobotMap.liftStop.get() == false){ // || RobotMap.liftSensor.get() == true){
-    		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
+    	if (Math.abs(-Robot.oi.gamepad2.getRawAxis(1)) > 0 && Robot.momentary.liftAtBottom()){ // || RobotMap.liftSensor.get() == true){
+    		RobotMap.liftMotor.set(-Robot.oi.gamepad2.getRawAxis(1));
     	}
-    	else if (RobotMap.liftStop.get() == true && -Robot.oi.XboxController2.getRawAxis(1) <= 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
+    	else if (RobotMap.liftStop.get() == true && -Robot.oi.gamepad2.getRawAxis(1) <= 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
     		RobotMap.liftMotor.set(0);
     	}
-    	else if (RobotMap.liftStop.get() == true && -Robot.oi.XboxController2.getRawAxis(1) > 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0)
-    		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
+    	else if (RobotMap.liftStop.get() == true && -Robot.oi.gamepad2.getRawAxis(1) > 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0)
+    		RobotMap.liftMotor.set(-Robot.oi.gamepad2.getRawAxis(1));
     	}
     	//RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
     }

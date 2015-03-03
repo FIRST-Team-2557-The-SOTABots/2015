@@ -55,6 +55,7 @@ public class Robot extends IterativeRobot {
     public static Pnuematics pnuematics;
     public static Manipulator manipulator;
     public static HallEffect hallEffect;
+    public static MomentarySensors momentary;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -79,6 +80,7 @@ public class Robot extends IterativeRobot {
         pnuematics = new Pnuematics();
         manipulator = new Manipulator();
         hallEffect = new HallEffect();
+        momentary = new MomentarySensors();
         
 //Command Initializers (must be second)
         radarCommand = new RadarCommand();
@@ -155,7 +157,7 @@ public class Robot extends IterativeRobot {
         liftTest.start();
         warning.start();
         SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
-        RobotMap.intakeMotors.set(-oi.XboxController1.getRawAxis(5));
+        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5));
         
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
     }
