@@ -22,6 +22,7 @@ public class LiftTest extends Command {
     protected void initialize() {
     	
     }
+    
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -38,15 +39,23 @@ public class LiftTest extends Command {
 //    		RobotMap.liftMotor.set(0);
 //		}
     	
-    	if (Math.abs(-Robot.oi.XboxController2.getRawAxis(1)) > 0 && RobotMap.liftStop.get() == false){ // || RobotMap.liftSensor.get() == true){
-    		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
-    	}
-    	else if (RobotMap.liftStop.get() == true && -Robot.oi.XboxController2.getRawAxis(1) <= 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
+//    	if (Math.abs(-Robot.oi.XboxController2.getRawAxis(1)) > 0 && RobotMap.liftStop.get() == true ){// && RobotMap.liftStop.get() == true){ // || RobotMap.liftSensor.get() == true){
+//    		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
+//    	}
+//    	else if (RobotMap.liftStop.get() == false && -Robot.oi.XboxController2.getRawAxis(1) <= 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
+//    		RobotMap.liftMotor.set(0);
+//    	}
+//    	else if (RobotMap.liftStop.get() == false && -Robot.oi.XboxController2.getRawAxis(1) > 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
+//    		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
+//    	}
+    	if(RobotMap.liftStop.get() == false && -Robot.oi.XboxController2.getRawAxis(1) <= 0){
     		RobotMap.liftMotor.set(0);
     	}
-    	else if (RobotMap.liftStop.get() == true && -Robot.oi.XboxController2.getRawAxis(1) > 0){ // && -Robot.oi.XboxController2.getRawAxis(1) <= 0)
+    	else{
     		RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
     	}
+    	
+    	
     	//RobotMap.liftMotor.set(-Robot.oi.XboxController2.getRawAxis(1));
     }
 

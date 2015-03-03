@@ -28,42 +28,48 @@ public class Autonomous extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	//Works
-//    	addSequential(new AutoInitialize());
+//    	addParallel(new AutoDrive(0,-.5,0,100));
+//    	addSequential(new AutoDrive(0, 0, -.5, 150));
+
+    	
+//////////////////////////////////////////////////////////////////////////////////////////////////    	
+////    	addSequential(new AutoInitialize());
+//    	addSequential(new AutoDrive(0, -.3, 0, 280));
+//    	addSequential(new AutoBackHook());
+//     	addSequential(new AutoDrive(0, .3, -.03, 1300));
+//    	addSequential(new AutoGrabClose()); 
+////    	addSequential(new AutoLiftUp()); //Cannot be completed as of yet
+//    	addSequential(new AutoDrive(0,-.5,0,100));
+////    	addSequential(new AutoDrive(0, 0, -.5, 150));
+//    	addSequential(new AutoDrive(0, .7, -.18, 6050)); //Competition is 8050
+////    	addSequential(new AutoDrive(0, .65, -.03, 200));//Drive Forward
+//    	addSequential(new AutoGrabOpen());
+//    	addSequential(new AutoEjectOut());
+////    	addSequential(new Eject());
+//    	addParallel(new AutoDrive(0, -.6, 0, 200));
+//    	addSequential(new AutoEjectIn());//Drive backwards
+    	
+    	
+//////////////////////////////////////////////////////////////////////////////////////////////////////	
+    	
     	addSequential(new AutoDrive(0, -.3, 0, 280));
     	addSequential(new AutoBackHook());
-     	addSequential(new AutoDrive(0, .3, -.03, 1300));
-    	addSequential(new AutoGrabClose()); 
-//    	addSequential(new AutoLiftUp()); //Cannot be completed as of yet
-    	addSequential(new AutoDrive(0,-.5,0,100));
-    	addSequential(new AutoDrive(0, 0, -.5, 1850));
-    	addSequential(new AutoDrive(0, .7, -.18, 8050));
-//    	addSequential(new AutoDrive(0, .65, -.03, 200));//Drive Forward
-    	addSequential(new AutoGrabOpen());
-    	addSequential(new AutoEjectOut());
-//    	addSequential(new Eject());
-    	addParallel(new AutoDrive(0, -.6, 0, 200));
-    	addSequential(new AutoEjectIn());//Drive backwards
+     	addSequential(new AutoDrive(0, .3, -.03, 900));
+    	addSequential(new AutoGrabClose()); //////////////////////
     	
     	
-    	
-    	
-//    	addSequential(new AutoInitialize());
-//    	addSequential(new AutoDrive(0, 0, 0, 0));
-//    	addSequential(new BackHook());
-//    	addSequential(new AutoDrive(0, -.3, 0, 60));
-//     	addSequential(new AutoDrive(0, .3, -.03, 1200));
-//     	addSequential(new AutoDriveUntil(0,.5,0));
 //     	addParallel(new IntakeArm());
 //    	addSequential(new AutoIntake());
-//    	addSequential(new IntakeArm()); //Works to this point
+//    	addSequential(new IntakeArm());
 //    	addSequential(new AutoLiftDown());
-//    	addSequential(new Grab()); 
-//    	addSequential(new AutoLiftUp()); //Cannot be completed as of yet
-//    	addSequential(new AutoDrive(0,-.5,0,100));
-//    	addSequential(new AutoDrive(0, 0, -.5, 1850));
-//    	addSequential(new AutoDrive(0, 0, .5, 1850));
-//    	addSequential(new AutoDrive(-1, 0, 0, 1000));
-//    	addSequential(new RightHook());
+//    	addSequential(new AutoGrabClose()); //Works to this point
+    	
+    	addSequential(new AutoLiftUp()); //Cannot be completed as of yet    	
+    	addSequential(new AutoDrive(0, -.5, 0, 50));
+    	addSequential(new AutoDrive(0, 0, .5, 1650));
+    	//addSequential(new AutoDrive(0, -.5, 0, 300));
+    	addSequential(new AutoDrive(-1, 0, 0, 3500));
+    	addSequential(new AutoRightHook());
 //    	addSequential(new AutoDrive(0, 0, .5, 1850));
 //    	addSequential(new AutoDrive(0,.5,0,800)); //Drive Forwards
 //    	addSequential(new IntakeArm());
@@ -85,15 +91,13 @@ public class Autonomous extends CommandGroup {
 //    	addSequential(new AutoLiftDown());
 //    	addSequential(new Grab());
 //    	addSequential(new AutoDrive());
-//    	addSequential(new LeftHook());
-//    	addSequential(new AutoDrive(0, .65, -.22, 5050));
-//    	addSequential(new AutoDrive(0, .65, -.03, 200));//Drive Forward
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new Grab());
-//    	addSequential(new Eject());
-//    	addSequential(new Eject());
-//    	addSequential(new AutoDrive(0, -.6, 0, 200));
-//    	addSequential(new Eject());//Drive backwards
-
+//    	addSequential(new AutoLeftHook());
+    	
+    	
+//    	addSequential(new AutoDrive(0, .7, -.18, 6050)); //Competition is 8050 /////////////////
+//    	addSequential(new AutoGrabOpen());
+//    	addSequential(new AutoEjectOut());
+//    	addParallel(new AutoDrive(0, -.6, 0, 200));
+//    	addSequential(new AutoEjectIn());//Drive backwards
     }
 }
