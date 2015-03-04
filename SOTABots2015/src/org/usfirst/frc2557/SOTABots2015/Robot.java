@@ -38,7 +38,6 @@ public class Robot extends IterativeRobot {
     Command radarCommand;
     Command intake;
     Command lift;
-    Command liftTest;
     Command init;
     Command warning;
     
@@ -86,8 +85,7 @@ public class Robot extends IterativeRobot {
         dashboard = new Dashboard();
         autonomous = new Autonomous();
         intake = new IntakeTest();
-        lift = new LiftUp();
-        liftTest = new LiftTest();
+        lift = new Lift();
         init = new AutoInitialize();
         warning = new LiftWarning();
         // OI must be constructed after subsystems. If the OI creates Commands 
@@ -152,7 +150,7 @@ public class Robot extends IterativeRobot {
         dashboard.start();
         radarCommand.start();
         //intake.start();
-        liftTest.start();
+        lift.start();
         warning.start();
         SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
         RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5));
