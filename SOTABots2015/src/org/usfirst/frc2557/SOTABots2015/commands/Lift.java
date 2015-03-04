@@ -27,10 +27,10 @@ public class Lift extends Command {
     	if (Robot.oi.gamepad1.getRawButton(6)){
 			RobotMap.liftMotor.set(1);
 		}
-		else if (RobotMap.liftStop.get() == false && Robot.oi.gamepad1.getRawButton(5)){
+		else if (RobotMap.liftStop.get() == true && Robot.oi.gamepad1.getRawButton(5)){
 			RobotMap.liftMotor.set(0);
 		}
-    	else if (RobotMap.liftStop.get() == true && Robot.oi.gamepad1.getRawButton(5)){
+    	else if (RobotMap.liftStop.get() == false && Robot.oi.gamepad1.getRawButton(5)){
 			RobotMap.liftMotor.set(-1);
 		}
 		else{

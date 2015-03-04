@@ -14,6 +14,7 @@ package org.usfirst.frc2557.SOTABots2015;
 
 
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
@@ -65,21 +66,30 @@ public class RobotMap {
     public static DigitalInput rightRampSensor;			//Port7
     public static DigitalInput liftStop;				//Port8
     
-    //Variables
+    //Manipulated Variables
     public static boolean sweepDir;
+    public static boolean grabberState;
+    public static boolean intakeState;
+    public static boolean backHookState;
+    public static boolean leftHookState;
+    public static boolean rightHookState;
+    public static boolean ejectorState;
     public static int degCount;
     public static double centerDegreeR;
     public static double changeDegreeR;
     public static double centerDegreeL;
     public static double changeDegreeL;
     public static int liftLevel;
-    public static int maxLiftLevel;
-    public static int minLiftLevel;
-    public static int lowLiftLevel;
-    public static double liftSpeed;
-    public static double intakeSpeed;
-    public static double intakeWaitTime;
-    public static double autoSpeed;
+    public static int autoDistance1;
+    public static int autoDistance2;
+    
+    //Controlled Variables
+    final public static int maxLiftLevel = 6;
+    final public static int minLiftLevel = 0;
+    final public static int lowLiftLevel = 1;
+    final public static double liftSpeed = 1;
+    final public static double intakeSpeed = 1;
+    final public static double autospeed = 1;
     
     //Range Finder Arrays
     public static double[] leftArray;
@@ -88,7 +98,6 @@ public class RobotMap {
     
     //Other
     public static PowerDistributionPanel PDP;
-    public static Timer time;
     
     
     //public static AnalogInput rangeFrontRight;
@@ -125,17 +134,19 @@ public class RobotMap {
 	    
 	    
 	    
-	    //Variables
+	    //Manipulated Variables
 	    degCount = 0;
 	    sweepDir = true;
+	    grabberState = false;
+	    intakeState = false;
+	    backHookState = false;
+	    leftHookState = false;
+	    rightHookState = false;
+	    ejectorState = true;
 	    liftLevel = 0;
-	    maxLiftLevel = 6;
-	    minLiftLevel = 0;
-	    lowLiftLevel = 1;
-	    liftSpeed = 1;
-	    intakeSpeed = 1;
-	    intakeWaitTime = 2;
-	  
+	    autoDistance1 = 0;
+	    autoDistance2 = 0;
+	    
 	    //Range Finders
 	    rangeLeft = new AnalogInput(1);
 	    rangeRight = new AnalogInput(2);
@@ -203,9 +214,7 @@ public class RobotMap {
 	    rearRightEnc.setReverseDirection(false);
 	    rearRightEnc.setSamplesToAverage(10);
         rearRightEnc.setDistancePerPulse(12);
-	    
-        //Other
-//        time.start();
+        
 	   
     }
 }

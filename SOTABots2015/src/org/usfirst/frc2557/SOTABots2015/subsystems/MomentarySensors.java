@@ -23,7 +23,7 @@ public class MomentarySensors extends Subsystem {
     
     
     public boolean checkTote(){
-    	return tote.get();
+    	return !tote.get();
     }
     public boolean liftAtBottom(){
     	return !lift.get();

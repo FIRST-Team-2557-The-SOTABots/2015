@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.command.Command;
 public class IntakeOut extends Command {
 	
 	boolean done;
-	double wait = RobotMap.intakeWaitTime;
 	double targetTime;
 
     public IntakeOut() {

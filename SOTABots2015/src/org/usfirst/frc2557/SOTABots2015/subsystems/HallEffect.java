@@ -20,7 +20,7 @@ public class HallEffect extends Subsystem {
     }
     
     public boolean checkLift(){
-    	return lift.get();
+    	return !lift.get();
     }
 }
 

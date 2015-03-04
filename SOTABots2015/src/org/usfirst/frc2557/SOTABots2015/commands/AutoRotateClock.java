@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoRotateClock extends Command {
-
+	private double instance;
     public AutoRotateClock() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -21,13 +21,18 @@ public class AutoRotateClock extends Command {
     	RobotMap.frontRightEnc.reset();
     	RobotMap.rearLeftEnc.reset();
     	RobotMap.rearRightEnc.reset();
+    	instance = RobotMap.gyro.getAngle();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while(RobotMap.frontLeftEnc.get() < 1850 & RobotMap.frontRightEnc.get() < 1850){
-    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,.5,0);
+//    	while(RobotMap.frontLeftEnc.get() < 1850 & RobotMap.frontRightEnc.get() < 1850){
+//    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,.5,0);
+//    	}
+    	while(RobotMap.gyro.getAngle() < instance + 77){
+    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,-.5,0);
     	}
+    	Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,0,0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -37,7 +42,6 @@ public class AutoRotateClock extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,0,0);
     }
 
     // Called when another command which requires one or more of the same

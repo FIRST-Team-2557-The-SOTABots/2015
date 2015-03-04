@@ -51,25 +51,20 @@ public class Autonomous extends CommandGroup {
     	
     	
 //////////////////////////////////////////////////////////////////////////////////////////////////////	
-    	
     	addSequential(new AutoDrive(0, -.3, 0, 280));
     	addSequential(new AutoBackHook());
-     	addSequential(new AutoDrive(0, .3, -.03, 900));
-    	addSequential(new AutoGrabClose()); //////////////////////
+     	addSequential(new AutoDriveUntil(0, .2, 0));
+    	addSequential(new AutoGrabClose());
+    	addSequential(new AutoDrive(0, -.3, 0, 300));
+    	addSequential(new AutoLiftUp());
+    	addSequential(new AutoRotateClock(), 3);
+    	addSequential(new AutoDrive(1, 0, 0, 3000));
     	
-    	
-//     	addParallel(new IntakeArm());
-//    	addSequential(new AutoIntake());
-//    	addSequential(new IntakeArm());
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new AutoGrabClose()); //Works to this point
-    	
-    	addSequential(new AutoLiftUp()); //Cannot be completed as of yet    	
-    	addSequential(new AutoDrive(0, -.5, 0, 50));
-    	addSequential(new AutoDrive(0, 0, .5, 1650));
-    	//addSequential(new AutoDrive(0, -.5, 0, 300));
-    	addSequential(new AutoDrive(-1, 0, 0, 3500));
-    	addSequential(new AutoRightHook());
+//    	addSequential(new AutoDrive(0, -.5, 0, 50));
+//    	addSequential(new AutoDrive(0, 0, .5, 1650));
+//    	//addSequential(new AutoDrive(0, -.5, 0, 300));
+//    	addSequential(new AutoDrive(-1, 0, 0, 3500));
+//    	addSequential(new AutoRightHook());
 //    	addSequential(new AutoDrive(0, 0, .5, 1850));
 //    	addSequential(new AutoDrive(0,.5,0,800)); //Drive Forwards
 //    	addSequential(new IntakeArm());
