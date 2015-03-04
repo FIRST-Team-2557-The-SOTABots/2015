@@ -24,10 +24,10 @@ public class IntakeTest extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
   //  	Robot.manipulator.intake();
-    	if (Robot.oi.XboxController1.getRawAxis(2) > 0.05){
+    	if (Robot.oi.gamepad1.getRawAxis(2) > 0.05){
     		RobotMap.intakeMotors.set(-1);
     	}
-    	else if (Robot.oi.XboxController1.getRawAxis(3) > 0.05){
+    	else if (Robot.oi.gamepad1.getRawAxis(3) > 0.05){
     		RobotMap.intakeMotors.set(1);
     	}
     	else{
