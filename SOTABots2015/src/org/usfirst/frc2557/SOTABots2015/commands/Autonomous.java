@@ -41,7 +41,7 @@ public class Autonomous extends CommandGroup {
 ////    	addSequential(new AutoLiftUp()); //Cannot be completed as of yet
 //    	addSequential(new AutoDrive(0,-.5,0,100));
 ////    	addSequential(new AutoDrive(0, 0, -.5, 150));
-//    	addSequential(new AutoDrive(0, .7, -.18, 6050)); //Competition is 8050
+//    	addSequential(new AutoDrive(0, .7, -.18, 8050)); //Competition is 8050
 ////    	addSequential(new AutoDrive(0, .65, -.03, 200));//Drive Forward
 //    	addSequential(new AutoGrabOpen());
 //    	addSequential(new AutoEjectOut());
@@ -57,9 +57,9 @@ public class Autonomous extends CommandGroup {
     	addSequential(new AutoGrabClose());
     	addSequential(new AutoDrive(0, -.3, 0, 300));
     	addSequential(new AutoLiftUp());
-    	addSequential(new AutoRotateClock(), 3);
-    	addSequential(new AutoDrive(1, 0, 0, 3000));
-    	
+    	addSequential(new AutoRotateClock());
+    	addSequential(new AutoDrive(1, 0, 0, 1800));
+    	addSequential(new AutoLeftHook());
 //    	addSequential(new AutoDrive(0, -.5, 0, 50));
 //    	addSequential(new AutoDrive(0, 0, .5, 1650));
 //    	//addSequential(new AutoDrive(0, -.5, 0, 300));

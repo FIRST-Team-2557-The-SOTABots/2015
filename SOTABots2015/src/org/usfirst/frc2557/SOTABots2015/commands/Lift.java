@@ -4,6 +4,7 @@ import org.usfirst.frc2557.SOTABots2015.Robot;
 import org.usfirst.frc2557.SOTABots2015.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -36,7 +37,7 @@ public class Lift extends Command {
 		else{
     		RobotMap.liftMotor.set(0);
 		}
-
+    	SmartDashboard.putBoolean("LEVEL 1 FOR TOTE: ", RobotMap.liftSensor.get());
 //    	if (Robot.oi.XboxController1.getRawButton(6)){
 //			RobotMap.liftMotor.set(1);
 //		}
