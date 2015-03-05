@@ -72,10 +72,7 @@ public class RangeCorrectionAuto extends Command {
     		sweepAngle = sweepAngle - 10;
     	}
     	
-    	SmartDashboard.putNumber("The inches are", hitInches);
-    	SmartDashboard.putNumber("The angle is", hitAngle);
-    	SmartDashboard.putNumber("Not hitting inches", noHitInches);
-    	SmartDashboard.putNumber("Not hitting angle", noHitAngle);
+    
     	// Checking for the midpoint of the object using the servo angle
     	x = 0;
     	z = 0;

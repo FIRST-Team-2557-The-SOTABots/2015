@@ -70,5 +70,9 @@ public class Pnuematics extends Subsystem {
     public void ejectIn(){
     	ejector.set(Value.kReverse);
     }
+    
+    public void release(){
+    	grab.set(Value.kReverse);
+    }
 }
 
