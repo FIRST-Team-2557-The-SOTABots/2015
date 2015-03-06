@@ -53,14 +53,14 @@ public class Autonomous extends CommandGroup {
 //////////////////////////////////////////////////////////////////////////////////////////////////////	
     	addSequential(new AutoDrive(0, -.3, 0, 280));
     	addSequential(new AutoBackHook());
-     	addSequential(new AutoDriveUntil(0, .2, 0));
+     	addSequential(new AutoDriveUntil(0, .3, 0), 2);
     	addSequential(new AutoGrabClose());
     	addSequential(new AutoDrive(0, -.3, 0, 300));
-    	addSequential(new AutoLiftUp());
+    	addSequential(new AutoLiftUp(1));
     	addSequential(new AutoRotateClock());
     	addSequential(new AutoDrive(1, 0, 0, 1800));
     	addSequential(new AutoLeftHook());
-//    	addSequential(new AutoDrive(0, -.5, 0, 50));
+    	addSequential(new AutoDrive(0, .5, 0, 7000));
 //    	addSequential(new AutoDrive(0, 0, .5, 1650));
 //    	//addSequential(new AutoDrive(0, -.5, 0, 300));
 //    	addSequential(new AutoDrive(-1, 0, 0, 3500));
@@ -88,8 +88,8 @@ public class Autonomous extends CommandGroup {
 //    	addSequential(new AutoDrive());
 //    	addSequential(new AutoLeftHook());
     	
-    	
-//    	addSequential(new AutoDrive(0, .7, -.18, 6050)); //Competition is 8050 /////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////  	
+//    	addSequential(new AutoDrive(0, .7, -.18, 6050)); //Competition is 8050 //
 //    	addSequential(new AutoGrabOpen());
 //    	addSequential(new AutoEjectOut());
 //    	addParallel(new AutoDrive(0, -.6, 0, 200));

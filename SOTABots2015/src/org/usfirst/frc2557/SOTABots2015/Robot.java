@@ -88,7 +88,7 @@ public class Robot extends IterativeRobot {
         gyroReset = new GyroReset();
         dashboard = new Dashboard();
         autonomous = new Autonomous();
-        intake = new IntakeTest();
+        intake = new Intake();
         lift = new Lift();
         init = new AutoInitialize();
         warning = new LiftWarning();
@@ -153,11 +153,11 @@ public class Robot extends IterativeRobot {
         drive.start();
         dashboard.start();
         radarCommand.start();
-        //intake.start();
+//        intake.start();
         lift.start();
         warning.start();
         SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
-        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5));
+        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5)*.5);
         
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
     }

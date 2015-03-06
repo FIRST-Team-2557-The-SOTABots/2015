@@ -9,33 +9,40 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoLiftUp extends Command {
-    public AutoLiftUp() {
+	private int level;
+    public AutoLiftUp(int x) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.manipulator);
     	requires(Robot.hallEffect);
+    	level = x;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(2.0);
+//    	setTimeout(2.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.manipulator.liftUp();
+//    	Robot.manipulator.liftUp();
+    	if(RobotMap.liftSensor.get() == true){
+    		RobotMap.liftLevel = RobotMap.liftLevel + 1;
+    	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
 //        return count == 2;
 //    	return RobotMap.liftSensor.get() == true;
-    	return Robot.hallEffect.checkLift();
+//    	return Robot.hallEffect.checkLift();
+    	return RobotMap.liftLevel == level;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.manipulator.liftStop();
+    	RobotMap.liftMotor.set(0);
     }
 
     // Called when another command which requires one or more of the same

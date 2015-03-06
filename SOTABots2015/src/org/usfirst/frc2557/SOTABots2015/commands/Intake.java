@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class IntakeTest extends Command {
+public class Intake extends Command {
 
-    public IntakeTest() {
+    public Intake() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.manipulator);
@@ -24,15 +24,10 @@ public class IntakeTest extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
   //  	Robot.manipulator.intake();
-    	if (Robot.oi.gamepad1.getRawAxis(2) > 0.05){
-    		RobotMap.intakeMotors.set(-1);
-    	}
-    	else if (Robot.oi.gamepad1.getRawAxis(3) > 0.05){
-    		RobotMap.intakeMotors.set(1);
-    	}
-    	else{
-    		RobotMap.intakeMotors.set(0);
-    	}
+//    	if (Math.abs(-Robot.oi.gamepad1.getRawAxis(5)) > 0.1){
+    		RobotMap.intakeMotors.set(-Robot.oi.gamepad1.getRawAxis(5)*.5);
+//    	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

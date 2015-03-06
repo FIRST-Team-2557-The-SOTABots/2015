@@ -15,89 +15,85 @@ public class Pnuematics extends Subsystem {
     public static DoubleSolenoid rightHook = RobotMap.rightHook;					//Breakout 1; port 6 and 7
     public static DoubleSolenoid backHook = RobotMap.backHook;						//Breakout 2; port 0 and 1
     public static DoubleSolenoid leftHook = RobotMap.leftHook;						//Breakout 2; port 2 and 3
-    public static boolean grabbool = false;
-    public static boolean intakebool = false;
-    public static boolean backbool = false;
-    public static boolean leftbool = false;
-    public static boolean rightbool = false;
-    public static boolean ejectbool = true;
+    
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     } 
     
     public void grab(){
-    	if(grabbool){
+    	if(RobotMap.grabbool){
 	    	grab.set(Value.kForward);
-	    	grabbool = false;
+	    	RobotMap.grabbool = false;
     	}else{
     		grab.set(Value.kReverse);
-    		grabbool = true;
+    		RobotMap.grabbool = true;
     	}
     }
     
     public void intake(){
-    	if(intakebool){
+    	if(RobotMap.intakebool){
     		intakeSol.set(Value.kForward);
-    		intakebool = false;
+    		RobotMap.intakebool = false;
     	}else{
     		intakeSol.set(Value.kReverse);
-    		intakebool = true;
+    		RobotMap.intakebool = true;
     	}
     }
     
     public void eject(){
-    	if(ejectbool){
+    	if(RobotMap.ejectbool){
     		ejector.set(Value.kForward);
-    		ejectbool = false;
+    		RobotMap.ejectbool = false;
     	}else{
     		ejector.set(Value.kReverse);
-    		ejectbool = true;
+    		RobotMap.ejectbool = true;
     	}
     }
     
     public void back(){
-    	if(backbool){
+    	if(RobotMap.backbool){
     		backHook.set(Value.kForward);
-    		backbool = false;
+    		RobotMap.backbool = false;
     	}else{
     		backHook.set(Value.kReverse);
-    		backbool = true;
+    		RobotMap.backbool = true;
     	}
     }
     
     public void left(){
-    	if(leftbool){
+    	if(RobotMap.leftbool){
     		leftHook.set(Value.kForward);
-    		leftbool = false;
+    		RobotMap.leftbool = false;
     	}else{
     		leftHook.set(Value.kReverse);
-    		leftbool = true;
+    		RobotMap.leftbool = true;
     	}
     }
     
     public void right(){
-    	if(rightbool){
+    	if(RobotMap.rightbool){
     		rightHook.set(Value.kForward);
-    		rightbool = false;
+    		RobotMap.rightbool = false;
     	}else{
     		rightHook.set(Value.kReverse);
-    		rightbool = true;
+    		RobotMap.rightbool = true;
     	}
     }
     public void init(){
     	grab.set(Value.kReverse);
-    	grabbool =  true;
+    	RobotMap.grabbool =  true;
     	intakeSol.set(Value.kReverse);
-    	intakebool =  true;
+    	RobotMap.intakebool =  true;
     	ejector.set(Value.kForward);
-    	ejectbool = false;
+    	RobotMap.ejectbool = false;
     	backHook.set(Value.kReverse);
-    	backbool = true;
+    	RobotMap.backbool = true;
     	leftHook.set(Value.kReverse);
-    	leftbool = false;
+    	RobotMap.leftbool = false;
     	rightHook.set(Value.kReverse);
-    	rightbool =  false;
+    	RobotMap.rightbool =  false;
     }
 }
 

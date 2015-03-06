@@ -82,6 +82,12 @@ public class RobotMap {
     public static int liftLevel;
     public static int autoDistance1;
     public static int autoDistance2;
+    public static boolean grabbool;
+    public static boolean intakebool;
+    public static boolean backbool;
+    public static boolean leftbool;
+    public static boolean rightbool;
+    public static boolean ejectbool;
     
     //Controlled Variables
     final public static int maxLiftLevel = 6;
@@ -131,6 +137,7 @@ public class RobotMap {
 	    backHook = new DoubleSolenoid(1, 0, 1);
 	    leftHook = new DoubleSolenoid(1, 2, 3);
 	    //compressor = new Compressor(0);
+	    
 	    
 	    
 	    
@@ -215,6 +222,21 @@ public class RobotMap {
 	    rearRightEnc.setSamplesToAverage(10);
         rearRightEnc.setDistancePerPulse(12);
         
+        
+        
+        //Initializing the Solenoids
+        grab.set(Value.kReverse);
+    	grabbool =  true;
+    	intakeSol.set(Value.kReverse);
+    	intakebool =  true;
+    	ejector.set(Value.kForward);
+    	ejectbool = false;
+    	backHook.set(Value.kReverse);
+    	backbool = true;
+    	leftHook.set(Value.kReverse);
+    	leftbool = false;
+    	rightHook.set(Value.kReverse);
+    	rightbool =  false;
 	   
     }
 }

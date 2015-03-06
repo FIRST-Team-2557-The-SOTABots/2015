@@ -26,13 +26,13 @@ public class AutoRotateClock extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while(RobotMap.frontLeftEnc.get() < 1850 & RobotMap.frontRightEnc.get() < 1780){
-    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,-.5,0);
-    	}
-//    	while(RobotMap.gyro.getAngle() < instance + 77){
+//    	while(RobotMap.frontLeftEnc.get() < 1850 & RobotMap.frontRightEnc.get() < 1780){
 //    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,-.5,0);
 //    	}
-//    	Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,0,0);
+    	while(RobotMap.gyro.getAngle() < instance + 66){
+    		Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,-.5,0);
+    	}
+    	Robot.driveWithJoystick.mecanumDrive_Cartesian123(0,0,0,0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
