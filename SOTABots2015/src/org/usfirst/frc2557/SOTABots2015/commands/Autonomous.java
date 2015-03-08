@@ -50,17 +50,58 @@ public class Autonomous extends CommandGroup {
 //    	addSequential(new AutoEjectIn());//Drive backwards
     	
     	
-//////////////////////////////////////////////////////////////////////////////////////////////////////	
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+    	/*90 degree turn is approximately 1750-1850 encoder counts
+    	 *5000 encoder counts gets you to the autozone
+    	 *1,0,0,1800 clockwise rotation of 90 deg
+    	 * 
+    	 */
+    	
+    	
+    	
+    	
+    	
     	addSequential(new AutoDrive(0, -.3, 0, 280));
     	addSequential(new AutoBackHook());
-     	addSequential(new AutoDriveUntil(0, .3, 0), 2);
+     	addSequential(new AutoDriveUntil(0, .3, 0), 1.8);
     	addSequential(new AutoGrabClose());
     	addSequential(new AutoDrive(0, -.3, 0, 300));
-    	addSequential(new AutoLiftUp(1));
+//    	addSequential(new AutoLiftUp(1), 2);
+    	addSequential(new AutoLiftUp());
     	addSequential(new AutoRotateClock());
     	addSequential(new AutoDrive(1, 0, 0, 1800));
     	addSequential(new AutoLeftHook());
-    	addSequential(new AutoDrive(0, .5, 0, 7000));
+    	/*addSequential(new AutoDrive(1,0,0,1800));
+    	 *addSequential(new AutoDrive(0,.5,0,1800));
+    	 *addSequential(new AutoDriveUntil(0,.4,0), 2);
+    	 *ddSequential(new AutoGrabOpen());
+    	 *addSequential(new AutoLiftDown());
+    	 *addSequential(new AutoGrabClose());
+    	 *addSequential(new AutoLiftUp());
+    	 *addSequential(new AutoDrive(1,0,0,3600));
+    	 *addSeequential(new AutoDrive(0,.5,0,5000));
+    	 *addSequential(new AutoDriveUntil(0,.4,0), 1);
+    	 *addSequential(new AutoDrive(1,0,0,1800));
+    	 *addSequential(new AutoLeftHook());
+    	 *addSequential(new AutoDrive(0,0,0,5000));
+    	 *addSequential(new AutoLiftDown());
+    	 *addSequential(new AutoGrabOpen());
+    	 *addSequential(new AutoEjectOut());
+    	 *addSequential(new AutoEjectIn());
+    	 *
+    	 *
+    	 */
+    	addSequential(new AutoDrive(0, .65, 0, 5000));
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
 //    	addSequential(new AutoDrive(0, 0, .5, 1650));
 //    	//addSequential(new AutoDrive(0, -.5, 0, 300));
 //    	addSequential(new AutoDrive(-1, 0, 0, 3500));
@@ -90,7 +131,8 @@ public class Autonomous extends CommandGroup {
     	
 ////////////////////////////////////////////////////////////////////////////////////////////////  	
 //    	addSequential(new AutoDrive(0, .7, -.18, 6050)); //Competition is 8050 //
-//    	addSequential(new AutoGrabOpen());
+
+    	//    	addSequential(new AutoGrabOpen());
 //    	addSequential(new AutoEjectOut());
 //    	addParallel(new AutoDrive(0, -.6, 0, 200));
 //    	addSequential(new AutoEjectIn());//Drive backwards
