@@ -33,92 +33,87 @@ public class Radar extends Subsystem {
 
 //Main Radar Methods
 	public void findCenter(int x, int y){
-		double[] average = new double[10];
+		double[] average = new double[181];
 ////////TEST///////
-//		int i = 0; //degrees
-//		int c;
-//		double a, b, z, instant = 0, difference = 0; //voltages
-//		
-//		for(i = 0; i < 10; i++){
-//			average[i] = rangeCenter.getVoltage()/.009765;
-//			
-//		}
-//		a = (average[0]+average[1]+average[2])/average.length;		
-//		RobotMap.servoCenter.set(RobotMap.degCount / 180.0);
-//    	
-//    	
-//    	if (RobotMap.sweepDir == true) {
-//    		RobotMap.degCount+= 2;
-//    	}
-//    	else {
-//    		RobotMap.degCount-= 2;
-//    	}
-//    	
-//    	
-//    	if (RobotMap.degCount == y) { 
-//    		RobotMap.sweepDir = false;
-//    	}
-//    	else if (RobotMap.degCount == x) {
-//    		RobotMap.sweepDir = true;
-//		}
-//    	//Use a variable in Robotmap to account for the degree -Android 
-//    	if(average[i] < 30 && average[i] < 100){ //30 is just an arbitrary number
-//			
-//			//find the first side of an object in a sweep and initiate a variable to store the degree and voltage that was found
-//			x = i;
-//			a = average[i];
-//		}
-//		if(average[i] > 50 && average[i] < 100){ // needs more logic to the parameter to consider everything that ISN'T a tote or bin
-//			
-//			//find the other side of the object and initiate a variable to store the degree and voltage that was found
-//			y = i-2;
-//			b = average[i];
-//		}
-//		RobotMap.centerDegreeR = (x+y)/2;
-//		c = (x+y)/2;
-//		RobotMap.changeDegreeR  = RobotMap.centerDegreeR - 90;
-//		instant = RobotMap.gyro.getAngle();
-//		if (c < average.length){
-//		i = c;
-//		z = average[i];
-//		}
+		int c;
+		double a, b, z, instant = 0, difference = 0; //voltages
+		
+			average[RobotMap.degCount] = rangeCenter.getVoltage()/.009765;
+		a = (average[0]+average[1]+average[2])/average.length;		
+		RobotMap.servoCenter.set(RobotMap.degCount / 180.0);
+    	
+    	
+    	if (RobotMap.sweepDir == true) {
+    		RobotMap.degCount+= 2;
+    	}
+    	else {
+    		RobotMap.degCount-= 2;
+    	}
+    	
+    	
+    	if (RobotMap.degCount == y) { 
+    		RobotMap.sweepDir = false;
+    	}
+    	else if (RobotMap.degCount == x) {
+    		RobotMap.sweepDir = true;
+		}
+    	//Use a variable in Robotmap to account for the degree -Android 
+    	if(average[RobotMap.degCount] < 30 && average[RobotMap.degCount] < 100){ //30 is just an arbitrary number
+			
+			//find the first side of an object in a sweep and initiate a variable to store the degree and voltage that was found
+			x = RobotMap.degCount;
+			a = average[RobotMap.degCount];
+		}
+		if(average[RobotMap.degCount] > 50 && average[RobotMap.degCount] < 100){ // needs more logic to the parameter to consider everything that ISN'T a tote or bin
+			
+			//find the other side of the object and initiate a variable to store the degree and voltage that was found
+			y = RobotMap.degCount-2;
+			b = average[RobotMap.degCount];
+		}
+		RobotMap.centerDegreeR = (x+y)/2;
+		c = (x+y)/2;
+		RobotMap.changeDegreeR  = RobotMap.centerDegreeR - 90;
+		instant = RobotMap.gyro.getAngle();
+		if (c < average.length){
+			RobotMap.degCount = c;
+			z = average[RobotMap.degCount];
+		}
 		x = x - 5;
 		y = y + 5;
 		
-/*		
-		if (Robotmap.centerDegreeR > 90){
-			RobotMap.changeDegree = RobotMap.centerDegree - 90;
-		} 
-		servo = 135
-		perpindicular = 270
-		differnce of servo to the perpendicular
 		
-		//Right
-		 * y = x-p
-		 * y = difference in degrees
-		 * x = servo angle
-		 * p = perpindicular
-		
-		
-    	if(x <= y+3 && x >= y-3 && c < a && c > b){
-			you are looking at a tote
-		}
-		else if(y <= x+3 && y >= x-3 && c > a && c < b){
-			
-		}
-		else if(){
-			
-		}
-		x = average[x];
-		y = average[y];
-		c = (x+y)/2;
-		a = (x+c)/2;
-		b = (y+c)/2;
-		
-		if(x<y&&c>a&&c<b){
-			RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,1,.2,0);
-		}
-*/
+		RobotMap.changeDegreeR = RobotMap.centerDegreeR - 90;
+		 
+//		servo = 135
+//		perpindicular = 270
+//		differnce of servo to the perpendicular
+//		
+//		//Right
+//		 * y = x-p
+//		 * y = difference in degrees
+//		 * x = servo angle
+//		 * p = perpindicular
+//		
+//		
+//    	if(x <= y+3 && x >= y-3 && c < a && c > b){
+//			you are looking at a tote
+//		}
+//		else if(y <= x+3 && y >= x-3 && c > a && c < b){
+//			
+//		}
+//		else if(){
+//			
+//		}
+//		x = average[x];
+//		y = average[y];
+//		c = (x+y)/2;
+//		a = (x+c)/2;
+//		b = (y+c)/2;
+//		
+//		if(x<y&&c>a&&c<b){
+//			RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,1,.2,0);
+//		}
+
 ////////TEST///////
 	}	
 		

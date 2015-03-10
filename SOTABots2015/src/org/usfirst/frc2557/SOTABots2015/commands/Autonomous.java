@@ -27,12 +27,8 @@ public class Autonomous extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	//Works
-//    	addParallel(new AutoDrive(0,-.5,0,100));
-//    	addSequential(new AutoDrive(0, 0, -.5, 150));
-
-    	
-//////////////////////////////////////////////////////////////////////////////////////////////////    	
+//////////////////////////////////////////////////////////////////////////////////////////////////  
+    	//Auburn Week 1
 ////    	addSequential(new AutoInitialize());
 //    	addSequential(new AutoDrive(0, -.3, 0, 280));
 //    	addSequential(new AutoBackHook());
@@ -51,6 +47,22 @@ public class Autonomous extends CommandGroup {
     	
     	
 //////////////////////////////////////////////////////////////////////////////////////////////////////
+    	//Spokane Week 2
+//    	addSequential(new AutoDrive(0, -.3, 0, 280));
+//    	addSequential(new AutoBackHook());
+//     	addSequential(new AutoDriveUntil(0, .42, 0), 1.3);
+//    	addSequential(new AutoGrabClose());
+//    	addSequential(new AutoDrive(0, -.3, 0, 300));
+////    	addSequential(new AutoLiftUp(1), 2);
+//    	addSequential(new AutoLiftUp());
+//    	addSequential(new AutoRotateClock());
+//    	addSequential(new AutoDrive(0,0,.5,1750));
+//    	addSequential(new AutoDrive(-1, 0, 0, 1800));
+//    	addSequential(new AutoRightHook());
+//    	addSequential(new AutoDrive(0, .65, 0, 5000));
+    	
+    	
+//////////////////////////////////////////////////////////////////////////////////////////////////////
     	/*90 degree turn is approximately 1750-1850 encoder counts
     	 *5000 encoder counts gets you to the autozone
     	 *1,0,0,1800 clockwise rotation of 90 deg
@@ -63,17 +75,18 @@ public class Autonomous extends CommandGroup {
     	
     	addSequential(new AutoDrive(0, -.3, 0, 280));
     	addSequential(new AutoBackHook());
-     	addSequential(new AutoDriveUntil(0, .3, 0), 1.8);
+     	addSequential(new AutoDriveUntil(0, .42, 0), 1.3);
     	addSequential(new AutoGrabClose());
     	addSequential(new AutoDrive(0, -.3, 0, 300));
 //    	addSequential(new AutoLiftUp(1), 2);
     	addSequential(new AutoLiftUp());
-    	addSequential(new AutoRotateClock());
-    	addSequential(new AutoDrive(1, 0, 0, 1800));
-    	addSequential(new AutoLeftHook());
-    	/*addSequential(new AutoDrive(1,0,0,1800));
+//    	addSequential(new AutoRotateClock());
+    	addSequential(new AutoDrive(0,0,.5,1750));
+    	addSequential(new AutoDrive(-1, 0, 0, 1800));
+    	addSequential(new AutoRightHook());
+    	/*addSequential(new AutoDrive(-1,0,0,1800));
     	 *addSequential(new AutoDrive(0,.5,0,1800));
-    	 *addSequential(new AutoDriveUntil(0,.4,0), 2);
+    	 *addSequential(new AutoDriveUntil(0,.4,0), 1);
     	 *ddSequential(new AutoGrabOpen());
     	 *addSequential(new AutoLiftDown());
     	 *addSequential(new AutoGrabClose());
