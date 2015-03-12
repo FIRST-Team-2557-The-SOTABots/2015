@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class Autonomous extends CommandGroup {
+public class AutonomousMain extends CommandGroup {
     
-    public  Autonomous() {
+    public  AutonomousMain() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -69,21 +69,23 @@ public class Autonomous extends CommandGroup {
     	 * 
     	 */
     	
+    	addSequential(new AutoLiftDown());
     	
-    	
-    	
-    	
-    	addSequential(new AutoDrive(0, -.3, 0, 280));
-    	addSequential(new AutoBackHook());
-     	addSequential(new AutoDriveUntil(0, .42, 0), 1.3);
-    	addSequential(new AutoGrabClose());
-    	addSequential(new AutoDrive(0, -.3, 0, 300));
-//    	addSequential(new AutoLiftUp(1), 2);
-    	addSequential(new AutoLiftUp());
-//    	addSequential(new AutoRotateClock());
-    	addSequential(new AutoDrive(0,0,.5,1750));
-    	addSequential(new AutoDrive(-1, 0, 0, 1800));
-    	addSequential(new AutoRightHook());
+//    	addParallel(new AutoDrive(0, -.3, 0, 280));
+//    	addSequential(new AutoBackHook());
+//     	
+//    	addSequential(new AutoDriveUntil(0, .42, 0), 1.3);
+//    	addSequential(new AutoGrabClose());
+//    	
+//    	addParallel(new AutoDrive(0, -.3, 0, 300));
+////    	addSequential(new AutoLiftUp(1), 2);
+//    	addSequential(new AutoLiftUp(), 3);
+////    	addSequential(new AutoRotateClock());
+//    	
+//    	addSequential(new AutoDrive(0,0,.5,1750));
+//    	addSequential(new AutoDrive(-1, 0, 0, 1800));
+//    	
+//    	addSequential(new AutoRightHook());
     	/*addSequential(new AutoDrive(-1,0,0,1800));
     	 *addSequential(new AutoDrive(0,.5,0,1800));
     	 *addSequential(new AutoDriveUntil(0,.4,0), 1);
@@ -104,7 +106,7 @@ public class Autonomous extends CommandGroup {
     	 *
     	 *
     	 */
-    	addSequential(new AutoDrive(0, .65, 0, 5000));
+//    	addSequential(new AutoDrive(0, .65, 0, 5000));
     	
     	
     	
@@ -141,7 +143,7 @@ public class Autonomous extends CommandGroup {
 //    	addSequential(new Grab());
 //    	addSequential(new AutoDrive());
 //    	addSequential(new AutoLeftHook());
-    	
+    	  
 ////////////////////////////////////////////////////////////////////////////////////////////////  	
 //    	addSequential(new AutoDrive(0, .7, -.18, 6050)); //Competition is 8050 //
 

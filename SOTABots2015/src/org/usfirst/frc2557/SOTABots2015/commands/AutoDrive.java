@@ -34,7 +34,7 @@ public class AutoDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while(RobotMap.frontLeftEnc.get() < distance & RobotMap.frontRightEnc.get() < distance){
+    	while(RobotMap.rearLeftEnc.get() < distance & RobotMap.frontRightEnc.get() < distance){
     		Robot.driveWithJoystick.mecanumDrive_Cartesian123(strafe,power,rotate,0);
     		
     	}
