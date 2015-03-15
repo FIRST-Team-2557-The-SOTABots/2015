@@ -14,6 +14,7 @@ package org.usfirst.frc2557.SOTABots2015;
 
 
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
@@ -63,23 +64,38 @@ public class RobotMap {
     public static DigitalInput liftSensor;				//Port5 
     public static DigitalInput leftRampSensor;			//Port6
     public static DigitalInput rightRampSensor;			//Port7
-    public static DigitalInput binStopLeft;				//Port8
-    public static DigitalInput binStopRight;			//Port9
+    public static DigitalInput liftStop;				//Port8
     
-    //Variables
+    //Manipulated Variables
     public static boolean sweepDir;
+    public static boolean grabberState;
+    public static boolean intakeState;
+    public static boolean backHookState;
+    public static boolean leftHookState;
+    public static boolean rightHookState;
+    public static boolean ejectorState;
     public static int degCount;
     public static double centerDegreeR;
     public static double changeDegreeR;
     public static double centerDegreeL;
     public static double changeDegreeL;
     public static int liftLevel;
-    public static int maxLiftLevel;
-    public static int minLiftLevel;
-    public static int lowLiftLevel;
-    public static double liftSpeed;
-    public static double intakeSpeed;
-    public static double intakeWaitTime;
+    public static int autoDistance1;
+    public static int autoDistance2;
+    public static boolean grabbool;
+    public static boolean intakebool;
+    public static boolean backbool;
+    public static boolean leftbool;
+    public static boolean rightbool;
+    public static boolean ejectbool;
+    
+    //Controlled Variables
+    final public static int maxLiftLevel = 6;
+    final public static int minLiftLevel = 0;
+    final public static int lowLiftLevel = 1;
+    final public static double liftSpeed = 1;
+    final public static double intakeSpeed = 1;
+    final public static double autospeed = 1;
     
     //Range Finder Arrays
     public static double[] leftArray;
@@ -88,7 +104,6 @@ public class RobotMap {
     
     //Other
     public static PowerDistributionPanel PDP;
-    public static Timer time;
     
     
     //public static AnalogInput rangeFrontRight;
@@ -125,17 +140,20 @@ public class RobotMap {
 	    
 	    
 	    
-	    //Variables
+	    
+	    //Manipulated Variables
 	    degCount = 0;
 	    sweepDir = true;
+	    grabberState = false;
+	    intakeState = false;
+	    backHookState = false;
+	    leftHookState = false;
+	    rightHookState = false;
+	    ejectorState = true;
 	    liftLevel = 0;
-	    maxLiftLevel = 6;
-	    minLiftLevel = 0;
-	    lowLiftLevel = 1;
-	    liftSpeed = 1;
-	    intakeSpeed = 1;
-	    intakeWaitTime = 2;
-	  
+	    autoDistance1 = 0;
+	    autoDistance2 = 0;
+	    
 	    //Range Finders
 	    rangeLeft = new AnalogInput(1);
 	    rangeRight = new AnalogInput(2);
@@ -163,10 +181,9 @@ public class RobotMap {
 	    //Encoders & other Digital IO
 	    toteStop = new DigitalInput(4);
 	    liftSensor = new DigitalInput(5);
+	    liftStop = new DigitalInput(8);
 	    leftRampSensor = new DigitalInput(6);
 	    rightRampSensor = new DigitalInput(7);
-	    binStopLeft = new DigitalInput(8);
-	    binStopRight =  new DigitalInput(9);
 	    
 	  
 	  	//References for what to set on the encoders. do not touch.
@@ -204,9 +221,22 @@ public class RobotMap {
 	    rearRightEnc.setReverseDirection(false);
 	    rearRightEnc.setSamplesToAverage(10);
         rearRightEnc.setDistancePerPulse(12);
-	    
-        //Other
-//        time.start();
+        
+        
+        
+        //Initializing the Solenoids
+        grab.set(Value.kReverse);
+    	grabbool =  true;
+    	intakeSol.set(Value.kReverse);
+    	intakebool =  true;
+    	ejector.set(Value.kForward);
+    	ejectbool = false;
+    	backHook.set(Value.kReverse);
+    	backbool = true;
+    	leftHook.set(Value.kReverse);
+    	leftbool = false;
+    	rightHook.set(Value.kReverse);
+    	rightbool =  false;
 	   
     }
 }

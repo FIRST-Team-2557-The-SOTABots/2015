@@ -14,7 +14,7 @@ public class Autonomous extends CommandGroup {
     	addSequential(new IntakeIn());
     	addSequential(new LimitSwitchCommand());
     	addSequential(new Grab());
-    	addParallel(new IntakeOpen());
+    	addParallel(new IntakeArms());
     	addSequential(new LiftUp());
     	addSequential(new RotateAutoCommand(-90));
     	addSequential(new AutoDriveCommand(-1, 0, 0, 0, 10));

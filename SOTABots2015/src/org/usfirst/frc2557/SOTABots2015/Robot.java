@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc2557.SOTABots2015.commands.*;
 import org.usfirst.frc2557.SOTABots2015.subsystems.*;
@@ -30,12 +31,15 @@ import org.usfirst.frc2557.SOTABots2015.subsystems.*;
 public class Robot extends IterativeRobot {
 
     
-	Command autonomousCommand;
+	Command autonomous;
     Command drive;
     Command dashboard;
     Command gyroReset;
     Command radarCommand;
     Command intake;
+    Command lift;
+    Command init;
+    Command warning;
     
 
     public static OI oi;
@@ -51,14 +55,14 @@ public class Robot extends IterativeRobot {
     public static Manipulator manipulator;
     public static HallEffect hallEffect;
     public static MomentarySensors momentary;
+    public static Encoders encoders;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-    RobotMap.init();
+    	RobotMap.init();
         driveWithJoystick = new DriveTrain();
-        RobotMap.time.start();
 
         // Create a counter to tie degrees and rangefinder collection
         // The hopes of these being declared here is so they are not instantiated inside a loop
@@ -66,7 +70,7 @@ public class Robot extends IterativeRobot {
         // Let's say true is clockwise, false is counter clockwise.
         // instantiate the command used for the autonomous period
 //Subsystem Initializers (must be first)
-        autonomousCommand = new AutonomousCommand();
+        
         dashboardSub = new SmartDashboardSS();
         drive = new Drive();
         gyroSub = new GyroSub();
@@ -77,12 +81,17 @@ public class Robot extends IterativeRobot {
         manipulator = new Manipulator();
         hallEffect = new HallEffect();
         momentary = new MomentarySensors();
+        encoders = new Encoders();
         
 //Command Initializers (must be second)
         radarCommand = new RadarCommand();
         gyroReset = new GyroReset();
         dashboard = new Dashboard();
-        
+        autonomous = new AutonomousMain();
+        intake = new Intake();
+        lift = new Lift();
+        init = new AutoInitialize();
+        warning = new LiftWarning();
         // OI must be constructed after subsystems. If the OI creates Commands 
         //(which it very likely will), subsystems are not guaranteed to be 
         // constructed yet. Thus, their requires() statements may grab null 
@@ -106,8 +115,11 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+    	
+        if (autonomous != null) autonomous.start();
         gyroReset.start();
+        
+        
     }
 
     /**
@@ -115,6 +127,13 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("front left enc", RobotMap.frontLeftEnc.get());
+    	SmartDashboard.putNumber("front right enc", RobotMap.frontRightEnc.get());
+    	SmartDashboard.putNumber("rear left enc", RobotMap.rearLeftEnc.get());
+    	SmartDashboard.putNumber("rear right enc", RobotMap.rearRightEnc.get());
+    	SmartDashboard.putNumber("front left dist", RobotMap.frontLeftEnc.getDistance());
+    	SmartDashboard.putNumber("front left rate", RobotMap.frontLeftEnc.getRate());
+        //radarCommand.start();
     }
 
     public void teleopInit() {
@@ -122,7 +141,7 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
+        if (autonomous != null) autonomous.cancel();
         gyroReset.start();
     }
 
@@ -134,15 +153,20 @@ public class Robot extends IterativeRobot {
         drive.start();
         dashboard.start();
         radarCommand.start();
+//        intake.start();
+        lift.start();
+        warning.start();
+        SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
+        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5)*.5);
+        
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
-
     }
 
-//RobotMap.locationGyro.getAngle()
     /**
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
         LiveWindow.run();
+        //init.start();
     }
 }
