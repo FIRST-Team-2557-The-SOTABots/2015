@@ -4,6 +4,7 @@ import org.usfirst.frc2557.SOTABots2015.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -36,14 +37,18 @@ public class RangeCorrectionAuto2 extends Command {
 	public boolean binIgnore;
 	public boolean ig;
 	public double p; 
+	public double firstWidth;
+	public double secondWidth;
+	public boolean isIncrementing;
+	double[] aDistance = RobotMap.aDistance;
+	public double xDistance;
+	public double yDistance;
 
     public RangeCorrectionAuto2(boolean ig, double p) {
        	this.ig = ig;
     	this.p = p;
     	
-    	inchesFront = RobotMap.rangeCenter.getVoltage()/.009765;
-    	inchesLeftBack = RobotMap.rangeLeft.getVoltage()/.009765;
-    	inchesRightBack = RobotMap.rangeRight.getVoltage()/.009765;
+
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -69,7 +74,7 @@ public class RangeCorrectionAuto2 extends Command {
     	while(sweepAngle <= maxSweepAngle){
     		RobotMap.servoCenter.setAngle(sweepAngle);
     		inchesFront = RobotMap.rangeCenter.getVoltage()/.00765;
-    		if(inchesFront < 20){
+    		if(inchesFront < 40){
     			hitInches = inchesFront;
     			hitAngle = sweepAngle;
     			inRange = true;
@@ -83,8 +88,18 @@ public class RangeCorrectionAuto2 extends Command {
     			noHitAngle = sweepAngle;
     			inRange = false;
     		}
-    		
-    		sweepAngle += 1 / 180;
+    		if(sweepAngle == maxSweepAngle){
+    			isIncrementing = false;
+    		}
+    		else if(sweepAngle == minSweepAngle){
+    			isIncrementing = true;
+    		}
+    		if(isIncrementing == true){
+    			sweepAngle += 1 / 180;
+    		}
+    		else{
+    			sweepAngle -= 1 / 180;
+    		}
     	}
     		
     		
@@ -92,13 +107,18 @@ public class RangeCorrectionAuto2 extends Command {
     		firstLength = Math.pow(Math.cos((hitAngle-90) / hitInches) - Math.cos((lowPointAngle-90) / lowPointInches), 2);
     		secondLength = Math.pow(Math.sin((hitAngle-90) / hitInches) - Math.sin((lowPointAngle-90) / lowPointInches), 2);
     		length = Math.sqrt(firstLength + secondLength);
-    		firstLength = Math.pow(Math.cos((lowPointAngle-90) / lowPointInches) - Math.cos((noHitAngle-90) / noHitInches), 2);
-    		secondLength = Math.pow(Math.sin((lowPointAngle-90) / lowPointInches) - Math.sin((noHitAngle-90) / noHitInches), 2);
+    		firstWidth = Math.pow(Math.cos((lowPointAngle-90) / lowPointInches) - Math.cos((noHitAngle-90) / noHitInches), 2);
+    		secondWidth = Math.pow(Math.sin((lowPointAngle-90) / lowPointInches) - Math.sin((noHitAngle-90) / noHitInches), 2);
     		width = Math.sqrt(firstLength + secondLength);
     		
     		/*
     		 * if width gt length we have the long side, swap
     		 */
+        	SmartDashboard.putBoolean("inRange", inRange);
+        	SmartDashboard.putBoolean("isIncrementing", isIncrementing);
+        	SmartDashboard.putDouble("firstLength", firstLength);
+        	SmartDashboard.putDouble("length", length);
+
     		if(width >= length){
     			length = width;
     		}
@@ -113,7 +133,7 @@ public class RangeCorrectionAuto2 extends Command {
     		else if(length < 18 || length > 24){
     			lengthIgnore = true;
     		}
-    		else if(binLength < 10 || binLength > 14){
+    		else if(secondLength + firstWidth < 10 || secondLength + firstWidth > 14){
     			binIgnore = true;
     		}
     		if(!lengthIgnore && !widthIgnore){
@@ -122,8 +142,13 @@ public class RangeCorrectionAuto2 extends Command {
     		if(hitInches - noHitInches < 5){
     			widthIgnore = true;
     		}
+    		if(widthIgnore == false || lengthIgnore == false || binIgnore == false){
+    			xDistance = aDistance[0];
+    			yDistance = aDistance[1];
+    			
     		}
-    	    }
+    		}
+    	  
     			//move towards width
 
     	// Checking for the midpoint of the object using the servo angle
@@ -131,7 +156,7 @@ public class RangeCorrectionAuto2 extends Command {
     	x = 0;
     	z = 0;
     	
-    	if(widthIgnore == false && noHitInches - lowPointInches >= 2){
+    	if(!widthIgnore && noHitInches - lowPointInches >= 2){
     		z = 1;
     	}
     	else{
@@ -147,7 +172,7 @@ public class RangeCorrectionAuto2 extends Command {
     		x = -1;
     		// SHOULD MOVE LEFT
     	}
-    	if(lengthIgnore == false && hitInches >  noHitInches){
+    	if(!lengthIgnore && hitInches >  noHitInches){
     		z = -1;
     		x = -1;
     		while(!widthIgnore){
@@ -155,7 +180,7 @@ public class RangeCorrectionAuto2 extends Command {
     			
     		}
     	}
-    	else if(lengthIgnore == false && noHitInches > hitInches){
+    	else if(!lengthIgnore && noHitInches > hitInches){
     		z = 1;
     		x = 1;
     		while(!widthIgnore){
@@ -175,7 +200,7 @@ public class RangeCorrectionAuto2 extends Command {
     		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,1,0,0);
     		}
     		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
-    		while(!ig){
+    		//owhile(!ig){
     		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0, 0, p, 0);
     	}
     		if(ig){
@@ -190,16 +215,72 @@ public class RangeCorrectionAuto2 extends Command {
         			RobotMap.intakeMotors.set(1);
     			}
               		RobotMap.grab.set(DoubleSolenoid.Value.kForward);
-//              		RobotMap.time.reset();
-//            		while(RobotMap.time.get() < 2){
-//            		RobotMap.liftMotor.set(1);
-//            		}
-    			
+              		
+            		RobotMap.liftMotor.set(1);
+            		}
     		}
+        			
+        				if(RobotMap.rangeCenter.getVoltage() / .00765 < 7){
+        			
+        				RobotMap.intakeSol.set(DoubleSolenoid.Value.kForward);
+            			while(!RobotMap.toteStop.get() && RobotMap.intakeSol.get() == DoubleSolenoid.Value.kForward){
+                			RobotMap.intakeMotors.set(1);
+            			}
+            			if(RobotMap.toteStop.get()){
+            				RobotMap.grab.set(DoubleSolenoid.Value.kReverse);
+            				while(RobotMap.liftLevel > 0){
+            					RobotMap.liftMotor.set(-1);
+            				}
+            				RobotMap.grab.set(DoubleSolenoid.Value.kForward);
+            				
+            				while(RobotMap.liftLevel < 1){
+            	        		RobotMap.liftMotor.set(1);
+            	        		}
+            	        		RobotMap.intakeMotors.set(0);
+            	        		RobotMap.intakeSol.set(DoubleSolenoid.Value.kReverse);
+            	   }
+            			
+                			else{
+                				if(RobotMap.rangeCenter.getVoltage() / .00765 < 7){
+                			
+                				RobotMap.intakeSol.set(DoubleSolenoid.Value.kForward);
+                    			while(!RobotMap.toteStop.get() && RobotMap.intakeSol.get() == DoubleSolenoid.Value.kForward){
+                        			RobotMap.intakeMotors.set(1);
+                    			}
+                    			if(RobotMap.toteStop.get()){
+                    				while(RobotMap.time.get() < 0.5){
+                    					RobotMap.liftMotor.set(-1);
+                    				}
+                    				RobotMap.grab.set(DoubleSolenoid.Value.kReverse);
+                    				while(RobotMap.liftLevel > 0){
+                    					RobotMap.liftMotor.set(-1);
+                    				}
+                    				RobotMap.grab.set(DoubleSolenoid.Value.kForward);
+                    				
+                    				while(RobotMap.liftLevel < 1){
+                    	        		RobotMap.liftMotor.set(1);
+                    	        		}
+                    	        		RobotMap.intakeMotors.set(0);
+                    	        		RobotMap.intakeSol.set(DoubleSolenoid.Value.kReverse);
+                    			}
+                    	   }
+                    					
+                    				}
+                    				
+                    				
+                    			}
+            					
+            				
+            				
+            				
+            			
     		
-    		}
+    		
+    		
     		notDone = false;
-    	}
+ 
+    }
+
 
 
     // Make this return true when this Command no longer needs to run execute()
