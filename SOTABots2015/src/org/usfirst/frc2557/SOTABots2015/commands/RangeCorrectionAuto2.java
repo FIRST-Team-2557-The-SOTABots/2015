@@ -190,10 +190,10 @@ public class RangeCorrectionAuto2 extends Command {
         			RobotMap.intakeMotors.set(1);
     			}
               		RobotMap.grab.set(DoubleSolenoid.Value.kForward);
-              		RobotMap.time.reset();
-            		while(RobotMap.time.get() < 2){
-            		RobotMap.liftMotor.set(1);
-            		}
+//              		RobotMap.time.reset();
+//            		while(RobotMap.time.get() < 2){
+//            		RobotMap.liftMotor.set(1);
+//            		}
     			
     		}
     		

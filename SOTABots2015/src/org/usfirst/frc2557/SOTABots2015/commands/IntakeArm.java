@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class IntakeArms extends Command {
+public class IntakeArm extends Command {
 
-    public IntakeArms() {
+    public IntakeArm() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.pnuematics);
@@ -17,7 +17,7 @@ public class IntakeArms extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.pnuematics.intakeOpen();
+    	Robot.pnuematics.intake();
     }
 
     // Called repeatedly when this Command is scheduled to run

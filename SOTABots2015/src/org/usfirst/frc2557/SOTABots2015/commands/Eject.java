@@ -29,7 +29,7 @@ public class Eject extends Command {
 //    	else{
 //    		RobotMap.ejector.set(Value.kForward);//Robot.pnuematics.ejectOut();
 //    	}
-    	Robot.pnuematics.ejectIn();
+    	Robot.pnuematics.eject();
     }
 
     // Make this return true when this Command no longer needs to run execute()

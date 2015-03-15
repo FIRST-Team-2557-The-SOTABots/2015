@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class LiftSequence extends CommandGroup {
     
     public  LiftSequence() {
-    	addSequential(new IntakeClose());
-    	addParallel(new IntakeIn());
-    	addSequential(new Grab());
-    	addSequential(new LiftUp());
+//    	addSequential(new IntakeClose());
+//    	addParallel(new IntakeIn());
+//    	addSequential(new Grab());
+//    	addSequential(new LiftUp());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

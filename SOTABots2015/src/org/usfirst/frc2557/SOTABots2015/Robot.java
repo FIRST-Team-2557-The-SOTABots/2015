@@ -55,7 +55,6 @@ public class Robot extends IterativeRobot {
     public static Manipulator manipulator;
     public static HallEffect hallEffect;
     public static MomentarySensors momentary;
-    public static Encoders encoders;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -81,15 +80,14 @@ public class Robot extends IterativeRobot {
         manipulator = new Manipulator();
         hallEffect = new HallEffect();
         momentary = new MomentarySensors();
-        encoders = new Encoders();
         
 //Command Initializers (must be second)
         radarCommand = new RadarCommand();
         gyroReset = new GyroReset();
         dashboard = new Dashboard();
         autonomous = new AutonomousMain();
-        intake = new Intake();
-        lift = new Lift();
+        intake = new IntakeArm();
+        lift = new LiftUp();
         init = new AutoInitialize();
         warning = new LiftWarning();
         // OI must be constructed after subsystems. If the OI creates Commands 
