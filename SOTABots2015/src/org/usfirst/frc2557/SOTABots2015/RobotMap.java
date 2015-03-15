@@ -88,6 +88,7 @@ public class RobotMap {
     public static boolean leftbool;
     public static boolean rightbool;
     public static boolean ejectbool;
+    public static Timer time;
     
     //Controlled Variables
     final public static int maxLiftLevel = 6;
@@ -101,6 +102,7 @@ public class RobotMap {
     public static double[] leftArray;
     public static double[] centerArray;
     public static double[] rightArray;
+    public static double[] aDistance;
     
     //Other
     public static PowerDistributionPanel PDP;

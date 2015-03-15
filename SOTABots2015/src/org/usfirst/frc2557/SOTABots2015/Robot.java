@@ -87,7 +87,7 @@ public class Robot extends IterativeRobot {
         dashboard = new Dashboard();
         autonomous = new AutonomousMain();
         intake = new IntakeArm();
-        lift = new LiftUp();
+        lift = new Lift();
         init = new AutoInitialize();
         warning = new LiftWarning();
         // OI must be constructed after subsystems. If the OI creates Commands 
