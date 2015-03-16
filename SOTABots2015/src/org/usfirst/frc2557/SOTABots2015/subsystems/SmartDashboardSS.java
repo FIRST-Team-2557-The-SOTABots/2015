@@ -53,9 +53,9 @@ public class SmartDashboardSS extends Subsystem {
     public void rangeOutputs(){
     	//RangeFinders
         
-//        SmartDashboard.putNumber("The Left Range Finder normal: ", rangeLeft.getVoltage()/divider);
-//        SmartDashboard.putNumber("The Right Range Finder normal: ", rangeRight.getVoltage()/divider);
-//        SmartDashboard.putNumber("The Center Range Finder normal: ", rangeCenter.getVoltage()/divider);
+        SmartDashboard.putNumber("The Left Range Finder normal: ", rangeLeft.getVoltage()/divider);
+        SmartDashboard.putNumber("The Right Range Finder normal: ", rangeRight.getVoltage()/divider);
+        SmartDashboard.putNumber("The Center Range Finder normal: ", rangeCenter.getVoltage()/divider);
         SmartDashboard.putNumber("The Left Range Finder average: ", rangeLeft.getAverageVoltage()/divider);
         SmartDashboard.putNumber("The Right Range Finder average: ", rangeRight.getAverageVoltage()/divider);
         SmartDashboard.putNumber("The Center Range Finder average: ", rangeCenter.getAverageVoltage()/divider);
@@ -75,10 +75,10 @@ public class SmartDashboardSS extends Subsystem {
     }
     public void powerOutput(){
     	//Power Distribution
-    	SmartDashboard.putNumber("Front Right", PDP.getCurrent(12));
-        SmartDashboard.putNumber("Front Left", PDP.getCurrent(13));
-        SmartDashboard.putNumber("Back Right", PDP.getCurrent(14));
-        SmartDashboard.putNumber("Back Left", PDP.getCurrent(15));
+//    	SmartDashboard.putNumber("Front Right", PDP.getCurrent(12));
+//        SmartDashboard.putNumber("Front Left", PDP.getCurrent(13));
+//        SmartDashboard.putNumber("Back Right", PDP.getCurrent(14));
+//        SmartDashboard.putNumber("Back Left", PDP.getCurrent(15));
     }
 }
 

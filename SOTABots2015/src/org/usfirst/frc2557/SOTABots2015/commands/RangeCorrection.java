@@ -43,9 +43,9 @@ public class RangeCorrection extends Command {
 	public double secondWidth;
 	public boolean isIncrementing;
     	
-    public RangeCorrection(boolean ig, double p){
-    	this.ig = ig;
-    	this.p = p;
+    public RangeCorrection(){ //boolean ig, double p){
+    	//this.ig = ig;
+    	//this.p = p;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);  
     }
@@ -114,12 +114,14 @@ public class RangeCorrection extends Command {
     		
         	SmartDashboard.putBoolean("inRange", inRange);
         	SmartDashboard.putBoolean("isIncrementing", isIncrementing);
-        	SmartDashboard.putDouble("firstLength", firstLength);
-        	SmartDashboard.putDouble("length", length);
-        	SmartDashboard.putDouble("inchesFront", inchesFront);
+    	}
+    	}
+    }
+
+
     		
     		
-    		if(width < 17 || width > 21){
+    		/*if(width < 17 || width > 21){
     			widthIgnore = true;
     		}
     		else if((secondLength + firstWidth) < 10 || (secondLength + firstWidth) > 14){
@@ -130,12 +132,12 @@ public class RangeCorrection extends Command {
     		}
 
     			
-    	    if(!widthIgnore && noHitInches - lowPointInches >= 2){
-    	    	z = 1;
-    	    }
-    	    else{
-    	    	z = -1;
-    	    }
+    	    //if(!widthIgnore && noHitInches - lowPointInches >= 2){
+    	    	//z = 1;
+    	    //}
+    	    //else{
+    	    	//z = -1;
+    	    //}
     	    if((hitAngle + noHitAngle) / 2 > 2){
     	    	x = 1;
     	    	// SHOULD MOVE RIGHT
@@ -157,8 +159,8 @@ public class RangeCorrection extends Command {
         	if(((Math.abs(hitAngle + noHitAngle) / 2) < 2) && (Math.abs(hitInches - noHitInches) < 2)){
 
         		while(!RobotMap.toteStop.get()){
-        		//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,1,0,0);
-        		//}
+        		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,1,0,0);
+        		}
         		//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
         		//while(!ig){
         		//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0, 0, p, 0);
@@ -219,8 +221,8 @@ public class RangeCorrection extends Command {
     	
         	}
     	}
-    	}
-    	}
+    	}*/
+    	
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

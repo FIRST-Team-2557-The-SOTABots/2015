@@ -40,7 +40,7 @@ public class Robot extends IterativeRobot {
     Command lift;
     Command init;
     Command warning;
-    
+    Command rangeCorrection;
 
     public static OI oi;
     public static DriveTrain driveWithJoystick;
@@ -90,6 +90,7 @@ public class Robot extends IterativeRobot {
         lift = new Lift();
         init = new AutoInitialize();
         warning = new LiftWarning();
+        rangeCorrection = new RangeCorrection();
         // OI must be constructed after subsystems. If the OI creates Commands 
         //(which it very likely will), subsystems are not guaranteed to be 
         // constructed yet. Thus, their requires() statements may grab null 
@@ -148,14 +149,15 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        drive.start();
+//        drive.start();
         dashboard.start();
-        radarCommand.start();
-//        intake.start();
-        lift.start();
-        warning.start();
-        SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
-        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5)*.5);
+//        radarCommand.start();
+////        intake.start();
+//        rangeCorrection.start();
+//        lift.start();
+//        warning.start();
+//        SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
+//        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5)*.5);
         
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
     }
