@@ -153,7 +153,7 @@ public class Robot extends IterativeRobot {
         dashboard.start();
 //        radarCommand.start();
 ////        intake.start();
-//        rangeCorrection.start();
+        rangeCorrection.start();
 //        lift.start();
 //        warning.start();
 //        SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());

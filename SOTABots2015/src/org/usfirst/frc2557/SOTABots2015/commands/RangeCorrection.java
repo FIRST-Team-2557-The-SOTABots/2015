@@ -42,6 +42,7 @@ public class RangeCorrection extends Command {
 	public double firstWidth;
 	public double secondWidth;
 	public boolean isIncrementing;
+	public double servo;
     	
     public RangeCorrection(){ //boolean ig, double p){
     	//this.ig = ig;
@@ -55,15 +56,21 @@ public class RangeCorrection extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    		minSweepAngle = -22 / 180;
+    		/*minSweepAngle = -22 / 180;
     		maxSweepAngle = 22 / 180;
     		widthIgnore = false;
     		lengthIgnore = false;
-    		binIgnore = false;
+    		binIgnore = false;*/
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	notDone = true;
+ RobotMap.servoCenter.set(42);
+ 
+ servo = RobotMap.servoCenter.getAngle();
+ 
+ SmartDashboard.putNumber("servo", servo);
+    }
+    	/*notDone = true;
     	while(notDone){
     	
     		lowPoint = 200;
@@ -102,10 +109,13 @@ public class RangeCorrection extends Command {
     		
 
     	}
+    	}
+    	}
+    }
     		
     		
     		// Find length
-    		firstLength = Math.pow(Math.cos((hitAngle-90) / hitInches) - Math.cos((lowPointAngle-90) / lowPointInches), 2);
+    		/*firstLength = Math.pow(Math.cos((hitAngle-90) / hitInches) - Math.cos((lowPointAngle-90) / lowPointInches), 2);
     		secondLength = Math.pow(Math.sin((hitAngle-90) / hitInches) - Math.sin((lowPointAngle-90) / lowPointInches), 2);
     		length = Math.sqrt(firstLength + secondLength);
     		firstWidth = Math.pow(Math.cos((lowPointAngle-90) / lowPointInches) - Math.cos((noHitAngle-90) / noHitInches), 2);
