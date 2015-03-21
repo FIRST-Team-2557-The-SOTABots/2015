@@ -29,7 +29,7 @@ public class AutoLiftUp extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
 //        return count == 2;
-    	return false;
+    	return isTimedOut();
     	//return RobotMap.liftSensor.get() == true;
     	//return Robot.hallEffect.checkLift();
     }

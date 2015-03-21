@@ -94,7 +94,7 @@ public class RobotMap {
     final public static int minLiftLevel = 0;
     final public static int lowLiftLevel = 1;
     final public static double liftSpeed = 1;
-    final public static double intakeSpeed = 1;
+    final public static double intakeSpeed = -.5;
     final public static double autospeed = 1;
     
     //Range Finder Arrays

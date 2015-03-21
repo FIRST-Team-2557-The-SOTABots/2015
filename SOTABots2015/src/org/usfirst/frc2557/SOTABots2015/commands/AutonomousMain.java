@@ -69,46 +69,68 @@ public class AutonomousMain extends CommandGroup {
     	 * 
     	 */
     	
-    	addSequential(new AutoLiftDown());
-    	
-//    	addParallel(new AutoDrive(0, -.3, 0, 280));
+//    	addSequential(new AutoLiftDown());
+
+////////////Full Dance////////////
+//    	addParallel(new AutoDrive(0, -.3, 0, 380));
 //    	addSequential(new AutoBackHook());
 //     	
-//    	addSequential(new AutoDriveUntil(0, .42, 0), 1.3);
+////    	addSequential(new AutoDriveUntil(0, .42, 0), 1.3);
+//    	addSequential(new AutoDrive(0,.4,0,800));
+//    	addSequential(new AutoArmClose());
+//    	addSequential(new AutoIntake());
+//    	addSequential(new AutoLiftDown());
 //    	addSequential(new AutoGrabClose());
+//    	addSequential(new AutoArmOpen());
+//    	//    	addParallel(new AutoDrive(-.5,0,0,1800));
 //    	
-//    	addParallel(new AutoDrive(0, -.3, 0, 300));
-////    	addSequential(new AutoLiftUp(1), 2);
-//    	addSequential(new AutoLiftUp(), 3);
-////    	addSequential(new AutoRotateClock());
+//						//    	addParallel(new AutoDrive(0, -.3, 0, 300));
+//						////    	addSequential(new AutoLiftUp(1), 2);
+//						//    	addSequential(new AutoLiftUp(), 3);
+//						////    	addSequential(new AutoRotateClock());
+//						//    	
 //    	
-//    	addSequential(new AutoDrive(0,0,.5,1750));
-//    	addSequential(new AutoDrive(-1, 0, 0, 1800));
 //    	
+//    	addParallel(new AutoDrive(0,0,.5,2000));
+//    	addSequential(new AutoLiftUp());
+//    	addSequential(new AutoDrive(-1, 0, 0, 1500));    	
 //    	addSequential(new AutoRightHook());
-    	/*addSequential(new AutoDrive(-1,0,0,1800));
-    	 *addSequential(new AutoDrive(0,.5,0,1800));
-    	 *addSequential(new AutoDriveUntil(0,.4,0), 1);
-    	 *ddSequential(new AutoGrabOpen());
-    	 *addSequential(new AutoLiftDown());
-    	 *addSequential(new AutoGrabClose());
-    	 *addSequential(new AutoLiftUp());
-    	 *addSequential(new AutoDrive(1,0,0,3600));
-    	 *addSeequential(new AutoDrive(0,.5,0,5000));
-    	 *addSequential(new AutoDriveUntil(0,.4,0), 1);
-    	 *addSequential(new AutoDrive(1,0,0,1800));
-    	 *addSequential(new AutoLeftHook());
-    	 *addSequential(new AutoDrive(0,0,0,5000));
-    	 *addSequential(new AutoLiftDown());
-    	 *addSequential(new AutoGrabOpen());
-    	 *addSequential(new AutoEjectOut());
-    	 *addSequential(new AutoEjectIn());
-    	 *
-    	 *
-    	 */
-//    	addSequential(new AutoDrive(0, .65, 0, 5000));
+//    	addSequential(new AutoDrive(0,0,.5,1850));
+//    	addSequential(new AutoDrive(0,.5,0,4000));
+//    	addSequential(new AutoArmClose());
+//    	addSequential(new AutoIntake());
+//    	addParallel(new AutoArmOpen());
+//    	 			//addSequential(new AutoDriveUntil(0,.4,0), 1);
+//    	addSequential(new AutoGrabOpen());
+//    	addSequential(new AutoLiftDown());
+//    	addSequential(new AutoGrabClose());
+//    	addParallel(new AutoDrive(1,0,0,3600));
+//    	addSequential(new AutoLiftUp());
+//    	addSequential(new AutoDrive(0,.5,0,5000));
+//    	addSequential(new AutoArmClose());
+//    	addSequential(new AutoIntake());
+//    	addParallel(new AutoArmOpen());
+//    	 			//addSequential(new AutoDriveUntil(0,.4,0), 1);
+//    	addSequential(new AutoGrabOpen());
+//    	addSequential(new AutoLiftDown());
+//    	addSequential(new AutoGrabClose());
+//    	addParallel(new AutoDrive(1,0,0,1800));
+//		addSequential(new AutoLiftUp());
+//    	addSequential(new AutoLeftHook());
+//    	addParallel(new AutoDrive(0,.7,-.03,5000));
+//    	addSequential(new AutoLiftDown());
+//    	addSequential(new AutoGrabOpen());
+//    	addSequential(new AutoEjectOut());
+//    	addSequential(new AutoEjectIn());
+////////////Full Dance///////////// 	
     	
     	
+    	
+    	addParallel(new AutoDrive(0,.4,0,500));
+    	addSequential(new AutoIntake(), 2);
+    	addSequential(new AutoArmClose());
+    	addParallel(new AutoIntake(), 2.5);
+    	addSequential(new AutoDrive(0,-.5,0,5000), 2.5);
     	
     	
     	
