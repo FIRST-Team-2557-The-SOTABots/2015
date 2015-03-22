@@ -12,6 +12,7 @@
 package org.usfirst.frc2557.SOTABots2015;
 
 import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -40,6 +41,7 @@ public class Robot extends IterativeRobot {
     Command lift;
     Command init;
     Command warning;
+    Command autoStack;
     
 
     public static OI oi;
@@ -92,6 +94,7 @@ public class Robot extends IterativeRobot {
         lift = new Lift();
         init = new AutoInitialize();
         warning = new LiftWarning();
+        autoStack=new AutoStack();
         // OI must be constructed after subsystems. If the OI creates Commands 
         //(which it very likely will), subsystems are not guaranteed to be 
         // constructed yet. Thus, their requires() statements may grab null 
@@ -158,7 +161,10 @@ public class Robot extends IterativeRobot {
         warning.start();
         SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
         RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5)*.5);
-        
+
+//        if(RobotMap.toteStop.get() == false){
+//        	autoStack.start();
+//        }
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
     }
 

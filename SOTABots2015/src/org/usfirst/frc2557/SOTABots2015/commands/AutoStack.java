@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class AutonomousParallelOne extends CommandGroup {
+public class AutoStack extends CommandGroup {
     
-    public  AutonomousParallelOne() {
+    public  AutoStack() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -24,9 +24,11 @@ public class AutonomousParallelOne extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-//    	
-//    	addParallel(new AutoDrive(0,.4,0,1000), 2);
-//    	addParallel(new AutoLiftUp(), 2);
-//    	
+    	addParallel(new AutoGrabOpenUntil());
+    	addSequential(new AutoLiftDown());
+    	addSequential(new AutoGrabClose());
+    	addSequential(new AutoLiftUp());
+    	
+    	
     }
 }

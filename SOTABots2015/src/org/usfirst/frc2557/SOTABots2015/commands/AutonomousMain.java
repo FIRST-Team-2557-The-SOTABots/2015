@@ -126,12 +126,11 @@ public class AutonomousMain extends CommandGroup {
     	
     	
     	
-    	addParallel(new AutoDrive(0,.4,0,500));
-    	addSequential(new AutoIntake(), 2);
+    	addParallel(new AutoDrive(0,.4,0,500, 1));
+    	addSequential(new AutoIntake(.25, 1));
     	addSequential(new AutoArmClose());
-    	addParallel(new AutoIntake(), 2.5);
-    	addSequential(new AutoDrive(0,-.5,0,5000), 2.5);
-    	
+    	addParallel(new AutoDrive(0,-.5,0,5000, 2.5));
+    	addSequential(new AutoIntake(-.25, 2.5));
     	
     	
     	

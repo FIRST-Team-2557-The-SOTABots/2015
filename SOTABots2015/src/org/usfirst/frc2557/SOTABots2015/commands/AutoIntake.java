@@ -10,25 +10,30 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoIntake extends Command {
-
-    public AutoIntake() {
+	private double speed;
+	private double time;
+    public AutoIntake(double x, double y) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.manipulator);
+    	speed = x;
+    	time = y;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	setTimeout(time);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.manipulator.intakeIn();
+    	RobotMap.intakeMotors.set(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !RobotMap.toteStop.get();
+        //return !RobotMap.toteStop.get();
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

@@ -3,6 +3,7 @@ package org.usfirst.frc2557.SOTABots2015.commands;
 import org.usfirst.frc2557.SOTABots2015.Robot;
 import org.usfirst.frc2557.SOTABots2015.RobotMap;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -26,6 +27,7 @@ public class Lift extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (Robot.oi.gamepad1.getRawButton(6)){
+    		
 			RobotMap.liftMotor.set(1);
 		}
 		else if (RobotMap.liftStop.get() == true && Robot.oi.gamepad1.getRawButton(5)){
@@ -37,6 +39,11 @@ public class Lift extends Command {
 		else{
     		RobotMap.liftMotor.set(0);
 		}
+//        if(RobotMap.liftStop.get() == true && Robot.oi.gamepad1.getRawButton(5)){
+//        	RobotMap.grab.set(Value.kForward);
+//        	RobotMap.grabbool = false;
+//        }
+
     	SmartDashboard.putBoolean("LEVEL 1 FOR TOTE: ", RobotMap.liftSensor.get());
 //    	if (Robot.oi.XboxController1.getRawButton(6)){
 //			RobotMap.liftMotor.set(1);

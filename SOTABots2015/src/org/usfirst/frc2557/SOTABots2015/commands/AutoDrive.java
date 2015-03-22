@@ -14,13 +14,15 @@ public class AutoDrive extends Command {
 	private double distance;
 	private double strafe;
 	private double rotate;
-    public AutoDrive(double x, double y, double z, double a) {
+	private double time;
+    public AutoDrive(double x, double y, double z, double a, double b) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	power = y;
     	distance = a;
     	strafe = x;
     	rotate = z;
+    	time = b;
     }
 
     // Called just before this Command runs the first time
@@ -29,12 +31,12 @@ public class AutoDrive extends Command {
     	RobotMap.frontRightEnc.reset();
     	RobotMap.rearLeftEnc.reset();
     	RobotMap.rearRightEnc.reset();
-    	
+    	setTimeout(time);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while(RobotMap.rearLeftEnc.get() < distance & RobotMap.frontRightEnc.get() < distance){
+    	while((RobotMap.frontLeftEnc.get() < distance & RobotMap.rearRightEnc.get() < distance) || isTimedOut() == false){
     		Robot.driveWithJoystick.mecanumDrive_Cartesian123(strafe,power,rotate,0);
     		
     	}
