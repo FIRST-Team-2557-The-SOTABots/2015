@@ -23,7 +23,7 @@ public class RangeCorrection extends Command {
 	private double inchesRightBack;
 	private double minSweepAngle;
 	private double maxSweepAngle;
-	private double sweepAngle;
+	
 	private double hitInches;
 	private double hitAngle;
 	public boolean inRange;
@@ -42,7 +42,7 @@ public class RangeCorrection extends Command {
 	public double secondWidth;
 	public boolean isIncrementing;
 	public double servo;
-    	
+	double sweepAngle = 0;
     public RangeCorrection(){ //boolean ig, double p){
     	//this.ig = ig;
     	//this.p = p;
@@ -60,17 +60,26 @@ public class RangeCorrection extends Command {
     		widthIgnore = false;
     		lengthIgnore = false;
     		binIgnore = false;
+    		isIncrementing = true;
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	sweepAngle = RobotMap.servoCenter.getAngle();
-    	
-    	if(RobotMap.servoCenter.getAngle() < maxSweepAngle){
-    		RobotMap.servoCenter.setAngle(sweepAngle += 1);
-    		}
-    	else{
-    		RobotMap.servoCenter.setAngle(sweepAngle -= 1);
+    	sweepAngle= RobotMap.servoLeft.getAngle();
+    	RobotMap.servoLeft.setAngle(sweepAngle);
+    	if (isIncrementing == true) {
+    		sweepAngle += 1;
     	}
+    	else {
+    		sweepAngle -= 1;
+    	}
+    	if (sweepAngle >= 66) {
+    		isIncrementing = false;
+    	}
+    	else if (sweepAngle <= 22) {
+    		isIncrementing = true;
+    	}
+    	
+    	
     	
  
 
