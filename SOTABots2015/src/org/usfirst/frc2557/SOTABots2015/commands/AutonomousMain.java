@@ -126,11 +126,11 @@ public class AutonomousMain extends CommandGroup {
     	
     	
     	
-    	addParallel(new AutoDrive(0,.4,0,500, 1));
-    	addSequential(new AutoIntake(.25, 1));
-    	addSequential(new AutoArmClose());
-    	addParallel(new AutoDrive(0,-.5,0,5000, 2.5));
-    	addSequential(new AutoIntake(-.25, 2.5));
+//    	addParallel(new AutoDrive(0,.4,0,500, 1));
+//    	addSequential(new AutoIntake(.25, 1));
+//    	addSequential(new AutoArmClose());
+//    	addParallel(new AutoDrive(0,-.4,0,5000, 2.5));
+//    	addSequential(new AutoIntake(-.25, 2.5));
     	
     	
     	
@@ -166,6 +166,19 @@ public class AutonomousMain extends CommandGroup {
 //    	addSequential(new AutoLeftHook());
     	  
 ////////////////////////////////////////////////////////////////////////////////////////////////  	
+    	//////TEST/////
+    	addParallel(new AutoDrive(0, 0, .2, 750));
+    	addSequential(new AutoLiftUp(4));
+    	addSequential(new AutoDrive(0,0,-.2,750));
+    	addSequential(new AutoDrive(0,.4,0,5000), 3);
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
 //    	addSequential(new AutoDrive(0, .7, -.18, 6050)); //Competition is 8050 //
 
     	//    	addSequential(new AutoGrabOpen());

@@ -96,6 +96,7 @@ public class RobotMap {
     final public static double liftSpeed = 1;
     final public static double intakeSpeed = -.5;
     final public static double autospeed = 1;
+    public static int stackCount = 1;
     
     //Range Finder Arrays
     public static double[] leftArray;

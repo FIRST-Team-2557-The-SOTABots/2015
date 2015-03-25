@@ -9,16 +9,18 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoLiftUp extends Command {
-    public AutoLiftUp() {
+	private double time;
+    public AutoLiftUp(double x) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.manipulator);
     	requires(Robot.hallEffect);
+    	time = x;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(2.0);
+    	setTimeout(time);
     }
 
     // Called repeatedly when this Command is scheduled to run

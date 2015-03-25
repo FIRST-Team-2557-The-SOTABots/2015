@@ -15,14 +15,14 @@ public class AutoDrive extends Command {
 	private double strafe;
 	private double rotate;
 	private double time;
-    public AutoDrive(double x, double y, double z, double a, double b) {
+    public AutoDrive(double x, double y, double z, double a) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	power = y;
     	distance = a;
     	strafe = x;
     	rotate = z;
-    	time = b;
+    	//time = b;
     }
 
     // Called just before this Command runs the first time

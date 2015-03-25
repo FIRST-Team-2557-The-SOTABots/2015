@@ -27,7 +27,7 @@ public class AutoStack extends CommandGroup {
     	addParallel(new AutoGrabOpenUntil());
     	addSequential(new AutoLiftDown());
     	addSequential(new AutoGrabClose());
-    	addSequential(new AutoLiftUp());
+    	addSequential(new AutoLiftUp(3));
     	
     	
     }
