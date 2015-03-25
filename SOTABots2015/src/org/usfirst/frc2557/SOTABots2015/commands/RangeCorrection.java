@@ -13,8 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class RangeCorrection extends Command {
 	
 	private double lowPoint;
-	private double lowPointInches;
-	private double firstLength;
+	private double lowPointInches; double firstLength;
 	private double secondLength;
 	private double length;
 	private double width;
@@ -56,24 +55,30 @@ public class RangeCorrection extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    		/*minSweepAngle = -22 / 180;
-    		maxSweepAngle = 22 / 180;
+    		minSweepAngle = 22;
+    		maxSweepAngle = 66;
     		widthIgnore = false;
     		lengthIgnore = false;
-    		binIgnore = false;*/
+    		binIgnore = false;
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
- RobotMap.servoCenter.set(42);
- 
- servo = RobotMap.servoCenter.getAngle();
- 
- SmartDashboard.putNumber("servo", servo);
-    }
-    	/*notDone = true;
-    	while(notDone){
+    	sweepAngle = RobotMap.servoCenter.getAngle();
     	
-    		lowPoint = 200;
+    	if(RobotMap.servoCenter.getAngle() < maxSweepAngle){
+    		RobotMap.servoCenter.setAngle(sweepAngle += 1);
+    		}
+    	else{
+    		RobotMap.servoCenter.setAngle(sweepAngle -= 1);
+    	}
+    	
+ 
+
+    	//notDone = true;
+    }
+    	//while(notDone){
+    	
+    		/*lowPoint = 200;
     		noHitAngle = maxSweepAngle;
     		inRange = false;
     		sweepAngle = minSweepAngle;
@@ -93,25 +98,25 @@ public class RangeCorrection extends Command {
     			noHitInches = inchesFront;
     			noHitAngle = sweepAngle;
     			inRange = false;
-    		}
-    		if(sweepAngle == maxSweepAngle){
+    		}*/
+    		/*if(sweepAngle == maxSweepAngle){
     			isIncrementing = false;
     		}
     		else if(sweepAngle == minSweepAngle){
     			isIncrementing = true;
     		}
     		if(isIncrementing == true){
-    			sweepAngle += 1 / 180;
+    			sweepAngle += 1;
     		}
     		else{
-    			sweepAngle -= 1 / 180;
+    			sweepAngle -= 1;
     		}
     		
 
     	}
-    	}
-    	}
-    }
+    	//}
+    	//}
+  //  }
     		
     		
     		// Find length
