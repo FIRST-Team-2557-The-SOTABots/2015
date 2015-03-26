@@ -153,19 +153,19 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        drive.start();
-        dashboard.start();
+//        drive.start();
+//        dashboard.start();
         radarCommand.start();
 //        intake.start();
-        lift.start();
-        warning.start();
-        SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
-        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5)*.5);
-
-        if(RobotMap.toteStop.get() == false && RobotMap.stackCount == 1){
-        	autoStack.start();
-			RobotMap.stackCount = 0;
-        }
+//        lift.start();
+//        warning.start();
+//        SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
+//        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5)*.5);
+//
+//        if(RobotMap.toteStop.get() == false && RobotMap.stackCount == 1){
+//        	autoStack.start();
+//			RobotMap.stackCount = 0;
+//        }
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
     }
 
