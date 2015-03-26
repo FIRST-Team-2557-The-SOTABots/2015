@@ -144,20 +144,20 @@ public class Robot extends IterativeRobot {
         gyroReset.start();
     }
 
-    /**
-     * This function is called periodically during operator control
-     */
+   
+     //* This function is called periodically during operator control
+     
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-//        drive.start();
+       drive.start();
         dashboard.start();
-//        radarCommand.start();
-////        intake.start();
-        rangeCorrection.start();
-//        lift.start();
-//        warning.start();
-//        SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
-//        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5)*.5);
+       radarCommand.start();
+       intake.start();
+       rangeCorrection.start();
+       lift.start();
+       warning.start();
+       SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
+        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5)*.5);
         
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
     }

@@ -55,8 +55,8 @@ public class RangeCorrection extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    		minSweepAngle = 22;
-    		maxSweepAngle = 66;
+    		minSweepAngle = 68;
+    		maxSweepAngle = 112;
     		widthIgnore = false;
     		lengthIgnore = false;
     		binIgnore = false;
@@ -65,71 +65,77 @@ public class RangeCorrection extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
+    	/*sweepAngle= RobotMap.servoCenter.getAngle();
+    	
     	if (isIncrementing == true) {
-    		sweepAngle += 1;
+    		sweepAngle += 2;
     	}
     	else {
-    		sweepAngle -= 1;
+    		sweepAngle -= 2;
     	}
-    	if (sweepAngle >= 66) {
+    	if (sweepAngle >= maxSweepAngle) {
     		isIncrementing = false;
     	}
-    	else if (sweepAngle <= 22) {
+    	else if (sweepAngle <= minSweepAngle) {
     		isIncrementing = true;
     	}
-    	RobotMap.servoLeft.setAngle(sweepAngle);
+    	RobotMap.servoCenter.setAngle(sweepAngle);
+    	SmartDashboard.putNumber("sweepAngle", sweepAngle);*/
     	
     	
     	
  
 
-    	//notDone = true;
-    }
-    	//while(notDone){
+    	notDone = true;
+   
+    	while(notDone){
     	
-    		/*lowPoint = 200;
-    		noHitAngle = maxSweepAngle;
-    		inRange = false;
-    		sweepAngle = minSweepAngle;
-    	while(sweepAngle <= maxSweepAngle){
-    		RobotMap.servoCenter.setAngle(sweepAngle);
-    		inchesFront = RobotMap.rangeCenter.getVoltage()/.00765;
-    		if(inchesFront < 40){
-    			hitInches = inchesFront;
-    			hitAngle = sweepAngle;
-    			inRange = true;
-    			if((Math.cos(hitAngle) / hitInches) < lowPoint){
-    				lowPoint = (Math.cos(hitAngle) / hitInches);
-    				lowPointAngle = sweepAngle;
-    				lowPointInches = hitInches;
-    			}
-    		else if(inRange == true){
-    			noHitInches = inchesFront;
-    			noHitAngle = sweepAngle;
-    			inRange = false;
-    		}*/
-    		/*if(sweepAngle == maxSweepAngle){
+    		//lowPoint = 200;
+    		//noHitAngle = maxSweepAngle;
+    		//inRange = false;
+    		//sweepAngle = minSweepAngle;
+    	//while(sweepAngle <= maxSweepAngle){
+    		//RobotMap.servoCenter.setAngle(sweepAngle);
+    		//inchesFront = RobotMap.rangeCenter.getVoltage()/.00765;
+    		//if(inchesFront < 40){
+    			//hitInches = inchesFront;
+    			//hitAngle = sweepAngle;
+    			//inRange = true;
+    			//if((Math.cos(hitAngle) / hitInches) < lowPoint){
+    				//lowPoint = (Math.cos(hitAngle) / hitInches);
+    				//lowPointAngle = sweepAngle;
+    				//lowPointInches = hitInches;
+    			//}
+    		//else if(inRange == true){
+    			//noHitInches = inchesFront;
+    			//noHitAngle = sweepAngle;
+    			//inRange = false;
+    		//}
+    			sweepAngle= RobotMap.servoCenter.getAngle();	
+    			
+    		if(sweepAngle >= maxSweepAngle){
     			isIncrementing = false;
     		}
-    		else if(sweepAngle == minSweepAngle){
+    		else if(sweepAngle <= minSweepAngle){
     			isIncrementing = true;
     		}
     		if(isIncrementing == true){
-    			sweepAngle += 1;
+    			sweepAngle += 2;
     		}
-    		else{
-    			sweepAngle -= 1;
+    		else if(isIncrementing == false){
+    			sweepAngle -= 2;
     		}
+    		RobotMap.servoCenter.setAngle(sweepAngle);
     		
 
     	}
-    	//}
-    	//}
-  //  }
+    	}
+    	}
+    
     		
     		
     		// Find length
-    		/*firstLength = Math.pow(Math.cos((hitAngle-90) / hitInches) - Math.cos((lowPointAngle-90) / lowPointInches), 2);
+    		firstLength = Math.pow(Math.cos((hitAngle-90) / hitInches) - Math.cos((lowPointAngle-90) / lowPointInches), 2);
     		secondLength = Math.pow(Math.sin((hitAngle-90) / hitInches) - Math.sin((lowPointAngle-90) / lowPointInches), 2);
     		length = Math.sqrt(firstLength + secondLength);
     		firstWidth = Math.pow(Math.cos((lowPointAngle-90) / lowPointInches) - Math.cos((noHitAngle-90) / noHitInches), 2);
@@ -138,14 +144,14 @@ public class RangeCorrection extends Command {
     		
         	SmartDashboard.putBoolean("inRange", inRange);
         	SmartDashboard.putBoolean("isIncrementing", isIncrementing);
-    	}
-    	}
-    }
+    
+    	
+   
 
 
     		
     		
-    		/*if(width < 17 || width > 21){
+    		if(width < 17 || width > 21){
     			widthIgnore = true;
     		}
     		else if((secondLength + firstWidth) < 10 || (secondLength + firstWidth) > 14){
@@ -156,12 +162,12 @@ public class RangeCorrection extends Command {
     		}
 
     			
-    	    //if(!widthIgnore && noHitInches - lowPointInches >= 2){
-    	    	//z = 1;
-    	    //}
-    	    //else{
-    	    	//z = -1;
-    	    //}
+    	    if(!widthIgnore && noHitInches - lowPointInches >= 2){
+    	    	z = 1;
+    	    }
+    	    else{
+    	    	z = -1;
+    	    }
     	    if((hitAngle + noHitAngle) / 2 > 2){
     	    	x = 1;
     	    	// SHOULD MOVE RIGHT
@@ -185,7 +191,7 @@ public class RangeCorrection extends Command {
         		while(!RobotMap.toteStop.get()){
         		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,1,0,0);
         		}
-        		//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
+        		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0,0,0,0);
         		//while(!ig){
         		//RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0, 0, p, 0);
         	//}
@@ -244,8 +250,7 @@ public class RangeCorrection extends Command {
 
     	
         	}
-    	}
-    	}*/
+    
     	
 
     // Make this return true when this Command no longer needs to run execute()
