@@ -64,8 +64,7 @@ public class RangeCorrection extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	sweepAngle= RobotMap.servoLeft.getAngle();
-    	RobotMap.servoLeft.setAngle(sweepAngle);
+    	
     	if (isIncrementing == true) {
     		sweepAngle += 1;
     	}
@@ -78,6 +77,7 @@ public class RangeCorrection extends Command {
     	else if (sweepAngle <= 22) {
     		isIncrementing = true;
     	}
+    	RobotMap.servoLeft.setAngle(sweepAngle);
     	
     	
     	
