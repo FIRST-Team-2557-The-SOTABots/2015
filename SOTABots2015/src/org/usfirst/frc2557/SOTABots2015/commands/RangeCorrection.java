@@ -90,27 +90,34 @@ public class RangeCorrection extends Command {
    
     	while(notDone){
     	
-    		//lowPoint = 200;
-    		//noHitAngle = maxSweepAngle;
-    		//inRange = false;
-    		//sweepAngle = minSweepAngle;
-    	//while(sweepAngle <= maxSweepAngle){
-    		//RobotMap.servoCenter.setAngle(sweepAngle);
-    		//inchesFront = RobotMap.rangeCenter.getVoltage()/.00765;
-    		//if(inchesFront < 40){
-    			//hitInches = inchesFront;
-    			//hitAngle = sweepAngle;
-    			//inRange = true;
-    			//if((Math.cos(hitAngle) / hitInches) < lowPoint){
-    				//lowPoint = (Math.cos(hitAngle) / hitInches);
-    				//lowPointAngle = sweepAngle;
-    				//lowPointInches = hitInches;
-    			//}
+    		/*lowPoint = 200;
+    		noHitAngle = maxSweepAngle;
+    		inRange = false;
+    		sweepAngle = minSweepAngle;
+    	while(sweepAngle <= maxSweepAngle){
+    		RobotMap.servoCenter.setAngle(sweepAngle);
+    		inchesFront = RobotMap.rangeCenter.getVoltage()/.00765;
+    		if(inchesFront < 40){
+    			hitInches = inchesFront;
+    			hitAngle = sweepAngle;
+    			inRange = true;
+    			if((Math.cos(hitAngle) / hitInches) < lowPoint){
+    				lowPoint = (Math.cos(hitAngle) / hitInches);
+    				lowPointAngle = sweepAngle;
+    				lowPointInches = hitInches;*/
+    			}
     		//else if(inRange == true){
     			//noHitInches = inchesFront;
     			//noHitAngle = sweepAngle;
     			//inRange = false;
     		//}
+    	
+    			if(RobotMap.rangeCenter.getVoltage() / .00765 < 40){ 
+    					inRange = false;
+    			}
+    			else if(RobotMap.rangeCenter.getVoltage() / .00765 <= 40){
+    					inRange = true;
+    			}
     			sweepAngle= RobotMap.servoCenter.getAngle();	
     			
     		if(sweepAngle >= maxSweepAngle){
@@ -127,13 +134,17 @@ public class RangeCorrection extends Command {
     		}
     		RobotMap.servoCenter.setAngle(sweepAngle);
     		
+    		
+    
 
-    	}
-    	}
-    	}
+  
     
     		
-    		
+    		if(inRange = true){
+    			hitInches = RobotMap.rangeCenter.getVoltage() / .00765;
+    			hitAngle = RobotMap.servoCenter.getAngle();
+    			
+    		}
     		// Find length
     		firstLength = Math.pow(Math.cos((hitAngle-90) / hitInches) - Math.cos((lowPointAngle-90) / lowPointInches), 2);
     		secondLength = Math.pow(Math.sin((hitAngle-90) / hitInches) - Math.sin((lowPointAngle-90) / lowPointInches), 2);
@@ -145,7 +156,7 @@ public class RangeCorrection extends Command {
         	SmartDashboard.putBoolean("inRange", inRange);
         	SmartDashboard.putBoolean("isIncrementing", isIncrementing);
     
-    	
+    		
    
 
 
@@ -160,6 +171,10 @@ public class RangeCorrection extends Command {
     		if(hitAngle - noHitAngle < 5){
     			widthIgnore = true;
     		}
+    		if(RobotMap.rangeCenter.getVoltage() / 0.00765 > 150){
+    			ignoreDistance
+    		}
+    			
 
     			
     	    if(!widthIgnore && noHitInches - lowPointInches >= 2){
@@ -236,7 +251,8 @@ public class RangeCorrection extends Command {
             	        		}
             	        		RobotMap.intakeMotors.set(0);
             	        		RobotMap.intakeSol.set(DoubleSolenoid.Value.kReverse);
-            	   }
+            			}
+            			}
             					
             				}
             				
@@ -249,7 +265,7 @@ public class RangeCorrection extends Command {
         	}
 
     	
-        	}
+        	
     
     	
 

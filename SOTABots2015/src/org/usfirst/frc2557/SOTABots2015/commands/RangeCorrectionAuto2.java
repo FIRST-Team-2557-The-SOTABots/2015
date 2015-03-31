@@ -40,6 +40,10 @@ public class RangeCorrectionAuto2 extends Command {
 	public double firstWidth;
 	public double secondWidth;
 	public boolean isIncrementing;
+	public double encFrontLeft;
+	public double encBackLeft;
+	public double encBackRight;
+	public double encFrontRight;
 	double[] aDistance = RobotMap.aDistance;
 	public double xDistance;
 	public double yDistance;
@@ -145,6 +149,11 @@ public class RangeCorrectionAuto2 extends Command {
     		if(widthIgnore == false || lengthIgnore == false || binIgnore == false){
     			xDistance = aDistance[0];
     			yDistance = aDistance[1];
+    			encFrontLeft = RobotMap.frontLeftEnc.get();
+    			encBackLeft = RobotMap.rearLeftEnc.get();
+    			encBackRight = RobotMap.rearRightEnc.get();
+    			encFrontRight = RobotMap.frontRightEnc.get();
+    					
     			
     		}
     		}
@@ -203,22 +212,22 @@ public class RangeCorrectionAuto2 extends Command {
     		//owhile(!ig){
     		RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0, 0, p, 0);
     	}
-    		if(ig){
+    		/*if(ig){
     		RobotMap.driveTrainBackLeft.set(1);
     		RobotMap.driveTrainBackRight.set(1);
     		RobotMap.driveTrainFrontLeft.set(1);
     		RobotMap.driveTrainFrontRight.set(1);
-    		}
-    		if(RobotMap.rangeCenter.getVoltage() / .00765 < 10){
+    		}*/
+    		/*if(RobotMap.rangeCenter.getVoltage() / .00765 < 10){
     			RobotMap.intakeSol.set(DoubleSolenoid.Value.kForward);
     			while(!RobotMap.toteStop.get() && RobotMap.intakeSol.get() == DoubleSolenoid.Value.kForward){
         			RobotMap.intakeMotors.set(1);
     			}
               		RobotMap.grab.set(DoubleSolenoid.Value.kForward);
               		
-            		RobotMap.liftMotor.set(1);
+            		RobotMap.liftMotor.set(1);*/
             		}
-    		}
+    	
         			
         				if(RobotMap.rangeCenter.getVoltage() / .00765 < 7){
         			
@@ -238,34 +247,86 @@ public class RangeCorrectionAuto2 extends Command {
             	        		}
             	        		RobotMap.intakeMotors.set(0);
             	        		RobotMap.intakeSol.set(DoubleSolenoid.Value.kReverse);
-            	   }
+            			}
+            			else{
+            				if(RobotMap.rangeCenter.getVoltage() / .00765 < 7){
             			
-                			else{
-                				if(RobotMap.rangeCenter.getVoltage() / .00765 < 7){
-                			
-                				RobotMap.intakeSol.set(DoubleSolenoid.Value.kForward);
-                    			while(!RobotMap.toteStop.get() && RobotMap.intakeSol.get() == DoubleSolenoid.Value.kForward){
-                        			RobotMap.intakeMotors.set(1);
-                    			}
-                    			if(RobotMap.toteStop.get()){
-                    				while(RobotMap.time.get() < 0.5){
-                    					RobotMap.liftMotor.set(-1);
-                    				}
-                    				RobotMap.grab.set(DoubleSolenoid.Value.kReverse);
-                    				while(RobotMap.liftLevel > 0){
-                    					RobotMap.liftMotor.set(-1);
-                    				}
-                    				RobotMap.grab.set(DoubleSolenoid.Value.kForward);
-                    				
-                    				while(RobotMap.liftLevel < 1){
-                    	        		RobotMap.liftMotor.set(1);
-                    	        		}
-                    	        		RobotMap.intakeMotors.set(0);
-                    	        		RobotMap.intakeSol.set(DoubleSolenoid.Value.kReverse);
-                    			}
-                    	   }
-                    					
-                    				}
+            				RobotMap.intakeSol.set(DoubleSolenoid.Value.kForward);
+                			while(!RobotMap.toteStop.get() && RobotMap.intakeSol.get() == DoubleSolenoid.Value.kForward){
+                    			RobotMap.intakeMotors.set(1);
+                			}
+                			if(RobotMap.toteStop.get()){
+                				while(RobotMap.time.get() < 0.5){
+                					RobotMap.liftMotor.set(-1);
+                				}
+                				RobotMap.grab.set(DoubleSolenoid.Value.kReverse);
+                				while(RobotMap.liftLevel > 0){
+                					RobotMap.liftMotor.set(-1);
+                				}
+                				RobotMap.grab.set(DoubleSolenoid.Value.kForward);
+                				
+                				while(RobotMap.liftLevel < 1){
+                	        		RobotMap.liftMotor.set(1);
+                	        		}
+                	        		RobotMap.intakeMotors.set(0);
+                	        		RobotMap.intakeSol.set(DoubleSolenoid.Value.kReverse);
+                			}
+                	   }
+            	        		
+            	        	while(xDistance > Math.abs(xDistance) || xDistance < Math.abs(xDistance)){
+            	        		if(Math.abs(xDistance) > 0){
+            	        			RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(1, 0, 0, 0);
+            	        	}
+            	        		else if(Math.abs(xDistance) < 0){
+            	        			RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(-1, 0, 0, 0);
+            	        		}
+            	        	}
+            	        	while(yDistance > Math.abs(yDistance) || yDistance < Math.abs(yDistance)){
+            	        		
+            	        	
+            	        		if(Math.abs(yDistance) > 0){
+            	        			RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0, -1, 0, 0);
+            	        	}
+            	        		else if(Math.abs(yDistance) < 0){
+            	        			RobotMap.driveTrainRobotDrive41.mecanumDrive_Cartesian(0, 1, 0, 0);
+            	        	}
+            	        	}
+            	            while(Math.abs(encFrontLeft) != RobotMap.frontLeftEnc.get()){
+            	            	if(RobotMap.frontLeftEnc.get() - encFrontLeft > 0){
+            	            		RobotMap.driveTrainFrontLeft.set(1);
+            	            	}
+            	            	else{
+            	            		RobotMap.driveTrainFrontLeft.set(-1);
+            	            
+            	            while(Math.abs(encFrontRight) != RobotMap.frontRightEnc.get()){
+            	            	if(RobotMap.frontRightEnc.get() - encFrontRight > 0){
+            	            		RobotMap.driveTrainFrontRight.set(1);
+            	            		}
+            	            	else{
+            	            		RobotMap.driveTrainFrontRight.set(-1);
+            	            	}
+            	            }
+            	            while(Math.abs(encBackRight) != RobotMap.rearRightEnc.get()){
+            	            	if(RobotMap.rearRightEnc.get() - encFrontLeft > 0){
+            	            		RobotMap.driveTrainRearRight.set(1);
+            	            	}
+            	            	else{
+            	            		RobotMap.driveTrainRearRight.set(-1);
+            	            	}
+            	            	}
+            	            while(Math.abs(encBackLeft) != RobotMap.rearLeftEnc.get()){
+            	            	if(RobotMap.rearRightEnc.get() - encFrontLeft > 0){
+            	            		RobotMap.driveTrainRearLeft.set(1);
+            	            	}
+            	            	else{
+            	            		RobotMap.driveTrainRearLeft.set(-1);
+            	            	}
+            	            }
+            	            	
+            	            }
+            	           
+            	            	
+            	            }
                     				
                     				
                     			}
@@ -278,7 +339,7 @@ public class RangeCorrectionAuto2 extends Command {
     		
     		
     		notDone = false;
- 
+        				}
     }
 
 
