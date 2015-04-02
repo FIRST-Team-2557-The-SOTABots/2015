@@ -26,6 +26,14 @@ public class Lift extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+
+
+//        if(RobotMap.liftStop.get() == true && Robot.oi.gamepad1.getRawButton(5)){
+//        	RobotMap.grab.set(Value.kForward);
+//        	RobotMap.grabbool = false;
+//        }
+
+    	SmartDashboard.putBoolean("LEVEL 1 FOR TOTE: ", RobotMap.liftSensor.get());
     	if (Robot.oi.gamepad1.getRawButton(6)){
     		
 			RobotMap.liftMotor.set(1);
@@ -39,21 +47,6 @@ public class Lift extends Command {
 		else{
     		RobotMap.liftMotor.set(0);
 		}
-//        if(RobotMap.liftStop.get() == true && Robot.oi.gamepad1.getRawButton(5)){
-//        	RobotMap.grab.set(Value.kForward);
-//        	RobotMap.grabbool = false;
-//        }
-
-    	SmartDashboard.putBoolean("LEVEL 1 FOR TOTE: ", RobotMap.liftSensor.get());
-//    	if (Robot.oi.XboxController1.getRawButton(6)){
-//			RobotMap.liftMotor.set(1);
-//		}
-//		else if (Robot.oi.XboxController1.getRawButton(5){
-//    		RobotMap.liftMotor.set(-1);
-//    	}
-//    	else if (Robot.oi.XboxController1.getRawButton(5){
-//    		
-//    	}
 //    	
 //    	
 //    	

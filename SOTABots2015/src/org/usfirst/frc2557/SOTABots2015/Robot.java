@@ -89,7 +89,7 @@ public class Robot extends IterativeRobot {
         radarCommand = new RadarCommand();
         gyroReset = new GyroReset();
         dashboard = new Dashboard();
-        autonomous = new AutonomousMain();
+        autonomous = new AutonomousSecond();
         intake = new Intake();
         lift = new Lift();
         init = new AutoInitialize();
@@ -120,7 +120,6 @@ public class Robot extends IterativeRobot {
         // schedule the autonomous command (example)
     	
         if (autonomous != null) autonomous.start();
-        gyroReset.start();
         
         
     }
@@ -146,6 +145,7 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomous != null) autonomous.cancel();
         gyroReset.start();
+        
     }
 
     /**
@@ -153,18 +153,25 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-//        drive.start();
-//        dashboard.start();
-        radarCommand.start();
-//        intake.start();
-//        lift.start();
-//        warning.start();
-//        SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
-//        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5)*.5);
-//
-//        if(RobotMap.toteStop.get() == false && RobotMap.stackCount == 1){
+        drive.start();
+        dashboard.start();
+//        radarCommand.start();
+        intake.start();
+        lift.start();
+        warning.start();
+        SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
+        RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5));
+//        if(RobotMap.liftSensor.get() == true && RobotMap.liftMotor.get() > 0){
+//        	RobotMap.stackCount = RobotMap.stackCount + 1;
+//        }
+//        else if(RobotMap.liftSensor.get() == true && RobotMap.liftMotor.get() < 0 && RobotMap.stackCount > 0){
+//        	RobotMap.stackCount -= 1;
+//        }
+//        if(RobotMap.liftStop.get() == true){
+//        	RobotMap.stackCount = 0;
+//        }
+//        if(RobotMap.toteStop.get() == false && RobotMap.stackCount != RobotMap.level2){
 //        	autoStack.start();
-//			RobotMap.stackCount = 0;
 //        }
         // Need to create a sub here that will perform the calculations for each reading Based on the variables.
     }

@@ -33,7 +33,7 @@ public class AutoIntake extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         //return !RobotMap.toteStop.get();
-        return isTimedOut();
+        return isTimedOut() || RobotMap.toteStop.get();
     }
 
     // Called once after isFinished returns true

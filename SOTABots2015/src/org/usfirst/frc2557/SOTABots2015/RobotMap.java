@@ -90,12 +90,17 @@ public class RobotMap {
     public static boolean ejectbool;
     
     //Controlled Variables
-    final public static int maxLiftLevel = 6;
+    final public static int maxLiftLevel = 4;
     final public static int minLiftLevel = 0;
     final public static int lowLiftLevel = 1;
     final public static double liftSpeed = 1;
     final public static double intakeSpeed = -.5;
     final public static double autospeed = 1;
+    final public static int level1 = 1;
+    final public static int level2 = 2;
+    final public static int level3 = 3;
+    final public static int level4 = 4;
+    final public static int level0 = 0;
     public static int stackCount = 1;
     
     //Range Finder Arrays

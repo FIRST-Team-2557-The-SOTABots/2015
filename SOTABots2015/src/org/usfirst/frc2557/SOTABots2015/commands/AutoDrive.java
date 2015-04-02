@@ -19,7 +19,7 @@ public class AutoDrive extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	power = y;
-    	distance = a;
+    	time = a;
     	strafe = x;
     	rotate = z;
     	//time = b;
@@ -36,15 +36,15 @@ public class AutoDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while((RobotMap.frontLeftEnc.get() < distance & RobotMap.rearRightEnc.get() < distance) || isTimedOut() == false){
+    	//while((RobotMap.frontLeftEnc.get() < distance & RobotMap.rearRightEnc.get() < distance) || isTimedOut() == false){
     		Robot.driveWithJoystick.mecanumDrive_Cartesian123(strafe,power,rotate,0);
     		
-    	}
+    	//}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

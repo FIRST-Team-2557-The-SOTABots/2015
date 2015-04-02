@@ -73,39 +73,35 @@ public class AutonomousMain extends CommandGroup {
 
 ////////////Full Dance////////////
 //    	addParallel(new AutoDrive(0, -.3, 0, 380));
-//    	addSequential(new AutoBackHook());
-//     	
-////    	addSequential(new AutoDriveUntil(0, .42, 0), 1.3);
-//    	addSequential(new AutoDrive(0,.4,0,800));
+//    	addSequential(new AutoBackHook()); //Start Here;
+////     	
+//    	addSequential(new AutoDrive(0,.5,-.034,400));
 //    	addSequential(new AutoArmClose());
-//    	addSequential(new AutoIntake());
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new AutoGrabClose());
+//    	addSequential(new AutoIntake(-.4, 1));
 //    	addSequential(new AutoArmOpen());
-//    	//    	addParallel(new AutoDrive(-.5,0,0,1800));
+//    	addParallel(new AutoLiftDown());
+//    	addSequential(new AutoArmOpen());
+//    	addSequential(new AutoGrabClose());
 //    	
-//						//    	addParallel(new AutoDrive(0, -.3, 0, 300));
-//						////    	addSequential(new AutoLiftUp(1), 2);
-//						//    	addSequential(new AutoLiftUp(), 3);
-//						////    	addSequential(new AutoRotateClock());
-//						//    	
+//    	addParallel(new AutoDrive(0,0,.5,1650));
+//    	addSequential(new AutoLiftUp(1.5));
 //    	
-//    	
-//    	addParallel(new AutoDrive(0,0,.5,2000));
-//    	addSequential(new AutoLiftUp());
-//    	addSequential(new AutoDrive(-1, 0, 0, 1500));    	
+//    	addParallel(new AutoDrive(-1, 0, 0, 1100)); 
+//    	addSequential(new AutoLiftUp(1.5));
 //    	addSequential(new AutoRightHook());
-//    	addSequential(new AutoDrive(0,0,.5,1850));
-//    	addSequential(new AutoDrive(0,.5,0,4000));
+//    	addSequential(new AutoDrive(0,0,.5,1350));
+//    	addSequential(new AutoDrive(0,.5,-.03,2400));
 //    	addSequential(new AutoArmClose());
-//    	addSequential(new AutoIntake());
+//    	addSequential(new AutoIntake(-.4, 1));
 //    	addParallel(new AutoArmOpen());
-//    	 			//addSequential(new AutoDriveUntil(0,.4,0), 1);
 //    	addSequential(new AutoGrabOpen());
 //    	addSequential(new AutoLiftDown());
+//    	addSequential(new AutoLiftUp(.3));
+//    	addSequential(new AutoLiftDown());
 //    	addSequential(new AutoGrabClose());
-//    	addParallel(new AutoDrive(1,0,0,3600));
-//    	addSequential(new AutoLiftUp());
+//    	addParallel(new AutoDrive(0,0,.5,3600));
+//    	addSequential(new AutoLiftUp(3)); //Until Here is gucci
+    	
 //    	addSequential(new AutoDrive(0,.5,0,5000));
 //    	addSequential(new AutoArmClose());
 //    	addSequential(new AutoIntake());
@@ -125,7 +121,7 @@ public class AutonomousMain extends CommandGroup {
 ////////////Full Dance///////////// 	
     	
     	
-    	
+//    	Sideways Tote Method
 //    	addParallel(new AutoDrive(0,.4,0,500, 1));
 //    	addSequential(new AutoIntake(.25, 1));
 //    	addSequential(new AutoArmClose());
@@ -166,11 +162,9 @@ public class AutonomousMain extends CommandGroup {
 //    	addSequential(new AutoLeftHook());
     	  
 ////////////////////////////////////////////////////////////////////////////////////////////////  	
-    	//////TEST/////
-    	addParallel(new AutoDrive(0, 0, .2, 750));
-    	addSequential(new AutoLiftUp(4));
-    	addSequential(new AutoDrive(0,0,-.2,750));
-    	addSequential(new AutoDrive(0,.4,0,5000), 3);
+//    	addSequential(new AutoLiftUp(3));
+//    	addSequential(new AutoDrive(0, 0, -.5, 1800));
+//    	addSequential(new AutoDrive(0,-.5,0,5000), 3);
     	
     	
     	

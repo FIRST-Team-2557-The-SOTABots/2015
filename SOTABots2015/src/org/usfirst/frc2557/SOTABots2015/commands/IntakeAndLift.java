@@ -27,7 +27,7 @@ public class IntakeAndLift extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	addSequential(new IntakeIn());
-    	addSequential(new AutoLiftDown());
+    	addSequential(new AutoLiftDown(3));
     	addSequential(new Grab());
     }
     protected boolean isFinished(){

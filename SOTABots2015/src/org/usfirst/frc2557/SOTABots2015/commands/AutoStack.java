@@ -24,8 +24,8 @@ public class AutoStack extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addParallel(new AutoGrabOpenUntil());
-    	addSequential(new AutoLiftDown());
+    	addSequential(new AutoGrabOpenUntil());
+    	addSequential(new AutoLiftDown(3));
     	addSequential(new AutoGrabClose());
     	addSequential(new AutoLiftUp(3));
     	
