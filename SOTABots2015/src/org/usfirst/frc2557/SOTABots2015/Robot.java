@@ -89,7 +89,7 @@ public class Robot extends IterativeRobot {
         radarCommand = new RadarCommand();
         gyroReset = new GyroReset();
         dashboard = new Dashboard();
-        autonomous = new AutonomousSecond();
+        autonomous = new AutonomousMain();
         intake = new Intake();
         lift = new Lift();
         init = new AutoInitialize();

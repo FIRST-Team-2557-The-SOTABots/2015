@@ -162,11 +162,12 @@ public class AutonomousMain extends CommandGroup {
 //    	addSequential(new AutoLeftHook());
     	  
 ////////////////////////////////////////////////////////////////////////////////////////////////  	
-//    	addSequential(new AutoLiftUp(3));
-//    	addSequential(new AutoDrive(0, 0, -.5, 1800));
-//    	addSequential(new AutoDrive(0,-.5,0,5000), 3);
-    	
-    	
+    	addSequential(new AutoLiftUp(2.25));
+//    	addSequential(new AutoDrive(0,-.5,0,1.5));
+//    	addSequential(new AutoDrive(0,-.3,0,2));
+//		
+//    	addSequential(new AutoBackHook());    	
+//		addSequential(new AutoDrive(0,.5,0,.75));
     	
     	
     	

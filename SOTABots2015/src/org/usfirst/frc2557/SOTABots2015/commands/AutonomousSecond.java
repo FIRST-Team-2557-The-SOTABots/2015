@@ -72,57 +72,56 @@ public class AutonomousSecond extends CommandGroup {
 //    	addSequential(new AutoDrive(0,-.5,.03,1));
     	
 ///////Straight Ahead//////
+    	addSequential(new AutoGrabClose()); //1
+    	addSequential(new AutoLiftUp(1));
+    	
+    	addParallel(new AutoDrive(0,-.2,0,.5));
+    	addSequential(new AutoLiftUp(.5)); //1.5
+    	
+    	addSequential(new AutoArmClose());
+    	
+    	addParallel(new AutoDrive(0,.25,-.03,1.5));//2.5
+    	addSequential(new AutoIntake(1,1.5));
+    	
+    	addSequential(new AutoArmOpen());
+    	
+    	addParallel(new AutoDrive(0,.3,-.03,2.5));//5
+    	addSequential(new AutoLiftUp(1.5));
+    	
+    	addSequential(new AutoArmClose());
+    	
+    	addParallel(new AutoIntake(-.75, .5));//5.5
+    	addSequential(new AutoLiftDown(.5));
+    	
+    	addSequential(new AutoGrabOpen());
+    	addSequential(new AutoLiftDown(3));
     	addSequential(new AutoGrabClose());
-    	addSequential(new AutoLiftUp(.2));
+    	addSequential(new AutoLiftUp(1));
     	
-    	addParallel(new AutoDrive(0,-.3,0,.5));
+    	addParallel(new AutoDrive(0,-.3,-.03,.5));//6
     	addSequential(new AutoLiftUp(.5));
     	
     	addSequential(new AutoArmClose());
     	
-    	addParallel(new AutoDrive(0,.4,0,.75));
-    	addSequential(new AutoIntake(.75,.75));
+    	addParallel(new AutoDrive(0,.5,-.03,1.5));//7
+    	addSequential(new AutoIntake(1,1.5));
     	
     	addSequential(new AutoArmOpen());
     	
-    	addParallel(new AutoDrive(0,.25,0,2.5));
-    	addSequential(new AutoLiftUp(2.3));
+    	addParallel(new AutoDrive(0,.3,-.03,2.5));//9.5
+    	addSequential(new AutoLiftUp(1.5));
     	
     	addSequential(new AutoArmClose());
     	
-    	addParallel(new AutoIntake(.75, 1));
-    	addSequential(new AutoLiftDown(1));
+    	addSequential(new AutoIntake(-.75, 1));//10.5
     	
-    	addSequential(new AutoGrabOpen());
-    	addSequential(new AutoLiftDown(2));
-    	addSequential(new AutoGrabOpen());
-    	addSequential(new AutoLiftUp(.2));
-    	
-    	addParallel(new AutoDrive(0,-.3,0,.5));
-    	addSequential(new AutoLiftUp(.5));
-    	
-    	addSequential(new AutoArmClose());
-    	
-    	addParallel(new AutoDrive(0,.3,0,.75));
-    	addSequential(new AutoIntake(.75,.75));
-    	
-    	addSequential(new AutoArmOpen());
-    	
-    	addParallel(new AutoDrive(0,.25,0,2.5));
-    	addSequential(new AutoLiftUp(2.3));
-    	
-    	addSequential(new AutoArmClose());
-    	
-    	addSequential(new AutoIntake(.75, 1));
-    	
-    	addParallel(new AutoDrive(1,0,0,1000));
+    	addParallel(new AutoDrive(-1,0,0,3));//13.5
     	addSequential(new AutoLiftDown(1));
     	
     	addSequential(new AutoGrabOpen());
     	addSequential(new AutoArmOpen());
-    	addSequential(new AutoDrive(0,-.5,0,500));
-    	
-    	
+    	addSequential(new AutoDrive(0,-.5,0,1));//14.5
+
     	
     	
     	
