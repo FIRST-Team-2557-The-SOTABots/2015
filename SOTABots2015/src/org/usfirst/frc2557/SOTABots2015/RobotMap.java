@@ -65,7 +65,7 @@ public class RobotMap {
     public static DigitalInput leftRampSensor;			//Port6
     public static DigitalInput rightRampSensor;			//Port7
     public static DigitalInput liftStop;				//Port8
-    
+    public static DigitalInput autoSwitch;				//Port9
     //Manipulated Variables
     public static boolean sweepDir;
     public static boolean grabberState;
@@ -190,7 +190,7 @@ public class RobotMap {
 	    liftStop = new DigitalInput(8);
 	    leftRampSensor = new DigitalInput(6);
 	    rightRampSensor = new DigitalInput(7);
-	    
+	    autoSwitch = new DigitalInput(9);
 	  
 	  	//References for what to set on the encoders. do not touch.
 	    //final double MAX_PERIOD = 0.1;

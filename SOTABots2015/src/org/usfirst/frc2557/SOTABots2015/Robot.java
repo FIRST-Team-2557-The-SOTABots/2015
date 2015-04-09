@@ -32,7 +32,9 @@ import org.usfirst.frc2557.SOTABots2015.subsystems.*;
 public class Robot extends IterativeRobot {
 
     
-	Command autonomous;
+	Command autonomousFirst;
+	Command autonomousSecond;
+	Command autonomousThird;
     Command drive;
     Command dashboard;
     Command gyroReset;
@@ -89,7 +91,9 @@ public class Robot extends IterativeRobot {
         radarCommand = new RadarCommand();
         gyroReset = new GyroReset();
         dashboard = new Dashboard();
-        autonomous = new AutonomousMain();
+        autonomousFirst = new AutonomousMain();
+        autonomousSecond = new AutonomousSecond();
+        autonomousThird = new AutonomousThird();
         intake = new Intake();
         lift = new Lift();
         init = new AutoInitialize();
@@ -119,8 +123,13 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
     	
-        if (autonomous != null) autonomous.start();
-        
+        //if (autonomous != null) autonomous.start();
+        if (autonomousFirst != null && RobotMap.autoSwitch.get()){
+        	autonomousFirst.start();
+        }
+        else if(autonomousSecond != null && RobotMap.autoSwitch.get() == false){
+        	autonomousSecond.start();
+        }
         
     }
 
@@ -143,8 +152,14 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomous != null) autonomous.cancel();
-        gyroReset.start();
+//        if (autonomous != null) autonomous.cancel();
+    	if (autonomousFirst != null && RobotMap.autoSwitch.get()){
+        	autonomousFirst.cancel();
+        }
+        else if(autonomousSecond != null && RobotMap.autoSwitch.get() == false){
+        	autonomousSecond.cancel();
+        }
+    	gyroReset.start();
         
     }
 
@@ -161,6 +176,7 @@ public class Robot extends IterativeRobot {
         warning.start();
         SmartDashboard.putBoolean("The Lift sensor is reading",RobotMap.liftStop.get());
         RobotMap.intakeMotors.set(-oi.gamepad1.getRawAxis(5));
+        SmartDashboard.putBoolean("AutoSwitch ", RobotMap.autoSwitch.get());
 //        if(RobotMap.liftSensor.get() == true && RobotMap.liftMotor.get() > 0){
 //        	RobotMap.stackCount = RobotMap.stackCount + 1;
 //        }
