@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class RangeCorrectionAuto2 extends Command {
+public class RangeCorrectionAuto3 extends Command {
 	private double lowPoint;
 	private double lowPointInches;
 	private double firstLength;
@@ -48,7 +48,7 @@ public class RangeCorrectionAuto2 extends Command {
 	public double xDistance;
 	public double yDistance;
 
-    public RangeCorrectionAuto2(boolean ig, double p) {
+    public RangeCorrectionAuto3(boolean ig, double p) {
        	this.ig = ig;
     	this.p = p;
     	
