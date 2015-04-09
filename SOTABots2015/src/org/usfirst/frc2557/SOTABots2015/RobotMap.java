@@ -103,6 +103,7 @@ public class RobotMap {
     public static double[] centerArray;
     public static double[] rightArray;
     public static double[] aDistance;
+    public static double[] rfDetails;
     
     //Other
     public static PowerDistributionPanel PDP;
