@@ -69,116 +69,16 @@ public class AutonomousMain extends CommandGroup {
     	 * 
     	 */
     	
-//    	addSequential(new AutoLiftDown());
-
-////////////Full Dance////////////
-//    	addParallel(new AutoDrive(0, -.3, 0, 380));
-//    	addSequential(new AutoBackHook()); //Start Here;
-////     	
-//    	addSequential(new AutoDrive(0,.5,-.034,400));
-//    	addSequential(new AutoArmClose());
-//    	addSequential(new AutoIntake(-.4, 1));
-//    	addSequential(new AutoArmOpen());
-//    	addParallel(new AutoLiftDown());
-//    	addSequential(new AutoArmOpen());
-//    	addSequential(new AutoGrabClose());
-//    	
-//    	addParallel(new AutoDrive(0,0,.5,1650));
-//    	addSequential(new AutoLiftUp(1.5));
-//    	
-//    	addParallel(new AutoDrive(-1, 0, 0, 1100)); 
-//    	addSequential(new AutoLiftUp(1.5));
-//    	addSequential(new AutoRightHook());
-//    	addSequential(new AutoDrive(0,0,.5,1350));
-//    	addSequential(new AutoDrive(0,.5,-.03,2400));
-//    	addSequential(new AutoArmClose());
-//    	addSequential(new AutoIntake(-.4, 1));
-//    	addParallel(new AutoArmOpen());
-//    	addSequential(new AutoGrabOpen());
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new AutoLiftUp(.3));
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new AutoGrabClose());
-//    	addParallel(new AutoDrive(0,0,.5,3600));
-//    	addSequential(new AutoLiftUp(3)); //Until Here is gucci
-    	
-//    	addSequential(new AutoDrive(0,.5,0,5000));
-//    	addSequential(new AutoArmClose());
-//    	addSequential(new AutoIntake());
-//    	addParallel(new AutoArmOpen());
-//    	 			//addSequential(new AutoDriveUntil(0,.4,0), 1);
-//    	addSequential(new AutoGrabOpen());
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new AutoGrabClose());
-//    	addParallel(new AutoDrive(1,0,0,1800));
-//		addSequential(new AutoLiftUp());
-//    	addSequential(new AutoLeftHook());
-//    	addParallel(new AutoDrive(0,.7,-.03,5000));
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new AutoGrabOpen());
-//    	addSequential(new AutoEjectOut());
-//    	addSequential(new AutoEjectIn());
-////////////Full Dance///////////// 	
-    	
-    	
-//    	Sideways Tote Method
-//    	addParallel(new AutoDrive(0,.4,0,500, 1));
-//    	addSequential(new AutoIntake(.25, 1));
-//    	addSequential(new AutoArmClose());
-//    	addParallel(new AutoDrive(0,-.4,0,5000, 2.5));
-//    	addSequential(new AutoIntake(-.25, 2.5));
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-//    	addSequential(new AutoDrive(0, 0, .5, 1650));
-//    	//addSequential(new AutoDrive(0, -.5, 0, 300));
-//    	addSequential(new AutoDrive(-1, 0, 0, 3500));
-//    	addSequential(new AutoRightHook());
-//    	addSequential(new AutoDrive(0, 0, .5, 1850));
-//    	addSequential(new AutoDrive(0,.5,0,800)); //Drive Forwards
-//    	addSequential(new IntakeArm());
-//    	addSequential(new AutoIntake());
-//    	addSequential(new IntakeArm());
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new Grab());
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new Grab());
-    	//    	addSequential(new AutoLiftUp()); //Check
-//    	addSequential(new AutoDrive(0, -.2, 0, 800)); //Backwards
-//    	addSequential(new AutoDrive(0, 0, -.2, 1500)); //Rotate left
-//    	addSequential(new AutoDrive(0, 0, -.2, 1500)); //Rotate left
-//    	addSequential(new IntakeArm());
-//    	addSequential(new AutoIntake());
-//    	addSequential(new IntakeArm());
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new Grab());
-//    	addSequential(new AutoLiftDown());
-//    	addSequential(new Grab());
-//    	addSequential(new AutoDrive());
-//    	addSequential(new AutoLeftHook());
-    	  
 ////////////////////////////////////////////////////////////////////////////////////////////////  	
-    	addSequential(new AutoLiftUp(2.25));
+//    	addSequential(new AutoLiftUp(2.25));
 //    	addSequential(new AutoDrive(0,-.5,0,1.5));
 //    	addSequential(new AutoDrive(0,-.3,0,2));
-//		
-//    	addSequential(new AutoBackHook());    	
-//		addSequential(new AutoDrive(0,.5,0,.75));
+    	
+    	addSequential(new AutoRightHook());
+    	addSequential(new AutoDrive(0,-.2,0,.2));
+    	addSequential(new AutoDrive(0,.5,-.03,2.15));
+//    	addSequential(new AutoDrive(0,-.3,.03,.5));
     	
     	
-    	
-    	
-    	
-    	
-//    	addSequential(new AutoDrive(0, .7, -.18, 6050)); //Competition is 8050 //
-
-    	//    	addSequential(new AutoGrabOpen());
-//    	addSequential(new AutoEjectOut());
-//    	addParallel(new AutoDrive(0, -.6, 0, 200));
-//    	addSequential(new AutoEjectIn());//Drive backwards
     }
 }

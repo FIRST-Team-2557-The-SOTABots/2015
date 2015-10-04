@@ -108,25 +108,25 @@ public class OI {
         //Button Commands
         //Drive Controller
         //Xbox1LB.whenPressed(new AutoIntake()); //Testing
-//        gp1A.whenPressed(new IntakeArm());
-//        gp1Y.whenPressed(new Eject());
+        gp1A.whenPressed(new IntakeArm());
+        gp1Y.whenPressed(new Eject());
 //        
 //        //Operator Controller
-//        gp2A.whenPressed(new Grab());
+        gp2A.whenPressed(new Grab());
 //        gp2Y.whenPressed(new BackHook());
 //        gp2B.whenPressed(new RightHook());
 //        gp2X.whenPressed(new LeftHook());
-//        gp2BACK.whenPressed(new AutoInitialize());
+        gp2BACK.whenPressed(new AutoInitialize());
         //Left Joystick controls lift
         //Right Joystick controls intake motors
         
         //All Control
-        gp1A.whenPressed(new IntakeArm());
-        gp1Y.whenPressed(new BackHook());
-        gp1B.whenPressed(new RightHook());
-        gp1X.whenPressed(new LeftHook());
-        gp1BACK.whenPressed(new Eject());
-        gp1START.whenPressed(new Grab());
+//        gp1A.whenPressed(new IntakeArm());
+//        gp1Y.whenPressed(new BackHook());
+//        gp1B.whenPressed(new RightHook());
+//        gp1X.whenPressed(new LeftHook());
+//        gp1BACK.whenPressed(new Eject());
+//        gp1START.whenPressed(new Grab());
         /*Xbox1A.whenPressed(new IntakeArm());
          *Xbox1Y.whenPressed(new Eject());
          *Xbox1B.whenPressed(new Grab()); 

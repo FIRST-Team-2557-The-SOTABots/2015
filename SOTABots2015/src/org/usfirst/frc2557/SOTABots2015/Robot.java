@@ -123,11 +123,11 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
     	
-        //if (autonomous != null) autonomous.start();
-        if (autonomousFirst != null && RobotMap.autoSwitch.get()){
+//        if (autonomousFirst != null) autonomousFirst.start();
+        if (RobotMap.autoSwitch.get() == true){
         	autonomousFirst.start();
         }
-        else if(autonomousSecond != null && RobotMap.autoSwitch.get() == false){
+        else if(RobotMap.autoSwitch.get() == false){
         	autonomousSecond.start();
         }
         
